@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>折扇</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 600px;
+            height: 230px;
+            margin:50px auto;
+            position: relative;
+            border-bottom: 2px solid purple;
+        }
+
+        .box div {
+            width: 60px;
+            height: 200px;
+            transition: 2s all;
+            transform-origin: center bottom;
+            position: absolute;
+            left:40%;
+            bottom:30px;
+            box-shadow: 3px 3px 5px #333;
+        }
+        .box div:nth-child(1) {
+            background-color: red;
+            /*z-index:999;*/
+        }
+
+        .box:hover div:nth-child(2){
+            background-color: orange;
+            transform: rotate(15deg);
+        }
+        .box:hover div:nth-child(3){
+            background-color: yellow;
+            transform: rotate(30deg);
+        }
+        .box:hover div:nth-child(4){
+            background-color: green;
+            transform: rotate(45deg);
+        }
+        .box:hover div:nth-child(5){
+            background-color: blue;
+            transform: rotate(60deg);
+        }
+        .box:hover div:nth-child(6){
+            background-color: pink;
+            transform: rotate(75deg);
+        }
+        .box:hover div:nth-child(7){
+            background-color: purple;
+            transform: rotate(90deg);
+        }
+
+        .box:hover div:nth-last-child(1) {
+            background-color: orange;
+            transform: rotate(-15deg);
+        }
+        .box:hover div:nth-last-child(2) {
+            background-color: yellow;
+            transform: rotate(-30deg);
+        }
+        .box:hover div:nth-last-child(3) {
+            background-color: lightseagreen;
+            transform: rotate(-45deg);
+        }
+        .box:hover div:nth-last-child(4) {
+            background-color: lightcoral;
+            transform: rotate(-60deg);
+        }
+        .box:hover div:nth-last-child(5) {
+            background-color: lightblue;
+            transform: rotate(-75deg);
+        }
+        .box:hover div:nth-last-child(6) {
+            background-color: gold;
+            transform: rotate(-90deg);
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>7</div>
+    <div>6</div>
+    <div>5</div>
+    <div>4</div>
+    <div>3</div>
+    <div>2</div>
+    <!--<div></div>-->
+</div>
+
+
+</body>
+</html>
