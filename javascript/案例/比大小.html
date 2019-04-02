@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>比大小</title>
+</head>
+<body>
+	<h2>请输入两个数</h2>
+	<input id="m1" type="text" />和
+	<input id="m2" type="text" />
+	<input type="button" value="谁大" onclick="testf()" />
+	<input id="result" type="text" />大
+</body>
+</html>
+<script>
+function testf() {
+	//1、输入(获取用户的输入)
+	var m1 = Number(document.getElementById("m1").value);
+	var m2 = Number(document.getElementById("m2").value);
+	//2、逻辑
+	var max;
+	max = m1>m2 ? m1:m2;
+
+	//3、输出
+	document.getElementById("result").value = max;
+}	
+
+
+</script>
