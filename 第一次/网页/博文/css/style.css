@@ -1,0 +1,93 @@
+html,body {
+    margin:0;
+}
+
+
+/*top*/
+.top {
+    height: 82px;
+    /*background-color: palevioletred;*/
+    padding: 0;
+}
+.top .logo {
+    width: 162px;
+    height: 62px;
+    /*background-color: orange;*/
+    margin:0;
+    padding-top:20px;
+}
+.top .nav {
+    height: 82px;
+    width: 664px;
+    /*background-color: aquamarine;*/
+    /*padding-top:36px;*/
+}
+.top .nav ul li  a{
+    display: block;
+    height: 82px;
+    padding:0 26px;
+    line-height: 82px;
+    font-size:14px;
+    color: #646464;
+    float: left;
+}
+/*banner*/
+.banner {
+    height: 469px;
+    background:#ccc url("../images/banner_02.jpg") no-repeat center top;
+    background-size: 100% 100%;
+}
+
+.banner a {
+    display: block;
+    height: 469px;
+}
+
+/*service*/
+.service {
+    min-height: 344px;
+    height:344px;
+    padding-top: 62px;
+    /*background-color: darkred;*/
+}
+
+.service h2 {
+    font-size: 20px;
+    color: #363636;
+    background: url("../images/h2bg_03.png") no-repeat center;
+    text-align: center;
+    line-height: 20px;
+
+}
+
+.service h3 {
+    font-size: 14px;
+    color: #9f9f9f;
+    text-align: center;
+    line-height: 14px;
+}
+
+.service-box .service-show {
+    width: 200px;
+    /*background-color: coral;*/
+    text-align: center;
+    margin:0 35px;/*在ie6当中容易出现双倍margin边距*/
+    display: inline;
+
+}
+.service-box .service-show img {
+    margin: 0 auto;
+}
+
+.service-box .service-show h4 {
+    font-size: 18px;
+    color:#434343;
+    font-weight: 900;
+    line-height: 18px;
+    margin:34px 0 18px;
+}
+.service-box .service-show p {
+    font-size: 14px;
+    color:#6d6d6d;
+    line-height: 22px;
+}

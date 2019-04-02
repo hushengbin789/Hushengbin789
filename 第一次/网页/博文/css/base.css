@@ -1,0 +1,50 @@
+html{
+    /*这样，1rem=100px，方便后续计算，不设置为10px是因为chrome下最小字体大小为12px*/
+    font-size:100px;
+    font-family: "Arial" ,"Songti TC";
+
+}
+body{
+    /*设置为12px*/
+    font-size: 0.12rem;
+    line-height: 1.5;
+    /*不使用纯黑色#000，降低页面对比度*/
+    color:#222;
+}
+a{
+    color:#666;
+    text-decoration:none;
+
+}
+a:hover,a:active{
+    color:#0ae;
+    text-decoration: underline;
+}
+::selection{
+    background-color: #b3d4fc;
+    text-shadow:none;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style:none;
+}
+.fl{float: left;}
+.fr{float: right;}
+.clear:after{content:""; display: block; clear: both;}
+.clear{*zoom:1;}
+
+.container {
+    width: 1082px;
+    margin:0 auto;
+}
+img {
+    display: block;
+    border: 0; /*主要是为了解决ie6中出现蓝颜色边框的问题*/
+}
+/*低版本浏览器提示*/
+.browserupgrade{
+    margin:0;
+    padding:1rem;
+    background-color: #ccc;
+}
