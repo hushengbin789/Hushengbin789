@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>成绩</title>
+	<style text/javascript>
+			
+	</style>
+</head>
+<body>
+	<h2>成绩</h2>
+	请输入成绩等级：
+	<input id="dd" type="text" />A-D
+	<input type="button" value="计算成绩范围" onclick="testf()" />成绩范围是：
+	<input id="result" type="text" />
+</body>
+</html>
+<script>
+function testf(){
+	var dd=document.getElementById("dd").value;
+
+	var result="";
+	switch(dd){
+		case"a":
+		case"A":result="亲,你的成绩是：85--100之间";break;
+		case"b":
+		case"B":result="亲,你的成绩是：70--84之间";break;
+		case"c":
+		case"C":result="亲,你的成绩是：60--69之间";break;
+		case"d":
+		case"D":result="亲,挂科了";break;
+		default:result="亲，你输错了";break;
+	}
+	// 输出
+	document.getElementById("result").value=result;
+}
+</script>
