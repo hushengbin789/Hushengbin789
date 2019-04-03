@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>加减</title>
+</head>
+<body>
+	<input type="text" id="num1" />
+	<select id="oper">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">*</option>
+		<option value="/">/</option>
+	</select>
+	<input type="text" id="num2" />
+	<input type="button" value="=" onclick="testf()" />
+	<input type="text" id="num3" />
+</body>
+</html>
+<script>
+function testf(){
+	var num1=Number(document.getElementById("num1").value)
+	var num2=Number(document.getElementById("num2").value);
+	var oper=document.getElementById("oper").value;
+	var result="没有值";
+	switch(oper){
+		case"+":result=num1+num2;break;
+		case"-":result=num1-num2;break;
+		case"*":result=num1*num2;break;
+		case"/":result=num1/num2;break;
+		default:;
+	}
+	document.getElementById("num3").value=result;
+}
+</script>
