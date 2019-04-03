@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>liu</title>
+</head>
+<body>
+	<input id="num1" type="text" />
+	<input type="button" value="过吗" onclick="testf()" />
+	<!-- <input id="num2" type="text"> -->
+</body>
+</html>
+<script>
+function testf(){
+	var num1=parseInt(document.getElementById("num1").value);
+	if((num1%6==0)||(num1%10==6)||(parseInt(num1/10)==6)){
+		alert("过");
+	}else{
+		alert(num1);
+	}
+}
+</script>
