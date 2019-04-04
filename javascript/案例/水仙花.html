@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第一个JavaScript</title>
+	<style type="text/css">
+		
+	</style>
+	
+</head>
+<body>
+	<input type="button" onclick="testf()" />
+
+	
+</body>
+</html>
+<script type="text/javascript" >
+
+function testf(){
+	
+	for(var i=100;i<=999;i++){//i =251;
+		//判断（每位上的数字的立方和等于数本身）
+		//1、先把每位上的数字计算出来
+		var bai = parseInt(i/100)
+		var shi = parseInt(i/10)%10;
+		var ge = i%10;
+
+		//2、
+		if(bai*bai*bai+shi*shi*shi+ge*ge*ge==i){
+			console.log(i+",");
+		}
+
+	}
+
+}
+
+
+</script>
