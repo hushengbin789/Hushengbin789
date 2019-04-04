@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第一个JavaScript</title>
+	<style type="text/css">
+		
+	</style>
+	
+</head>
+<body>
+	<input type="button" onclick="testf()" />
+
+	
+</body>
+</html>
+<script type="text/javascript" >
+
+function testf(){
+
+	//1、求芝麻的总数量
+	var sum = 0;
+	for(var i=0;i<64;i++){
+		sum = sum+Math.pow(2,i);
+	}
+
+	//2、求重量
+	var weight = sum*0.00001;
+
+	console.log(weight);
+
+}
+
+
+</script>
