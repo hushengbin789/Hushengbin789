@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>一到十的阶乘</title>
+</head>
+<body>
+	输入一个数
+	<input type="text" id="num1" />
+	<input type="button" value="计算" onclick="but()" />
+	<input type="text" id="num2" />
+</body>
+</html>
+<script>
+function but(){
+	var num1=Number(document.getElementById("num1").value);
+	var sum=1;
+	for(var i=1;i<=num1;i++){
+		sum=sum*i;
+	}
+	document.getElementById("num2").value=sum;
+}
+</script>
+<script>
+var num1
+</script>
