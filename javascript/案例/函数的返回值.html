@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第一个JavaScript</title>
+	<style type="text/css">
+		
+	</style>
+	
+</head>
+<body>
+	请输入一个数：<input id="num" type="text" >
+	<input type="button" value="是不是素数" onclick="testf()" />
+	<input id="result" type="text" >
+	
+</body>
+</html>
+<script type="text/javascript" >
+
+//函数的返回值：就是函数运算结果。
+
+function testf(){
+	//1、获取用户的输入
+	var num = Number(document.getElementById("num").value);
+	// var t = Math.pow(5,3);
+	// if(Math.pow(5,3)>20){
+
+	// }
+	
+	//2、逻辑判断
+	if(isPrimer(num)==true){
+		//3、输出
+		document.getElementById("result").value = num+"是素数";
+	}else{
+		//3、输出
+		document.getElementById("result").value = num+"不是素数";
+	}
+}
+
+//功能：判断一个数是不是素数(只能被1和它自身整除，
+//即就是：除了1和它自身外，所有的数都不能整除它)
+//参数：一个数
+//返回值：true：表示是素数；false：不是素数；
+
+//定义（声明）函数
+function isPrimer(num) {//9
+
+	for(var i=2;i<=num-1;i++){//2
+		if(num%i==0){
+			break;
+		}
+	}
+	// console.log(i);
+	if(i==num){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+</script>
