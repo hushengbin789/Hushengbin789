@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="打印" onclick="but()" />
+</body>
+</html>
+<script>
+function but(){
+	for(var i=100;i<=200;i++){
+		if(i%3==0 || i%7==0){
+			document.write(i+",");
+		}
+	}
+}
+</script>
