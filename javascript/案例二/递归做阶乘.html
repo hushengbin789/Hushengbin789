@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		请输入一个数:<input type="text" id="txtId" >
+		<input  type="button" value="计算阶乘" onclick="testf()" >
+	</body>
+</html>
+<script type="text/javascript" >
+
+function testf(){
+	var num = Number(document.getElementById("txtId").value);
+
+	var temp = factorial(num);
+
+	console.log(temp);
+}	
+
+//阶乘
+/*
+0! = 1;
+1! = 1;
+
+2!= 2*1; = 2*1!
+3!= 3*2*1; = 3*2!
+4!= 4*3*2*1; = 4*3!
+5!= 5*4*3*2*1; = 5*4!;
+
+n! = n*(n-1)!;
+*/
+function factorial(n) {
+	if(n==0 || n==1){
+		return 1;
+	}
+	return n*factorial(n-1);
+}
+
+
+</script>
