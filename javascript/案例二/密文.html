@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>密文</title>
+</head>
+<body>
+	<input type="text" id="num" />
+	<input type="button" value="获取" onclick="but()" />
+	<input type="text" id="num1">
+</body>
+</html>
+<script>
+function but(){
+	var n=document.getElementById("num").value;
+	var qian=parseInt(n/1000);
+	var bai=parseInt(n%1000/100);
+	var shi=parseInt((n%100)/10);
+	var ge=n%10;
+
+	qian=(qian+5)%10;
+	bai=(bai+5)%10;
+	shi=(shi+5)%10;
+	ge=(ge+5)%10;
+
+	var temp;
+	temp =qian;
+	qian=ge;
+	ge=temp;
+	temp=bai;
+	bai=shi;
+	shi=temp;
+
+	str="是"+qian+bai+shi+ge;
+	document.getElementById("num1").value=str;
+}
+</script>
+<script>
+function but(){
+	var n=document.getElementById("num").value;
+	var qian=parseInt(n/1000);
+	var bai=parseInt(n%1000/100);
+	var shi=parseInt((n%100)/10);
+	var ge=n%10;
+	qian=(qian+5)%10;
+	bai=(bai+5)%10;
+	shi=(shi+5)%10;
+	ge=(ge+5)%10;
+	var temp;
+	temp=qian;
+	qian=ge;
+	ge=temp;
+	temp=bai;
+	bai=shi;
+	shi=temp;
+	str=""+qian+bai+shi+ge;
+	document.getElementById("num1").value=str;
+}
+</script>
