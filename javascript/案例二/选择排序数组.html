@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择排序法</title>
+</head>
+<body>
+	<input type="button" value="==" onclick="but()">
+</body>
+</html>
+<script>
+function but(){
+	//定义一个数组
+	var arr=[21,5,1,44,32,56,54];
+//逻辑
+//找最小数，交换
+	for(var i=0;i<arr.length-1;i++){
+		var minIndex=i;
+		for(var j=i+1;j<arr.length;j++){
+			if(arr[j]<arr[minIndex]){
+				minIndex=j;
+			}
+		}
+	var temp=arr[minIndex];
+	arr[minIndex]=arr[i];
+	arr[i]=temp;
+}
+	for(var i=0;i<arr.length;i++){
+		console.log(arr[i]);
+}
+}
+</script>
