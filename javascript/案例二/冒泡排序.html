@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="  排序 " onclick ="testf()" />			
+	</body>
+</html>
+
+<script type="text/javascript">
+//冒泡排序：相邻两个数进行比较，如果前一个数比后一个数大，那么就交换。
+
+//举例说明：
+// var arr=[8,7,9,4,2,1];
+/*
+
+第一轮:i=0;
+比较5次，内层循环是5次
+j =  0            1              2
+
+ 	 8            7               7          7        7        7
+	 7            8               8          8        8        8
+	 9            9               9          4        4        4
+	 4            4               4          9        2        2
+	 2            2               2          2        9        1
+	 1            1               1          1        1        9
+arr[0]>arr[1]  arr[1]>arr[2]  arr[2]>arr[3] 
+arr[j]>arr[j+1]
+
+
+第二轮:i=1;    
+比较4次，内层循环是4次
+j =   0     1
+
+	  7         7              7     7      7
+	  8         8              4     4      4
+	  4         4              8     2      2
+	  2         2              2     8      1
+	  1         1              1     1      8
+	  9         9              9     9      9
+arr[0]>arr[1]  arr[1]>arr[2]  arr[2]>arr[3] 
+arr[j]>arr[j+1]  
+  
+第三轮:i=2;  
+比较3次，内层循环是3次
+j =  0 
+	  7     4     4      4
+      4     7     2      2
+      2     2     7      1
+      1     1     1      7
+      8     8     8      8
+      9     9     9      9
+	
+第四轮	
+  
+	  4      2     2
+	  2      4     1
+      1      1     4
+      7      7     7
+      8      8     8
+	  9      9     9
+
+第五轮	   
+
+	  2   1
+      1   2
+      4   4
+      7   7
+	  8   8
+	  9   9
+	
+*/
+
+
+function testf() {
+	var arr= [8,7,9,4,2,1];
+
+	//2、冒泡的逻辑
+	
+	for(var i=0;i<arr.length-1;i++){
+		for(var j=0;j<arr.length-1-i;j++){
+			//比较
+			if(arr[j]>arr[j+1]){
+				var temp = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = temp;
+			}
+		}
+	}
+
+	//3、输出数组所有的元素
+	for(var i=0;i<arr.length;i++){
+		console.log(arr[i]);
+	}
+
+}
+
+
+</script>
