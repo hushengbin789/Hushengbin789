@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组数</title>
+</head>
+<body>
+	<input type="button" value="==" onclick="testf()" />
+	<div id="box" style="width: 200px;height: 100px;border:1px solid lightblue"></div>
+</body>
+</html>
+<script>
+function testf(){
+	var arr=[32,41,19,37];
+	var sum=0;
+	for(var i=0;i<arr.length;i++){
+		sum+=arr[i];
+	}
+
+	var avg=sum/arr.length;//平均值
+	/*var avg=sum;
+	console.log(sum);*/
+	// document.getElementById("box").innerHTML=sum;//求和
+	document.getElementById("box").innerHTML=avg;//求平均值
+}
+</script>
