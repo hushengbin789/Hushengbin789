@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>进制转换</title>
+</head>
+<body >
+	<input id="btn01" type="button" onclick="testf()" />
+</body>
+</html>
+<script type="text/javascript">
+function convert(num,n){
+	var arr=[];
+	while(num>0){
+		arr.unshift(num%n);		
+		num = parseInt(num/n);
+	}
+	return arr.join("");
+}
+
+function testf(){
+	var str = convert(34,2);
+	console.log(str);
+}
+
+</script>
