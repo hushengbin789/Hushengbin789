@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>值类型和引用类型</title>
+</head>
+<body >
+	<input id="btn01" type="button" onclick="testf()" />
+</body>
+</html>
+<script type="text/javascript">
+
+
+//基本类型（值类型）：
+//  number string boolean  undefined null;
+
+//引用类型：	
+// Object,
+// arr
+
+
+//当前窗口的内容加载完毕
+window.onload = function () {
+		//x和y是基本类型（值类型）
+		var x=0;
+		var y=x;		
+		var y=1;
+
+		console.log(x);//0
+		console.log(y);	//1	
+		
+		//arr1和arr2是引用类型
+		var arr1=[2,4,7,5,3,6,1];
+		var arr2=arr1;
+		arr2[0]=33;
+
+		console.log(arr1); //
+		console.log(arr2); //
+
+}	
+
+//内存是存放数据的
+//cpu:中央处理单元，执行代码的
+
+</script>
