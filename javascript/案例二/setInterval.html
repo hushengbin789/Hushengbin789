@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box" style="width: 200px;height: 100px;"></div>
+	<input type="button" value="测试" onclick="startColor()" >
+</body>
+</html>
+<script type="text/javascript">
+
+function getColor(){
+	var str="#";
+	for(var i=0;i<6;i++){
+		str += parseInt(Math.random()*16).toString(16);
+	}
+	return str;
+
+}	
+
+function testf() {	
+	document.getElementById("box").style.backgroundColor = getColor();
+}
+
+function startColor(){
+	setInterval(testf,2000);//告诉计算机，每隔2000毫秒调用一次testf
+}
+
+</script>
