@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input id="content" type="text" value="aabbbbccdeefff" />
+	<input type="button" value="压缩后" onclick="testf()" >
+	<input id="result" type="text" />
+</body>
+</html>
+<script type="text/javascript">
+
+function testf() {	
+	//统计字符串中每个字符的个数。（原始字符串是：“aabbbbccdeefffaaa”,结果是：a2 b4 c2 d1 e2 f3）
+	var str = document.getElementById("content").value;
+
+	var currChar = str.charAt(0);//坐庄的字符 a
+	var count = 0;
+	var resultStr = "";
+
+	for(var i=0;i<str.length;i++){
+		if(str.charAt(i)==currChar){
+			count++;//2
+		}else{//换（坐庄的）字符
+			resultStr +=currChar+count;//把当前坐庄的字符和它的次数进行拼接 a2
+			currChar = str.charAt(i);//换（坐庄的）字符了 b
+			count = 1;
+		}
+	}
+	resultStr +=currChar+count;
+
+	document.getElementById("result").value = resultStr;
+
+}
+
+	
+</script>
