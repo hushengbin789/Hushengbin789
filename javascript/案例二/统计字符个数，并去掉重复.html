@@ -1,0 +1,53 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">
+#box{
+	width:500px;
+	height:300px;
+	background-color:pink;
+	overflow:auto;
+}
+</style>
+</head>
+<body>
+	<input id="sourceId" type="text" value="aaabbbbccdeefff" />
+	<input type="button" value="压缩" onclick="test()" />
+	统计个数：<input id="resultId1" type="text" />
+	去掉连续的字符后：<input id="resultId2" type="text" />	
+</body>
+</html>
+<script type="text/javascript">
+function test(){
+	//1、得到用户的输入
+	var str=document.getElementById("sourceId").value;
+
+	//2、逻辑（统计个数，压缩）
+	var currentCh = str.charAt(0);
+	var count = 1;
+	var resultStr="";
+	var resultStr2="";
+	for(var i=1;i<str.length;i++){
+		if(str.charAt(i)==currentCh){
+			count++;
+		}else{
+			//1、把上一个字符和数量拼接到str里
+			resultStr += currentCh+count;//a3
+			resultStr2+=currentCh;
+			//2、换字符
+			currentCh = str.charAt(i);
+			count=1;//数量重新置为1
+		}
+	}
+	resultStr += currentCh+count;
+	resultStr2 += currentCh;
+	
+	//3、输出
+	document.getElementById("resultId1").value=resultStr;
+	document.getElementById("resultId2").value=resultStr2;
+}
+
+</script>
