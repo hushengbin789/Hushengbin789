@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="hoursText" type="text" value="00">
+	<input type="text" id="minutesText" type="text" value="00">
+	<input type="text" id="secondsText" type="text" value="00">
+	<input type="button" value="开始" onclick="begin()">
+	<input type="button" value="暂停" onclick="pause()">
+	<input type="button" value="停止" onclick="stop()">
+</body>
+</html>
+<script>
+var seconds=0;
+var minutes=0;
+var hours=0;
+var myTimer=null;
+function begin(){
+	if(myTimer!=null){
+		return;
+	}
+	myTimer=setInterval(function(){
+		seconds++;
+		if(seconds==60){
+			minutes++;
+			seconds=0;
+			if(minutes==60){
+				hours++;
+				minutes=0;
+			}
+		}
+		document.getElementById("hoursText").value=hours<10?"0"+hours:hours;
+		document.getElementById("minutesText").value=minutes<10?"0"+minutes:minutes;
+		// document.getElementById("secondsText").value=seconds<10?"0"+seconds:seconds;
+		document.getElementById("secondsText").value=seconds<10?"0"+seconds:seconds;
+	},1000);
+}
+function pause(){
+	clearInterval(myTimer);
+	myTimer=null;
+}
+function stop(){
+	clearInterval(myTimer);
+	myTimer=null;
+	seconds=0;
+	minutes=0;
+	hours=0;
+	document.getElementById("hoursText").value=hours<10?"0"+hours:hours;
+	document.getElementById("minutesText").value=minutes<10?"0"+minutes:minutes;
+	document.getElementById("secondsText").value=seconds<10?"0"+seconds:seconds;
+}
+</script>
