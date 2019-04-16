@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<ul id="ulBox">
+			</ul>
+		</div>
+		<div>
+			留言者：<input id="sayer" type="text"  /><br/>
+			留言内容：<textarea id="content" style="cols:200px"></textarea><br/>
+		</div>
+		<input type="button"  value="留言" onclick="addSay()" />
+	</body>
+</html>
+<script type="text/javascript" src="js/dateTools.js"></script>
+<script type="text/javascript">
+
+
+function addSay(){
+	if($("sayer").value==""){
+		alert("人呢");
+		return;
+	}
+	if($("content").value==""){
+		alert("你说啥了呢");
+		return;
+	}
+	var d = new Date();
+
+	var str = $("sayer").value+"说："+$("content").value+"【"+d.toLocaleString()+"】";
+
+	var liDom = document.createElement("li");
+	liDom.innerHTML = str
+
+	$("ulBox").appendChild(liDom);
+
+	$("sayer").value="";
+	$("content").value="";
+}
+
+function $(id){
+	return document.getElementById(id);
+}
+</script>
