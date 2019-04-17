@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table id="t">
+		<tr>
+			<td>书号</td>
+			<td>书名</td>
+			<td>价格</td>
+			<td>操作</td>
+		</tr>
+		<tr>
+			<td>01001</td>
+			<td>三国演义</td>
+			<td>51</td>
+			<td>
+				<!--this表示这个的意思，this就是"this"所在的dom元素-->
+				<input type="button" value="删除" onclick="deleteSelf(this)" >
+			</td>
+		</tr>
+		<tr>
+			<td>01001</td>
+			<td>三国演义</td>
+			<td>51</td>
+			<td>
+				<!--this表示这个的意思，this就是"this"所在的dom元素-->
+				<input type="button" value="删除" onclick="deleteSelf(this)" >
+			</td>
+		</tr>
+		<tr>
+			<td>01001</td>
+			<td>三国演义</td>
+			<td>51</td>
+			<td>
+				<!--this表示这个的意思，this就是"this"所在的dom元素-->
+				<input type="button" value="删除" onclick="deleteSelf(this)" >
+			</td>
+		</tr>
+		<tr>
+			<td>01001</td>
+			<td>三国演义</td>
+			<td>51</td>
+			<td>
+				<!--this表示这个的意思，this就是"this"所在的dom元素-->
+				<input type="button" value="删除" onclick="deleteSelf(this)" >
+			</td>
+		</tr>
+	</table>
+	<hr/>
+	书号：<input id="bookId" type="text" value="01002" /><br/>
+	书名：<input id="bookName" type="text" value="红楼梦" /><br/>
+	价格：<input id="bookPrice" type="number" value="52" /><br/>
+	<input type="button" value="添加" onclick="addRow()" >
+	</body>
+</html>
+<script type="text/javascript">
+
+function deleteSelf(obj){
+	if(confirm("亲，您确认要删除吗？")){
+		var tDom = document.getElementById("t");
+		obj.parentNode.parentNode.remove();
+		changeColor();
+	}
+}
+
+function addRow(){
+	var tDom = document.getElementById("t");
+	var rowNew = tDom.insertRow();
+
+	var cell01 = rowNew.insertCell();
+	cell01.innerHTML = $("bookId").value;
+	var cell02 = rowNew.insertCell();
+	cell02.innerHTML = $("bookName").value;
+	var cell03 = rowNew.insertCell();
+	cell03.innerHTML = $("bookPrice").value;
+	var cell04 = rowNew.insertCell();
+	cell04.innerHTML = '<input type="button" value="删除" onclick="deleteSelf(this)" >';
+
+	changeColor();
+}
+
+
+
+
+//隔行变色
+function changeColor(){
+	var trs = $("t").rows;
+
+	for(var i=0;i<trs.length;i++){
+		if(i%2==0){
+			trs[i].style.backgroundColor="skyblue";
+		}else{
+			trs[i].style.backgroundColor="greenyellow";
+		}
+	}
+
+}
+
+//页面加载完毕后
+window.onload = function(){
+	changeColor();
+}
+
+
+function $(id){
+	return document.getElementById(id);
+}
+
+</script>
