@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			#box{
+				width:200px;
+				height:30px;
+				border:1px solid black;
+				float:left;
+				
+			}
+			#jinduBox{
+				width:0px;
+				height:100%;
+				background-color:green;
+			}
+		</style>
+	</head>
+	<body>	
+		<div id="box" >
+			<div id="jinduBox"></div>
+		</div>
+
+		<span id="spanId" style="display:block">0%</span>
+
+		<input type="button"  value="走" onclick="testf()" />
+		
+	</body>
+</html>
+<script type="text/javascript">
+
+
+function testf(){
+	var width = 0;
+
+	var myTimer = setInterval(function(){
+		width=width+3;
+
+		var percent = parseInt(width/200*100);
+
+		if(width>=200){ //良性冗余
+			width=200;
+			window.clearInterval(myTimer);
+		}
+
+		$("jinduBox").style.width = width+"px";
+		
+		$("spanId").innerHTML = percent+"%";
+
+	},20);
+	
+}
+
+function $(id){
+	return document.getElementById(id);
+}
+
+</script>
