@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>广告自动关闭</title>
+		<style>
+		.ff{
+			position: fixed;
+			width: 400px;
+			height: 200px;
+			background: #ccc;
+			position: fixed;
+			left: 400px;
+			top: 100px;
+		}	
+	</style>
+</head>
+<body>
+	<div id="d" class="ff">
+			<span style="color:blue; font-weight:bold;">5</span>秒钟后自动关闭
+	</div>
+</body>
+</html>
+<script>
+window.onload = function(){
+		var num = 5;
+		var oDiv = document.getElementById("d");
+		var t = setInterval(function(){
+			countDown();
+			if(num == 0) {
+				clearInterval(t);
+				oDiv.style.display = "none";
+			}
+		},1000);
+		
+		function countDown(){
+			oDiv.children[0].innerHTML -= 1; 
+			num--;
+		}
+	}
+</script>
