@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8" />
+	<title>倒计时</title>  
+</head>
+<body>
+还剩余<span id="re"></span>
+</body>
+</html>
+<script type="text/javascript">
+/*
+window.onload=function(){
+var i=148
+txt.value=parseInt(i/60)+'时'+(i%60)+'分';	
+var oTxt=document.getElementById('txt');
+setInterval(function(){
+	i--
+txt.value=parseInt(i/60)+'时'+(i%60)+'分';	
+	},1000)
+}
+*/
+window.onload = function(){
+	var total = 90*60;
+	var oSpan = document.getElementById("re");
+	var timer = setInterval(function(){
+		if(total == 0) {
+			alert("时间已到");
+			try {
+				window.close(); //如果浏览器不支持，在这句话报错
+			} catch(e) {
+				//所以，使用try-catch来忽略错误
+			}
+			clearInterval(timer);//如果程序在上一行出现错误，这一行代码就无法执行
+		}
+		oSpan.innerHTML = Math.floor(total/60)+"分，"+total%60+"秒";
+		total--;
+	},1);
+}
+</script>
