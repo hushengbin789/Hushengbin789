@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>鼠标跟随提示</title>
+<style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+	}
+	#box{
+		position: absolute;
+		width:100px;
+		height: 80px;
+		background-color: pink;
+		display: none;
+	}
+</style>
+</head>
+<body style="height: 1000px" >
+	<a href="#">情人节快乐！</a><br/>
+	<a href="#">元宵节快乐！</a><br/>
+	<a href="#">五一快乐！</a><br/>
+	<a href="#">单身快乐！</a>
+	<div id="box">
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+window.onload = function(){
+	var as = document.getElementsByTagName("a");
+	for(var i=0;i<as.length;i++){
+		as[i].onmousemove = function(event){
+			var evt = event || window.event;
+			$("box").style.left = (evt.pageX+20)+"px";
+			$("box").style.top = evt.pageY+"px";			
+		}
+		as[i].onmouseenter = function(event){
+			var evt = event || window.event;
+			$("box").innerHTML = this.innerHTML;//this事件源，a标签
+			$("box").style.left = (evt.pageX+20)+"px";
+			$("box").style.top = evt.pageY+"px";
+			$("box").style.display = "block";
+		}
+		as[i].onmouseleave = function(){
+			$("box").style.display = "none";
+		}
+	}
+}
+function $(id){
+	return document.getElementById(id);
+}
+</script>
