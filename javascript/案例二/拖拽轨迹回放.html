@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽回放</title>
+	<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+}
+#box{
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:200px;
+	border:1px solid pink;
+}
+#titleBox{
+	width:100%;
+	height:30px;
+	background-color:gray;
+	border-bottom:1px solid pink;
+}
+#contentBox{
+	width:100%;
+	height:120px;
+}
+#contentBox img{
+	width:100%;
+	height:100%;
+}
+</style>
+</head>
+<body style="height:1000px">
+	<div id="box">
+		<div id="titleBox"></div>
+		<div id="contentBox">
+			<img id="imgId" src="img/1.jpg" />
+		</div>
+	</div>	
+</body>
+</html>
+<script type="text/javascript" src="js/eventTools.js"></script>
+<script type="text/javascript">
+var arr=[];
+window.onload = function(){
+	$("titleBox").onmousedown = function(event){
+		var evt = event || window.event;
+		//把鼠标距离事件源（$("titleBox")）左上角的距离
+		var offsetX = evt.offsetX;
+		var offsetY = evt.offsetY;
+		
+		var left1 = (evt.pageX-offsetX);
+		var top1 = (evt.pageY-offsetY);
+			
+		arr.unshift({
+			left:left1,
+			top:top1
+		});
+
+		document.onmousemove = function (event) {
+			var evt = event || window.event;
+			var left1 = (evt.pageX-offsetX);
+			var top1 = (evt.pageY-offsetY);
+			$("box").style.left = left1+"px";
+			$("box").style.top = top1+"px";
+			arr.unshift({
+				left:left1,
+				top:top1
+			});
+		}
+	}
+	document.onmouseup = function () {
+		document.onmousemove =null;
+		backGo();
+	}
+}
+function  backGo() {
+	var index = 0;
+	var myTimer = setInterval(function(){
+		index++;
+
+		if(index>arr.length-1){
+			clearInterval(myTimer);
+			// arr.length=0;//arr=[];
+			arr=[];
+			return;
+		}
+
+		$("box").style.left = arr[index].left+"px";
+		$("box").style.top = arr[index].top+"px";
+
+	},50);
+}
+
+function $(id){
+	return document.getElementById(id);
+}
+
+//封装一个获取页面元素的函数
+//参数：字符串
+//返回值：
+//     如果字符串的第一个字符是#，那么就把参数当作id使用，即使用getElementById获取一个元素
+//     如果字符串的第一个字符是.，那么就把参数当作class使用，即使用getElementsByClassName获取若干个元素
+//     如果字符串的第一个字符既不是#，也不是. ，那么就把参数当作标签名使用，即使用getElementsByTagName获取若干个元素
+// function $(str){
+// 	if(str.charAt(0)=="#"){
+// 		return document.getElementById(str.substring(1));
+// 	}else if(str.charAt(0)=="."){
+// 		return document.getElementsByClassName(str.substring(1));
+// 	}else{
+// 		return document.getElementsByTagName(str);
+// 	}
+// }
+
+
+</script>
