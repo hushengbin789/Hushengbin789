@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>作业5</title>
+<style type="text/css">
+#grandpaBox{
+	width:300px;
+	height:300px;
+	background-color:pink;
+}
+#fatherBox{
+	width:200px;
+	height:200px;
+	background-color:orange;
+}
+#meBox{
+	width:100px;
+	height:100px;
+	background-color:blue;
+}
+</style>
+</head>
+<body>
+	<div id="grandpaBox">
+		<div id="fatherBox">
+			<div id="meBox">
+				
+			</div>		
+		</div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript">
+function $(id){
+	return document.getElementById(id);
+}
+window.onload = function(){
+	$("grandpaBox").addEventListener("click",function(){
+		console.log("捕获：爷爷被点了");
+	},true);
+	$("fatherBox").addEventListener("click",function(event){
+		console.log("捕获：爸爸被点了");
+		var evt = event || window.event;
+		evt.stopPropagation();
+	},true);
+	$("meBox").addEventListener("click",function(event){
+		console.log("我被点了");
+	},true);
+	
+	$("fatherBox").addEventListener("click",function(){
+		console.log("冒泡：爸爸被点了");
+	},false);
+	
+	$("grandpaBox").addEventListener("click",function(){
+		console.log("冒泡：爷爷被点了");
+	},false);
+}
+
+</script>
