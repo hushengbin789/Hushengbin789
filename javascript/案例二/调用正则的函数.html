@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	用户名：<input id="userId" type="text"/><span></span><br/>
+	邮政编码<input id="postId" type="text"/><span></span><br/>
+	邮箱<input id="emailId" type="text"/><span></span><br/>
+	手机号码：<input id="phoneId" type="text"/><span></span><br/>
+	身份证号码：<input id="cardId" type="text"/><span></span><br/>
+	出生日期：<input id="birthdayId" type="text"/><span></span><br/>
+	ip：<input id="ipId" type="text"/><span></span><br/>
+</body>
+</html>
+<script type="text/javascript" src="js/regTools.js"></script>
+<script type="text/javascript">
+
+//总结：
+//正则的规则：
+//1、限定字符
+//2、限定数量
+//3、限定位置
+
+window.onload = function () {
+
+	$("#userId").onblur = function(){
+		 var reg = /^[a-zA-Z_][a-zA-Z0-9_]{5,15}$/;//一共长度是6-16位，由数字字母下划线构成，但是数字不能开头
+    	if(reg.test(this.value)==true){
+    		this.nextElementSibling.innerHTML = "√";
+    	}else{
+    		this.nextElementSibling.innerHTML = "×";
+    	}
+	}
+
+	$("#postId").onblur = function(){
+		//共 6 位数字，第一位不能为 0
+		 var reg = /^[1-9]\d{5}$/;
+		if(reg.test(this.value)==true){
+    		this.nextElementSibling.innerHTML = "√";
+    	}else{
+    		this.nextElementSibling.innerHTML = "×";
+    	}
+	}
+
+	
+	$("#emailId").onblur = function(){
+		
+		if(check("email",this.value)==true){
+    		this.nextElementSibling.innerHTML = "√";
+    	}else{
+    		this.nextElementSibling.innerHTML = "×";
+    	}
+
+	}
+
+	$("#phoneId").onblur = function(){
+		//手机的规则：11位数字，1开头
+
+		if(check("phone",this.value)==true){
+    		this.nextElementSibling.innerHTML = "√";
+    	}else{
+    		this.nextElementSibling.innerHTML = "×";
+    	}
+	}
+
+
+	$("#cardId").onblur = function(){
+		if(check("card",this.value)==true){
+    		this.nextElementSibling.innerHTML = "√";
+    	}else{
+    		this.nextElementSibling.innerHTML = "×";
+    	}
+	}
+
+
+	$("#birthdayId").onblur = function(){
+		//日期的规则：四位数字(-./)两位数字(-./)两位数字
+		// var reg = /^\d{4}[-\./]\d{2}[-\./]\d{2}$/i;
+		//var reg = /^\d{4}[\-\./](0[1-9]|1[0-2])[\-\./]\d{2}$/i;
+		
+		var reg = /^(\d{4}\-(0[1-9]|1[0-2])\-\d{2}|\d{4}\.(0[1-9]|1[0-2])\.\d{2}|\d{4}\.(0[1-9]|1[0-2])\.\d{2})$/i;
+
+		if(reg.test(this.value)==true){
+    		this.nextElementSibling.innerHTML = "√";
+    	}else{
+    		this.nextElementSibling.innerHTML = "×";
+    	}
+	}
+
+
+	$("#ipId").onblur = function(){
+		//ipV4的规则：0-255.0-255.0-255.0-255
+		//0-255   
+		// 一位 \d     5.12.3.1
+		// 两位 [1-9]\d
+		// 三位 
+		// 1打头  1\d{2}
+		// 2打头  2[0-4]\d
+		// 25打头  25[0-5]
+		var reg = /^((\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])\.){3}(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])$/i;
+
+		if(reg.test(this.value)==true){
+    		this.nextElementSibling.innerHTML = "√";
+    	}else{
+    		this.nextElementSibling.innerHTML = "×";
+    	}
+
+	}
+}
+
+
+function $(str){
+	if(str.charAt(0)=="#"){
+		return document.getElementById(str.substring(1));
+	}else if(str.charAt(0)=="."){
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+}	
+
+//正则验证的封装
+//参数：
+//验证的类型
+//验证的字符串
+//返回值：true：表示合法；false：不合法
+
+var str="hello";
+
+// check("email",str);
+// check("card",str);
+// check("phone",str);
+
+function check(type,str) {
+	switch(type){
+		case "email":var reg = /^\w{3,}@\w{2,}\.(com|cn|net|com.cn)$/;break;
+		case "phone": var reg = /^1\d{10}$/;break;
+		case "card":var reg = /^[1-9]\d{16}(\d|X)$/i;break;
+		default:;
+	}
+
+	return reg.test(str);
+}
+</script>
