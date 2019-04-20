@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin:0; 
+				padding:0;
+				list-style: none
+			}	
+		</style>
+	</head>
+	<body style="height: 1000px">	
+	
+	</body>
+</html>
+
+<script type="text/javascript">
+
+window.onload = function(){
+	var reg = /study/ig; //var reg = new RegExp('study', 'ig');
+
+	//属性;
+	/*
+	console.log(reg.global);
+	console.log(reg.ignoreCase);
+	console.log(reg.multiline);
+	console.log(reg.source);
+	*/
+		
+	//方法：
+	// exec(字符串)    检索字符串中指定的值。返回找到的值，如果没有匹配到，则返回null。
+
+	// var str = reg.exec("good good study day day up");
+	// console.log(str);
+
+	// var str = reg.exec("good good Study day day up");
+	// console.log(str);
+
+
+	//test (字符串)    检索字符串中指定的值。返回 true 或 false。
+
+	// var has = reg.test("good good study day day up");
+	// console.log(has);
+
+	// var has = reg.test("good good Study day day up");
+	// console.log(has);
+
+	var has = reg.test("good s good atudy day day up");
+	console.log(has);
+}
+
+
+	
+function $(str){
+	if(str.charAt(0)=="#"){
+		return document.getElementById(str.substring(1));
+	}else if(str.charAt(0)=="."){
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+}	
+
+</script>
+
