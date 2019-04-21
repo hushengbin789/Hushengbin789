@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>作业5</title>
+<style type="text/css">
+#grandpaBox{
+	width:300px;
+	height:300px;
+	background-color:pink;
+}
+#fatherBox{
+	width:200px;
+	height:200px;
+	background-color:orange;
+}
+#meBox{
+	width:100px;
+	height:100px;
+	background-color:blue;
+}
+</style>
+</head>
+<body>
+	<div id="grandpaBox">
+		<div id="fatherBox">
+			<div id="meBox">
+			</div>		
+		</div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript">
+function $(id){
+	return document.getElementById(id);
+}
+
+//面试题：请问DOM事件流(流向)
+//DOM事件流分为三个阶段：
+//1、第一个阶段是捕获阶段
+//2、第二个阶段是事件源
+//3、第三个阶段是冒泡阶段
+
+$("grandpaBox").addEventListener("click",function(){
+	alert("捕获：爷爷被点了");
+},true);
+
+
+$("fatherBox").addEventListener("click",function(){
+	alert("捕获：爸爸被点了");
+},true);
+
+
+
+$("meBox").addEventListener("click",function(){
+	alert("我被点了");
+},false);
+
+$("grandpaBox").addEventListener("click",function(){
+	alert("冒泡：爷爷被点了");
+},false);
+
+$("fatherBox").addEventListener("click",function(){	
+	alert("冒泡：爸爸被点了");
+},false);
+
+
+
+</script>
