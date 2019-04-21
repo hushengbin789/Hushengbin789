@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">
+#grandpaBox{
+	width:300px;
+	height:300px;
+	background-color:pink;
+}
+#fatherBox{
+	width:200px;
+	height:200px;
+	background-color:orange;
+}
+#meBox{
+	width:100px;
+	height:100px;
+	background-color:blue;
+}
+</style>
+</head>
+<body>
+	<input id="txtid" type="text" />
+</body>
+</html>
+
+<script type="text/javascript">
+function $(id){
+	return document.getElementById(id);
+}
+
+//在keydown和keyup事件里，属性keyCode保存着键盘的虚拟码，
+//每个键的虚拟码是唯一的。一个数字对应一个键。
+
+//在keypress事件里，属性keyCode保存着每个键对应ASCII码，
+//这些键跟显示有关。
+
+window.onload = function(){
+	// $("txtid").onkeydown = function(event){
+	// 	// console.log('onkeydown');
+	// 	// var evt = event || window.event;
+	// 	// console.log(evt.keyCode);
+	// }
+
+	// $("txtid").onkeyup = function(event){
+	// 	console.log('onkeyup');
+	// 	var evt = event || window.event;
+	// 	console.log(evt.keyCode);
+	// }
+
+	//按下并松开
+	$("txtid").onkeypress = function(event){
+		var evt = event || window.event;
+		console.log(evt.keyCode);
+	}
+
+}
+
+
+
+</script>
