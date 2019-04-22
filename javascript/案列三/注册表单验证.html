@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	用户名:	<input type="text" id="userId"><span></span><br>
+	邮政编码<input type="text" id="postId"><span></span><br>
+	邮箱：<input type="text" id="emaild"><span></span><br>
+	手机号码:<input type="text" id="phoneId"><span></span><br>
+	身份证号码：<input type="text" id="carId"><span></span><br>
+	出生日期：<input type="text" id="birthdayId"><span></span><br>
+	ip:	<input type="text" id="ipId"><span></span>
+</body>
+</html>
+<script>
+window.onload=function(){
+	$("#userId").onblur=function(){
+		//一共长度是6-16位，由数字字母下划线构成，但是数字不能开头
+		var reg=/^[a-zA-Z_][a-zA-Z0-9_]{5,15}$/;
+		if(reg.test(this.value)==true){
+			this.nextElementSibling.innerHTML="√";
+		}else{
+			this.nextElementSibling.innerHTML="输入错误"
+		}
+	}
+	$("#postId").onblur=function(){
+		//共 6 位数字，第一位不能为 0
+		var reg=/^\d\d{5}$/;
+		if(reg.test(this.value)==true){
+			this.nextElementSibling.innerHTML="√"
+		}else{
+			this.nextElementSibling.innerHTML="输入错误"
+		}
+	}
+	$("#emaild").onblur=function(){
+		var reg= /^\w{3,}@\w{2,}\.(com|cn|net|com.cn)$/;
+		if(reg.test(this.value)==true){
+			this.nextElementSibling.innerHTML="√";
+		}else{
+			this.nextElementSibling.innerHTML="输入错误"
+		}
+	}
+	$("#phoneId").onblur=function(){
+		//手机的规则：11位数字，1开头
+		var reg=/^1\d{10}$/;
+		if(reg.test(this.value)==true){
+			this.nextElementSibling.innerHTML="√";
+		}else{
+			this.nextElementSibling.innerHTML="输入错误"
+		}
+	}
+	$("#carId").onblur=function(){
+		var reg=/^[1-9]\d{16}(\d|X)$/i;
+		if(reg.test(this.value)==true){
+			this.nextElementSibling.innerHTML="√";
+		}else{
+			this.nextElementSibling.innerHTML="输入错误"
+		}
+	}
+	$("#birthdayId").onblur=function(){
+		//日期的规则：四位数字(-./)两位数字(-./)两位数字
+		var reg=/^(\d{4}\-(0[1-9]|[0-2])\-\d{2}|\d{4}\.(0[1-9]|1[0-2])\.\d{2}|\d{4}\.(0[1-9]|[0-2])\.\d{2})$/i
+		if(reg.test(this.value)==true){
+			this.nextElementSibling.innerHTML="√";
+		}else{
+			this.nextElementSibling.innerHTML="输入错误"
+		}
+	}
+	$("#ipId").onblur=function(){
+		//ipV4的规则：0-255.0-255.0-255.0-255
+		var reg=/^((\d|[1-9]\d|1\d{2}|2[0-4]\d25[0-5])\.){3}(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])$/i
+		if(reg.test(this.value)==true){
+			this.nextElementSibling.innerHTML="√";
+		}else{
+			this.nextElementSibling.innerHTML="输入错误"
+		}
+	}
+}
+
+
+
+
+
+function $(str){
+	if(str.charAt(0)=="#"){
+		return document.getElementById(str.substring(1));
+	}else if(str.charAt(0)=="."){
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+}
+</script>
