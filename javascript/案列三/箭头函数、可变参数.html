@@ -1,0 +1,44 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+
+<script type="text/javascript">
+//1、箭头函数
+// x => x*5;//等价于 function(x){return x*5}
+
+//2、箭头函数赋给变量
+// let f = x => x*5;// function(x){return x*5};
+// console.log(f(7));
+
+//3、箭头函数的自运行
+// console.log((function(x){return x*5})(8));
+// console.log((x=> x*5)(8));
+
+// 可变参数,弹性参数
+
+// function testf(s,...end){
+// 	console.log(s);
+// 	console.log(end);
+// }
+
+// function testf(...end){
+// 	console.log(end);
+// }
+	
+var testf = (...end)=>{
+	console.log(end);
+}	
+
+window.onload = function () {
+	testf(12,23,34,45,56,67,20,100);
+}	
+
+</script>
