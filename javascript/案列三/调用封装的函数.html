@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#box{
+			position: absolute;
+			left:100px;
+			top:100px;
+			width: 200px;
+			height: 200px;
+			background-color: lightgreen;
+		}
+	</style>
+</head>
+<body>
+	<input id="btn01" type="button" value="动起来" />
+	<div id="box">
+
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="mover99.js"></script>
+<script type="text/javascript">
+
+window.onload = function(){
+
+	$("#btn01").onclick = function(){
+		//domObj,attr,startValue,endValue,step,timerSpace
+		// mover01($("#box"),"left",100,500,2,10);
+		// mover01($("#box"),"top",100,500,2,10);
+		// mover01($("#box"),"height",100,500,2,10);
+		// mover02($("#box"),"height",500,3000);
+		// mover02($("#box"),"height",10,3000);
+		// mover02($("#box"),"width",600,3000);
+		mover03($("#box"),{"width":800,"height":10,"left":10,"top":500},3000);
+	}
+}
+
+
+
+function $(str) {
+	if(str.charAt(0)=='#'){
+		return document.getElementById(str.substring(1));
+	}else if(str.charAt(0)=='.'){
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+}
+
+	
+
+</script>
