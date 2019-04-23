@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html,body{
+				margin:0;
+				padding:0;
+			}
+			
+			#centerDiv{
+				position:absolute;
+				left:395px;
+				top:295px;
+				width:10px;
+				height:10px;
+				background-color:red;
+				border-radius:50%;
+			}
+			
+			#ballDiv{
+				position:absolute;
+				left:390px;
+				top:90px;
+				width:20px;
+				height:20px;
+				background-color:blue;
+				border-radius:50%;
+			}
+		</style>
+	</head>
+	<body style="height:1000px">
+		<div id="centerDiv">			
+		</div>
+		<div id="ballDiv">
+		</div>
+
+		<input id="btn01" type="button"   value="  走  " />
+	</body>
+</html>
+<script type="text/javascript">
+//运动思路：步长，时间间隔，方向，算出新的位置；	
+
+function go(){
+	let angel = 0;//角度
+	let r = 200;
+	let startLeft = 400;
+	let startTop = 100;
+
+	setInterval(function(){
+		angel++;
+
+		if(angel>=360){
+			angel = 0;
+		}
+
+		let huDu = angel*Math.PI/180;
+		//计算新的left和top
+		//新的left = 起始left+ 半径*Math.sin(弧度);
+		let left = startLeft + r*Math.sin(huDu);
+		//新的top = 起始top +(半径 - 半径*Math.cos(弧度))
+		let top1 = startTop +(r - r* Math.cos(huDu));
+
+		$("#ballDiv").style.left = (left-10)+"px";
+		$("#ballDiv").style.top = (top1-10)+"px";
+
+
+	},20);
+
+}	
+
+window.onload = function(){
+	$("#btn01").onclick =go;
+}	
+
+function $(str){//#box .cls  p
+	if(str.charAt(0)=="#"){
+		return document.getElementById(str.substring(1));
+	}else if(str.charAt(0)=="."){
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+}	
+</script>
