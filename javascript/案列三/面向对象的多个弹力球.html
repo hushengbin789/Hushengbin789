@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多个弹力球</title>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body style="height: 1000px">
+	<input id="btnGo" type="button" value="动起来" />
+</body>
+</html>
+<script type="text/javascript">
+//弹力球(ES3)：
+function Ball(width,height,color,left,top1,leftDirection,topDirection,leftStep,topStep,timeSpace){
+	//属性：
+	this.ballDom = null;
+	this.width = width;
+	this.height = height;
+	this.color = color;
+	this.left = left;
+	this.top = top1;
+	this.leftDirection = leftDirection;
+	this.topDirection = topDirection;
+	this.leftStep = leftStep;
+	this.topStep = topStep;
+	this.timeSpace = timeSpace;
+	this.createUI();
+	this.go();	
+}
+
+//方法
+//动态创建dom
+Ball.prototype.createUI = function(){
+	this.ballDom = document.createElement("div");
+	this.ballDom.style.cssText=`position: absolute;
+			left:${this.left}px;
+			top:${this.top}px;
+			height: ${this.height}px;
+			width: ${this.width}px;
+			background-color: ${this.color};
+			border-radius: 50%;`;
+	document.body.appendChild(this.ballDom);
+}
+
+Ball.prototype.go = function(){
+	// console.log(this);
+
+	setInterval(()=>{
+		//一、处理数据
+		//1、改变数据
+		this.left = this.left+this.leftDirection*this.leftStep;
+		this.top = this.top+this.topDirection*this.topStep;
+
+		//2、边界处理
+		let clientWidth = document.documentElement.clientWidth || document.body.clientWidth;
+		let clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+
+		let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+		let scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+
+		if(this.left<=scrollLeft){
+			this.left = scrollLeft
+			this.leftDirection = 1;
+		}else if(this.left>= clientWidth-this.width + scrollLeft){	this.left = clientWidth-this.width + scrollLeft
+			this.leftDirection = -1;
+		}
+
+		if(this.top<=0+scrollTop){
+			this.top = 0+scrollTop;
+			this.topDirection = 1;
+		}else if(this.top>=clientHeight-this.height+scrollTop){
+			this.top = clientHeight-this.height+scrollTop;
+			this.topDirection = -1;
+		}
+
+
+		//二、改变外观
+		this.ballDom.style.left = this.left+"px";
+		this.ballDom.style.top = this.top+"px";
+
+	},this.timeSpace);
+}
+
+
+window.onload = function () {
+	$("#btnGo").onclick = function(){
+		let b1 = new Ball(20,20,"green",10,10,1,1,1,1,10);		
+
+		//(width,height,color,left,top1,leftDirection,topDirection,leftStep,topStep,timeSpace
+		let b2 = new Ball(50,50,"black",600,10,-1,1,5,5,10);
+
+		let b3 = new Ball(30,30,"red",600,500,-1,-1,5,5,50);	
+		
+	}
+}
+
+
+function $(str) {
+	if(str.charAt(0)=='#'){
+		return document.getElementById(str.substring(1));
+	}else if(str.charAt(0)=='.'){
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+}
+
+</script>
