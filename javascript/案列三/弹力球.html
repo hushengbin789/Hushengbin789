@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹力球</title>
+	<style type="text/css">
+		#ball{
+			position: absolute;
+			left:100px;
+			top:50px;
+			height: 20px;
+			width: 20px;
+			background-color: red;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body style="height: 1000px">
+	<input id="btnGo" type="button" value="动起来" />
+	<div id="ball">
+
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+
+window.onload = function () {
+	$("#btnGo").onclick = function(){
+		let left1 = 100;
+		let top1 = 50;
+		let leftStep = 1;
+		let topStep = 1;
+		let leftDirection = 1;
+		let topDirection = 1;
+		setInterval(function () {
+			//一、数据处理
+			//1、改变数据
+			left1 = left1+leftDirection*leftStep;
+			top1 = top1+topDirection*topStep;
+
+			let clientWidth = document.documentElement.clientWidth || document.body.clientWidth;
+			let clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+
+			let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			let scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+
+			//2、边界处理
+			if(left1<=0+scrollLeft){
+				left1 = 0+scrollLeft;
+				leftDirection = 1;
+			}else if(left1>=clientWidth-20+scrollLeft){
+				left1= clientWidth-20+scrollLeft;
+				leftDirection = -1;
+			}
+
+			if(top1<=0+scrollTop){
+				top1 = 0+scrollTop;
+				topDirection = 1;
+			}else if(top1>=clientHeight-20+scrollTop){
+				top1 = clientHeight-20+scrollTop;
+				topDirection = -1;
+			}
+
+			//二、改变外观
+			$("#ball").style.left = left1+"px";
+			$("#ball").style.top = top1+"px";
+		},10);
+
+	}
+}
+
+
+
+function $(str) {
+	if(str.charAt(0)=='#'){
+		return document.getElementById(str.substring(1));
+	}else if(str.charAt(0)=='.'){
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+}
+
+</script>
