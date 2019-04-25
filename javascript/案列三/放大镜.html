@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>放大镜</title>
+		<style>
+			#box{
+				width:  350px;
+				height: 350px;
+				margin: 100px 0 0 100px;
+				position: relative;
+			}
+			
+			#small_box{
+				width:100%;
+				height: 100%;
+				border:1px solid #ccc;
+				position: relative;
+			}
+			
+			#mask{
+				height: 100px;
+				width: 100px;
+				background-color: rgba(255,255,0,.4);
+				left: 0px;
+				top: 0px;
+				position: absolute;
+				display: none;
+				cursor: move;
+			}
+			
+			
+			
+			#big_box{
+				height: 600px;
+				width: 600px;
+				border: 1px solid #ccc;
+				overflow: hidden;
+				top:0px;
+				left: 360px;
+				position: absolute;
+				display: none;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!--
+        	1.实现页面布局
+        		HTML+CSS
+        	2.实现放大镜的功能
+        		js
+       -->
+		<div id="box">
+			<div id="small_box">
+				<img src="img/pic01.jpg" />
+				<span id="mask"></span>
+			</div>
+			<div id="big_box">
+				<img src="img/pic001.jpg" style="position: absolute;"/>
+			</div>
+		</div>
+		
+		<script>
+			window.onload = function(){
+				//1.获取需要的元素
+				var box = document.getElementById("box");
+				var small_box = document.getElementById("small_box");
+				var big_box = document.getElementById("big_box");
+				var mask = document.getElementById("mask");
+				var big_img = big_box.children[0];
+				
+				//2.鼠标移入小盒子事件
+				small_box.onmouseover = function(){
+					//2.1鼠标移入，显示放大镜和大图片
+					big_box.style.display = 'block';
+					mask.style.display = 'block';
+					
+					//2.2移动鼠标的同时移动放大镜,获取鼠标的移动事件
+					small_box.onmousemove = function(event){
+						//获取鼠标的坐标点X  Y
+						var pointX = event.clientX - box.offsetLeft - mask.offsetHeight*0.5;
+						var pointY = event.clientY - box.offsetTop - mask.offsetWidth*0.5;
+						
+						//做边界的校验
+						if(pointX<0){
+							pointX = 0;
+						}else if(pointX>small_box.offsetWidth-mask.offsetWidth){
+							pointX = small_box.offsetWidth-mask.offsetWidth;
+						}
+						
+						if(pointY<0){
+							pointY = 0;
+						}else if(pointY>small_box.offsetHeight-mask.offsetHeight){
+							pointY = small_box.offsetHeight-mask.offsetHeight;
+						}
+						
+						//移动mask
+						mask.style.left = pointX + 'px';
+						mask.style.top = pointY + 'px';
+						
+						//移动大图
+						//小盒子中移动的距离：大盒子中移动的距离 = 小盒子的宽度：大盒子的宽度
+						//大盒子中移动的距离 = 小盒子中移动的距离/(小盒子的宽度：大盒子的宽度);
+						big_img.style.left = -pointX/(small_box.offsetWidth/big_box.offsetWidth)+'px';
+						big_img.style.top = -pointY/(small_box.offsetHeight/big_box.offsetHeight)+'px';
+					}
+				}
+				
+				
+				//3.鼠标移除小盒子事件
+				small_box.onmouseout = function(){
+					//2.1鼠标移入，显示放大镜和大图片
+					big_box.style.display = 'none';
+					mask.style.display = 'none';
+				}
+				
+			}
+		</script>
+	</body>
+</html>
