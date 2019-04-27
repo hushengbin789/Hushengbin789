@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html,body{
+				margin:0;
+				padding:0;
+			}
+			
+			#bigBox{
+				position:relative;
+				width:500px;
+				height:340px;
+				background-image:url(img/img3.jpg);
+				background-size:500px 340px;
+			}
+			
+						
+		</style>
+	</head>
+	<body style="height:1000px">
+		<div id="bigBox">
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/cssTools.js"></script>
+<script type="text/javascript">
+
+//1、放大镜
+function BigMirror(obj){
+	//放大镜对象的默认值
+	let defaultObj = {
+		boxDom:null,//放大镜所在的容器（需要放大的图片），由外部传入的
+		mirrorDom:null,//放大镜的dom，需要内部创建的
+		showDom:null,//放大效果，需要内部创建的
+		width:100,
+		height:100,
+		color:"pink",
+		opacity:0.5,
+		mulitple:3
+		// ,
+		// img:null//要放大的图片
+	}
+
+	//属性
+	for(let key in defaultObj){
+		if(obj[key]==undefined){//没有如果传值，就是undefined；
+			this[key] = defaultObj[key];
+		}else{
+			this[key] = obj[key];
+		}
+	}
+	this.creatUI();
+	this.addEvent();
+}
+
+// <div id="mirrorBox">
+// </div>
+// <div id="showBox">
+// </div>
+
+//创建dom
+BigMirror.prototype.creatUI = function() {
+	//1、创建放大镜的div
+	this.mirrorDom = document.createElement("div"); 
+	this.mirrorDom.style.cssText = `position:absolute;
+				left:0px;
+				top:0px;
+				width:${this.width}px;
+				height:${this.height}px;
+				background-color:${this.color};
+				opacity:${this.opacity};
+				`;
+	this.boxDom.appendChild(this.mirrorDom);
+	//2、创建放大效果的div
+	this.showDom =  document.createElement("div"); 
+	this.showDom.style.cssText =`
+				position:absolute;
+				left:${this.boxDom.offsetWidth+10}px;
+				top:0px;
+				width:${this.width*this.mulitple}px;
+				height:${this.height*this.mulitple}px;
+				background-image:${getStyle(this.boxDom,"backgroundImage")};
+				background-size:${this.boxDom.offsetWidth*this.mulitple}px ${this.boxDom.offsetHeight*this.mulitple}px;`;
+
+	this.boxDom.appendChild(this.showDom);
+};
+
+BigMirror.prototype.addEvent = function(){
+	
+	let obj = this;//为了防止this转移，先把this赋给obj
+
+	this.boxDom.onmousemove = function(event){
+		let evt = event || window.event;
+		//一、数据处理
+		//1、改变数据
+		let left1 = evt.pageX-this.offsetLeft-obj.mirrorDom.offsetWidth/2;
+		let top1 = evt.pageY-this.offsetTop-obj.mirrorDom.offsetHeight/2;
+
+		//2、处理边界
+		if(left1<0){
+			left1 = 0;
+		}else if(left1>this.offsetWidth-obj.mirrorDom.offsetWidth){
+			left1=this.offsetWidth-obj.mirrorDom.offsetWidth
+		}
+
+		if(top1<0){
+			top1 = 0;
+		}else if(top1>this.offsetHeight-obj.mirrorDom.offsetHeight){
+			top1=this.offsetHeight-obj.mirrorDom.offsetHeight
+		}
+
+		//二、改变外观
+		obj.mirrorDom.style.left = left1+"px";
+		obj.mirrorDom.style.top = top1+"px";
+
+		obj.showDom.style.backgroundPosition = `-${obj.mulitple*left1}px -${obj.mulitple*top1}px`;
+	}
+}
+
+window.onload = function(){
+	let bm = new BigMirror(
+				  {
+					boxDom:$("#bigBox"),
+					mulitple:5
+				 }
+	);	
+
+}
+
+function $(str){
+	if(str.charAt(0)=="#"){
+		return document.getElementById(str.substring(1));
+	}else if(str.charAt(0)=="."){
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+}
+
+</script>
