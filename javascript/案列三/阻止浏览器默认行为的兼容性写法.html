@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input id="txtId" type="text" name="">	
+</body>
+</html>
+<script type="text/javascript">
+
+// event.preventDefault();//其它主流浏览器
+// event.returnValue = false;//针对IE浏览器的
+
+document.getElementById("txtId").onkeypress = function (event) {
+	var evt = event || window.event;
+	if(evt.keyCode<48 || evt.keyCode>57){
+		if(evt.preventDefault){
+			evt.preventDefault();
+		}else{
+			evt.returnValue = false;
+		}
+	}
+}
+
+</script>
