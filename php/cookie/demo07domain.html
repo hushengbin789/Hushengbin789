@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input id="btnGet" type="button"  value="获取指定的cookie数据" />	
+</body>
+</html>
+<script type="text/javascript">
+
+//domain:可访问主机指定可访问cookie的主机名。例：www.163.com和mail.163.com指定为163.com
+
+//如：
+let d = new Date();
+d.setDate(d.getDate()+7);
+document.cookie='city=西安;expires='+d.toGMTString()+";path=/temp;domain=163.com";
+
+啥意思：
+//保存的cookie数据（city=西安），可以让163.com域名访问。自己也能访问。
+//只能是根目录下的temp路径（及其子文件）可以访问
+
+window.onload = function () {
+	
+	$("btnGet").onclick = function(){
+		//我想拿出cookie中username的值
+		// alert(document.cookie);// username=jzm; userpass=123
+
+		let str= document.cookie;
+
+		let arr = str.split("; ");
+
+		for(let i in arr){
+			if(arr[i].startsWith("username=")){
+				// arr[i]//"username=jzm"
+				// arr[i].split("=") ["username","jzm"]
+				alert(arr[i].split("=")[1]);
+				break;
+			}
+		}
+	}	
+}
+
+function $(id){
+	return document.getElementById(id);
+}
+
+</script>

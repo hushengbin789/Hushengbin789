@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input id="btnGet" type="button"  value="获取指定的cookie数据" />	
+</body>
+</html>
+<script type="text/javascript">
+
+//path:表示保存的cookie数据，在哪个路径下的html文件中可以访问。
+// 默认情况下：当前文件夹下的所有html，及其子文件夹下的所有html。
+//如：path=/ 表示网站的根路径
+//如：path=/temp 表示网站的根路径下的temp路径（及其子文件）可以访问。
+
+window.onload = function () {
+	
+	$("btnGet").onclick = function(){
+		//我想拿出cookie中username的值
+		// alert(document.cookie);// username=jzm; userpass=123
+
+		let str= document.cookie;
+
+		let arr = str.split("; ");
+
+		for(let i in arr){
+			if(arr[i].startsWith("username=")){
+				// arr[i]//"username=jzm"
+				// arr[i].split("=") ["username","jzm"]
+				alert(arr[i].split("=")[1]);
+				break;
+			}
+		}
+	}	
+}
+
+function $(id){
+	return document.getElementById(id);
+}
+
+</script>

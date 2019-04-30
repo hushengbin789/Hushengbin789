@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="welcomeBox">
+		欢迎您：<span id="usernameSpan"></span>
+		<input id="btnLogout" type="button"  value="注销" />
+	</div>
+	<div id="loginBox">
+		请<a href='login.html'>登录</a>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+
+//从cookie中获取username的值。
+function getUserName() {
+	let str= document.cookie;
+	let arr = str.split("; ");
+	for(let i in arr){
+		if(arr[i].startsWith("username=")){
+			return arr[i].split("=")[1];
+		}
+	}	
+	return null
+}	
+
+window.onload = function(){
+	let username = getUserName();
+	if(username!=null){
+		$("usernameSpan").innerHTML = username;
+		$("welcomeBox").style.display = "block";
+	}else{
+		$("loginBox").style.display = "block";
+	}
+
+	$("btnLogout").onclick = function(){
+		//删除cookie（cookie没法直接删除，可以设置cookie的失效时间是过去）
+
+		let d = new Date();
+		d.setDate(d.getDate()-1);
+		document.cookie = 'username=bye;expires='+d.toGMTString();
+
+		location.reload();
+
+	}
+}	
+
+function $(id){
+	return document.getElementById(id);
+}
+
+</script>

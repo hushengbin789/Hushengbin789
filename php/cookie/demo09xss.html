@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="s"></div>
+	<textarea id="txtId" style="width:200px;height:200px" ></textarea>
+	<input id="btn" type="button" value="测试" />
+</body>
+</html>
+<script type="text/javascript">
+
+window.onload = function () {
+	
+	$("btn").onclick = function(){
+		$("s").innerHTML = $("txtId").value;
+
+	}	
+}
+
+function $(id){
+	return document.getElementById(id);
+}
+
+</script>

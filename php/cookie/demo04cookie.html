@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input id="btnGet" type="button"  value="获取指定的cookie数据" />	
+</body>
+</html>
+<script type="text/javascript">
+
+window.onload = function () {
+	
+	$("btnGet").onclick = function(){
+		//我想拿出cookie中username的值
+		// alert(document.cookie);// username=jzm; userpass=123
+
+		let str= document.cookie;
+
+		let arr = str.split("; ");
+
+		for(let i in arr){
+			if(arr[i].startsWith("username=")){
+				// arr[i]//"username=jzm"
+				// arr[i].split("=") ["username","jzm"]
+				alert(arr[i].split("=")[1]);
+				break;
+			}
+		}
+	}	
+}
+
+function $(id){
+	return document.getElementById(id);
+}
+
+</script>

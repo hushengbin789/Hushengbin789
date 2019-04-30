@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input id="btnSave" type="button"  value="再保存一个cookie" />
+	<input id="btnGet" type="button"  value="获取数据" />	
+</body>
+</html>
+<script type="text/javascript">
+
+window.onload = function () {
+	$("btnSave").onclick = function(){
+		//保存cookie：包括数据(键值对)，失效时间（GMT格式的字符串）。
+		let d = new Date();
+		d.setDate(d.getDate()+7);
+		document.cookie = 'userpass=123;expires='+d.toGMTString();
+
+	}	
+	$("btnGet").onclick = function(){
+		alert(document.cookie);
+	}	
+}
+
+function $(id){
+	return document.getElementById(id);
+}
+
+</script>
