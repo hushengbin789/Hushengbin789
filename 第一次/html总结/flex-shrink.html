@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex-shrink</title>
+    <style>
+        nav {
+            width: 500px;
+            height: 500px;
+            background-color: lightsalmon;
+            display: flex;
+        }
+        div:nth-of-type(1){
+            width: 150px;
+            height: 100px;
+            background-color: lightseagreen;
+            flex-shrink: 1;
+        }
+        div:nth-of-type(2){
+            width: 200px;
+            height: 100px;
+            background-color: lightpink;
+            flex-shrink: 2;
+        }
+        div:nth-of-type(3){
+            width: 300px;
+            height: 100px;
+            background-color: lightcoral;
+            flex-shrink: 3;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </nav>
+</body>
+</html>
