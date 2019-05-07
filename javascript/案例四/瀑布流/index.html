@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#main {
+				width: 1225px;
+				margin: 0 auto;
+			}
+			
+			.column {
+				width: 245px;
+				float: left;
+			}
+			
+			.column img {
+				width: 100%;
+				display: block;
+				border: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button id="btn">加载图片</button>
+		<div id="main">
+			<div class="column"></div>
+			<div class="column"></div>
+			<div class="column"></div>
+			<div class="column"></div>
+			<div class="column"></div>
+		</div>
+
+	</body>
+<script src="js/ajaxPromise.js"></script>
+<script>
+	var btn = document.getElementById("btn"),
+		cols = document.getElementsByClassName("column");
+	btn.onclick = function () {
+		//1.请求数据
+		var pro =  ajaxPromise({
+			url:"jsonData.json",
+			json:"json"
+		});
+
+		pro.then(function (result) {
+			for(var i = 0;i<result.length;i++) {
+				var curResult = result[i];//获取当前json对象中每个对象
+				var img = document.createElement("img");
+				img.src = curResult["src"];
+				img.height = curResult["height"];
+				var index =  getMinHeightIndex();
+				cols[index].appendChild(img);
+				console.log(index);
+			}
+		});
+		
+		function getMinHeightIndex() {
+			var index = 0;
+			for (var i = 0; i <cols.length ; i++) {
+				//假设当前第一个div的高度最低
+				if (cols[index].offsetHeight > cols[i].offsetHeight){
+					index = i;
+				}
+			}
+
+			return index;
+		}
+		
+	}
+</script>
+</html>
