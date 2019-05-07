@@ -1,0 +1,124 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+    font-size: 14px;
+    color: #424242;
+    -webkit-user-select: none;
+}
+
+ul, li {
+    list-style: none;
+}
+
+input {
+    display: block;
+    outline: none;
+}
+
+.box {
+    margin: 20px auto;
+    padding: 10px;
+    width: 800px;
+    border: 1px solid green;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px 0 #999;
+    overflow: hidden;
+}
+
+/*-------表头区域的样式-------*/
+
+.box > h2 {
+    height: 40px;
+    line-height: 40px;
+    background: lightskyblue;
+}
+
+.box > h2 > span {
+    display: inline-block; /*使用inline-block,每一个span之间的空格和ENTER都会占据一定的位置,所以需要把span之间的这些空格或者换行都取消掉才可以*/
+    width: 200px;
+    height: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+
+/*-------列表区域的样式-------*/
+
+.box > ul {
+    height: 300px;
+}
+
+.box > ul > li {
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.box > ul > li:nth-child(even) {
+    background: #eee;
+}
+
+.box > ul > li:hover {
+    background: linen;
+}
+
+.box > ul > li > span {
+    float: left;
+    width: 200px;
+    height: 100%;
+    text-align: center;
+}
+
+/*-------分页区域的样式-------*/
+.page {
+    float: right;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.page > * {
+    float: left;
+    margin-left: 5px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.page > div {
+    width: 45px;
+    text-align: center;
+    border: 1px solid lightskyblue;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.page > ul {
+
+}
+
+.page > ul > li {
+    float: left;
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid lightskyblue;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.page > ul > li:first-child {
+    margin-left: 0;
+}
+
+.page > ul > li.bg {
+    background: lightblue;
+}
+
+.page > input {
+    width: 40px;
+    border: 1px solid lightskyblue;
+    font-size: 12px;
+    text-align: center;
+}
