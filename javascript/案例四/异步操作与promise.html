@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+function runAsync1(){
+	var p = new Promise(function(resolve,reject){
+		setTimeout(function(){
+			console.log("异步1完成");
+			resolve("异步1完成后，要弹出我");
+		},2000);
+	});
+	return p;
+}
+function runAsync2(){
+	var p = new Promise(function(resolve,reject){
+		setTimeout(function(){
+			console.log("异步2完成");
+			resolve("异步2完成后，要弹出我");
+		},2000);
+	});
+	return p;
+}
+runAsync1().then(function(str){
+	alert(str);
+	return runAsync2();
+}).then(function(str){
+	alert(str);
+})
+
+
+/*
+//Promise改造ajax依赖调用
+function ajax(optionsOverride) {
+		var ajaxOptions = {
+			url: '#‘, method: 'GET‘, async: true, data: null,dataType: 'text' }
+	for (var k in optionsOverride) {
+		ajaxOptions[k] = optionsOverride[k];
+}
+	var xhr = new XMLHttpRequest();
+	return new Promise(function (resolve, reject) {
+		xhr.open(ajaxOptions.method, ajaxOptions.url, ajaxOptions.async);
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState==4){
+				if(xhr.status == 200){
+					resolve(xhr.responseText);
+				}
+				else{
+						reject("出错，状态码是："+xhr.status);
+					}
+				}
+			}
+			xhr.send();
+		}
+	);
+}
+*/
+
+//使用Promise的步骤
+//使用Promise对象时，
+//1、找到异步操作的代码，放在Prmoise构造函数的参数（函数）里
+//2、参数（函数）的第一个参数resolve是成功时调用的函数，对应then方法（函数）的第一个参数
+//3、参数（函数）的第二个参数reject是失败时调用的函数，对应then方法（函数）的第二个参数
+</script>
