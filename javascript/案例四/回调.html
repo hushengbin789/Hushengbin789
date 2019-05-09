@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+
+function func1(f){
+	console.log("func1_开始");
+	setTimeout(function(){
+		console.log("func1_的异步操作完毕")
+		f();
+	},2000)
+	console.log("func1_结束")
+}
+
+function func2(f){
+	console.log("func2_开始");
+	setTimeout(function(){
+		console.log("func2_的异步操作完毕")
+		f()
+	},2000)
+	console.log("func2_结束")
+}
+function func3(f){
+	console.log("func3_开始");
+	setTimeout(function(){
+		console.log("func3_的异步操作完毕")
+		f()
+	},2000)
+	console.log("func3_结束")
+}
+function func4(f){
+	console.log("func4_开始");
+	setTimeout(function(){
+		console.log("func4_的异步操作完毕")
+		f()
+	},2000)
+	console.log("func4_结束")
+}
+function func5(f){
+	console.log("func5_开始");
+	setTimeout(function(){
+		console.log("func5_的异步操作完毕")
+		
+	},2000)
+	console.log("func5_结束")
+}
+window.onload=function(){
+	func1(function(){
+		func3(function(){
+			func2(function(){
+				func4(func5)
+			})
+		})
+	})
+}
+
+//Promise的写法
+//func1().then(func2).then(func3).then(func4).then(func5)
+
+function $(id){
+    return document.getElementById(id);
+}
+</script>
