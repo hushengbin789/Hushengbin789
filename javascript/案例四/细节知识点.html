@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    //便利  for VS for in
+    //for循环一般我们用来遍历数组和类数组
+
+    //for in一般用来循环遍历对象 不建议用来循环遍历数组
+    //1.会把下标变为字符串
+    //2.for in循环会把私有属性或方法和公有属性或方法
+
+    var arr = new Array(100,200,200,300,400);
+    Array.prototype.getX = function(){
+
+    }
+
+    Array.prototype.getY = function(){
+
+    }
+
+
+    //私有属性
+    arr.hello = 100;
+    arr.nihao = 200;
+
+
+
+
+    for(var i = 0;i<arr.length;i++){
+        console.log(i,arr[i]);
+    }
+
+    for(var key in arr){
+        console.log(key,arr[key]);  
+    }
+
+
+    function A() {
+        this.x = 100;
+        this.y = 200;
+    }
+
+    A.prototype.getX = function () {
+        console.log(typeof arguments);
+    }
+    //我只想循环遍历出私有属性
+    //以后我们项目中很常用
+
+    var a1 = new A();
+
+
+
+    for(var key in a1){
+        //判断是不是私有属性hasOwnProperty
+        if (a1.hasOwnProperty(key)){
+            console.log(key);
+        }
+
+        //propertyIsEnumerable:是否可枚举  默认共有属性不可枚举，只能枚举私有属性
+        // if (a1.propertyIsEnumerable(key)){
+        //         console.log(key);
+
+        // }
+    }
+
+
+    var box = document.getElementById("box");
+
+    
+    
+</script>
+</body>
+</html>
