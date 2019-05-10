@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+// const person = {
+//     name: 'Lucas',
+//     brother: {
+//         name: 'Mike',
+//         fn: function() {
+//             return this.name
+//         }
+//     }
+// }
+// console.log(person.brother.fn())  //Mike
+
+
+// const foo = {  
+//     fn: function () {  
+//         setTimeout(() => {  
+//             console.log(this)//{fn: ƒ}
+//         })
+//     }  
+// } 
+// console.log(foo.fn())//undefined
+
+const foo = {  
+    fn: function () {  
+        setTimeout(function() {  
+            console.log(this)
+   //Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+        })
+    }  
+}  
+console.log(foo.fn())//undefined
+
+
+
+// var obj = {
+//     name: 'xm',
+//     sayName: function(){
+//         return () => {
+//           return () => {
+//             return () => {
+//               console.log(this.name);
+//             };
+//           };
+//        };
+//     }
+// }
+// obj.sayName()()()()
+
+
+// var length = 10;
+// function fn() {
+//     console.log(this.length);
+// }
+ 
+// var obj = {
+//   length: 5,
+//   method: function(fn) {
+//     fn();
+//     arguments[0]();
+//   }
+// };
+ 
+//  // console.log(fn)
+// obj.method(fn, 1);
+
+var length = 10;
+function fn() {
+    console.log(this.length);
+}
+ 
+var obj = {
+  length: 5,
+  method: function(fn) {
+    fn();
+    arguments[0]();
+  }
+};
+ 
+ // console.log(fn)
+obj.method(fn, 1);//2
+
+</script>
