@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .slider {
+            height: 340px;
+            width: 790px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .slider li {
+            position: absolute;
+            display: none;
+        }
+
+        .slider li:first-child {
+            display: block;
+        }
+
+        .arrow {
+            display: none;
+        }
+
+        .slider:hover .arrow {
+            display: block;
+        }
+
+        .arrow-left,
+        .arrow-right {
+            font-family: "SimSun", "宋体";
+            width: 30px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 60px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 30px;
+        }
+
+        .arrow-left:hover,
+        .arrow-right:hover {
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        .arrow-left {
+            left: 0;
+        }
+
+        .arrow-right {
+            right: 0;
+        }
+
+    </style>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+		$(function(){
+			//记录显示的图片的索引
+			//默认第一张
+			var count = 0,
+			 	 $lis=$(".slider>ul>li");
+			$(".arrow-right").click(function(){
+				count++;
+				if(count === 8){
+					count = 0;
+				}
+				$lis.eq(count).fadeIn().siblings("li").fadeOut();
+			});
+			
+			$(".arrow-left").click(function(){
+				count--;
+				if(count==-1){
+					//count = $(".slider>ul>li").length-1;
+					count = 7;
+				}
+				console.log(count);
+				$lis.eq(count).fadeIn().siblings("li").fadeOut();
+			});
+			
+		});
+    </script>
+</head>
+<body>
+<div class="slider">
+    <ul>
+        <li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/6.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/7.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/8.jpg" alt=""></a></li>
+    </ul>
+    <!--箭头-->
+    <div class="arrow">
+        <span class="arrow-left">&lt;</span>
+        <span class="arrow-right">&gt;</span>
+    </div>
+</div>
+</body>
+</html>
