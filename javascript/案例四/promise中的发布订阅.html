@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="2.subscribe.js"></script>
+<script>
+    //promise每次都会返回当前pomise的实例
+    // var promise = new Promise(function (resolve,reject) {
+    //     setTimeout(function () {
+    //         if (Math.random()>0.5){
+    //             resolve("我是1号resolve");
+    //         } else {
+    //             reject("我是1号reject");
+    //         }
+    //     },1000);
+    // });
+    //
+    // promise.then(function (result) {
+    //     console.log(result);
+    //     return result + "哈哈哈";
+    // },function (reject) {
+    //     console.log(reject);
+    //     throw new Error("错误信息");
+    //     return reject + "嘿嘿嘿";
+    // }).then(function (res) {
+    //     console.log(res);
+    // }).catch(function (e) {
+    //     console.log(e);
+    // });
+
+
+    var promise1 = new Promise(function (resolve,reject) {
+                resolve("我是1号resolve1");
+    });
+    var promise2 = new Promise(function (resolve,reject) {
+        resolve("我是2号resolve2");
+    });
+
+    // var promise3 = new Promise(function (resolve,reject) {
+    //     resolve("我是3号resolve3");
+    // });
+    //
+    // //原理就是发布订阅模式
+    // Promise.all([promise1,promise2,promise3]).then(function (result) {
+    //     console.log(result);
+    // });
+
+</script>
+</body>
+</html>
