@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script>
+
+    function f1() {
+        console.log(1);
+    }
+
+    function f2() {
+        console.log(2);
+        $callBacks.remove(f3);
+    }
+
+    function f3() {
+        console.log(3);
+    }
+
+    var $callBacks = $.Callbacks();
+    $callBacks.add(f1);
+    $callBacks.add(f2);
+    $callBacks.add(f3);
+
+    $callBacks.fire();
+</script>
+</body>
+</html>
