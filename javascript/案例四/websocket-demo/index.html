@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>1902 chart room</title>
+</head>
+<body>
+
+<ul id="list">
+
+</ul>
+
+<hr>
+
+<textarea id="info" rows="10" cols="100"></textarea>
+<img src="" width="100" height="100" id="preview"> 
+<input type="file" id="f1" onchange="preview()">
+<button onclick="send()">发送</button>
+
+<script>
+    //创建一个websocket的对象
+    var webSocket = new WebSocket("ws://10.35.165.27:8086")
+
+    //监听连接事件 onOpen client-server
+        //webSocket.send("hello from client 2")
+    }
+
+    webSocket.onmessage = function (e) {
+        console.log(e.data)
+        let list = document.querySelector("#list")
+        let li = document.createElement("li")
+        let data= JSON.parse(e.data)
+        if(data.type=="txt"){
+            li.innerText = data.msg
+        }else if(data.type=="p"){
+            var img = document.createElement("img")
+            img.src = data.msg
+            img.width = 200
+            img.height = 200
+            li.appendChild(img)
+        }
+
+
+
+        list.appendChild(li)
+    }
+
+
+    function send() {
+        let info = document.querySelector("#info").value;
+        console.log(info)
+        webSocket.send(JSON.stringify({type:"txt",msg:info}))
+    }
+
+
+    function preview(e) {
+       let f1 = document.querySelector("#f1").files[0]
+        let preview = document.querySelector("#preview")
+        console.log(f1)
+        let reader  = new FileReader()
+        reader.readAsDataURL(f1) //base64
+
+        reader.onload = function () {
+            console.log(reader.result)
+            preview.src = reader.result
+
+            //
+            let data = {
+                type:"p",
+                msg:reader.result
+            }
+
+            webSocket.send(JSON.stringify(data))
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

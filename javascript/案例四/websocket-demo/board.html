@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+    <style>
+        canvas {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+ <canvas width="800" height="500"></canvas>
+
+<script>
+    var canvas = document.querySelector("canvas")
+    //画图型 的工具包
+    var context = canvas.getContext("2d")
+    //context stroke fill
+    //画一个点
+    // context.beginPath()
+    // context.moveTo(0,0) //起点
+    // context.lineTo(800,500)  //第一个终点
+    // context.strokeStyle = "yellow"
+    // context.lineWidth = 30
+    // context.stroke() //描边
+    // context.closePath()
+    //
+    // //画第二第线
+    // context.beginPath()
+    // context.moveTo(800,0)
+    // context.lineTo(0,500)
+    // context.strokeStyle = "blue"
+    // context.lineWidth = 30
+    // context.stroke() //描边
+    // context.closePath()
+
+    context.beginPath()
+    context.moveTo(200,200)
+    context.lineTo(600,200)
+    context.lineTo(600,400)
+    // context.lineTo(200,400)
+    context.closePath()
+    context.stroke();
+    // context.fill()
+
+</script>
+
+</body>
+</html>

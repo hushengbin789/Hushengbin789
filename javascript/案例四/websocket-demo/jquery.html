@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        #box{
+            position:relative;
+            width:400px;
+            height:300px;
+            background-color: red;
+        }
+ 
+    </style>
+</head>
+<body style="height:1000px;">
+    <div id="box">
+        我是box
+    </div>
+    <input id="btn" type="button" value="删除事件"><br/>
+ 
+    <ul>
+        <li>第1个li</li>
+        <li>第2个li</li>
+        <li>第3个li</li>
+    </ul>
+    <input id="btnAdd" type="button" value="添加一个li">
+</body>
+</html>
+ 
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+ 
+$(function () {
+    //用on完成普通的绑定功能（根bind一样）
+    $("#box").on("click mouseover",function () {
+        alert(this.innerHTML);
+    });
+ 
+    $("#btn").click(function () {
+        //$("#box").off();
+        $("#box").off("click",);
+    });
+ 
+    //使用on来完成事件委托（跟delegate一样）
+    $("ul").on("click","li",function () {
+        alert(this.innerHTML);
+    });
+ 
+    let ord=3;
+    $("#btnAdd").click(function () {
+        ord++;
+        $("ul").append("<li>第"+ord+"个li</li>");
+    });
+ 
+});
+ 
+</script>
