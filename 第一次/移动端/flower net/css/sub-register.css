@@ -1,0 +1,102 @@
+body{
+    background-color:white;
+}
+/*header*/
+#mian .header{
+    height:44px;
+    line-height:44px;
+    background-color:white;
+}
+#mian .icon-fenlei{
+    color:black;
+}
+/*register-box*/
+.register-box{
+    padding:0 16px;
+    color:#b2b7bb;
+    font-size:14px;
+}
+.phone-regis-tit{
+    width: 190px;
+    margin:12px auto 44px;
+    height:25px;
+    font-size:22px;
+    color:#232628;
+    text-align:center;
+}
+.verify{
+    display:flex;
+    height:44px;
+    line-height:44px;
+    justify-content: space-between;
+    border-bottom:2px solid #f1f1f1;
+    box-sizing: border-box;
+    position:relative;
+}
+.verify>input{
+    width:100%;
+    border:0;
+    outline:none;
+
+}
+/*改变input框中的placeholder的字体颜色*/
+input::-webkit-input-placeholder {
+    color: #b2b7bb;
+}
+input:-moz-placeholder{
+    color: #b2b7bb;
+}
+input:-ms-input-placeholder{
+    color: #b2b7bb;
+}
+.verify .iconfont{
+    display: inline-block;
+    width:44px;
+    height:44px;
+    line-height:44px;
+    text-align:center;
+    position: absolute;
+    top:0;
+    right:0;
+    display: none;
+}
+.verify-code{
+    margin-top:8px;
+}
+.put-phone-code{
+    flex:1;
+}
+.get-code{
+    width:72px;
+    color:#71797f;
+}
+.verify-code .icon-home{
+    display:block;
+}
+.btn{
+    margin-top: 45px;
+}
+.btn button{
+    width:100%;
+    height:46px;
+    line-height:46px;
+    text-align:center;
+    color:white;
+    background-color:#ff734c;
+    border-radius:100px;
+    outline: none;
+    border:0;
+    box-shadow: 0 4px 8px 0 #ffb6a2;
+}
+.email-btn{
+    margin-top:34px;
+    height:36px;
+    line-height:36px;
+    text-align:center;
+}
+.email-btn>a{
+    display:inline-block;
+    color:#71797f;
+
+}
+
