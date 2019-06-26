@@ -1,0 +1,39 @@
+Vue 问题 react angular 
+vue component == react 15.0 
+
+vue3.0 /4.0 = react 16.8 + typescript 
+
+component 嵌到
+
+组件中的数据：私有的，共享的
+
+vuex作用: 嵌套组件中的传值问题
+          兄弟组件间的数据同步
+
+vuex 是一个共享状态管理容器，采用一种集中式的管理模式，管理组件间需要共享的数据，vuex是以一种单例模式存在，vuex是一种响应式的对象(observer),事件的发布和订阅模式
+
+
+vuex 是基本react redux elm 的一个改良版
+
+redux 
+
+vuex 
+redux  store  
+
+vuex  饭店
+redux 大排档
+
+
+vuex 管理共享的状态的一个容器 
+核心思想 
+1.store 共享的仓库,单向数据流 徐记蛋炒饭店
+2.state 仓库的管理对象，共享的状态(从组件中抽离出来的) ,state和组件中的data的设计是一样的，是响应式的 (eggs , rice , ....)
+3.mutations: 事件处理中心，用来根据事件请求，来修改state中的状态 海生厨师 (eggs+rice)=eggandrice
+4.actions :  事件处理中心, 用来接收组件发送过来的事件请求，判断请求合法性，或者做相应ajax操作，然后把这个处理的结果提交到 mutations中进行处理 服务员
+5.getters : 事件处理中心，用来根据请求获取最新的状态 传菜员
+
+component-dispath({action:"吃鸡蛋饭"})->actions->commit("蛋炒饭一盘")->mutations->state(rice + eggg) -> new state (蛋炒饭)->getters->component
+
+redux 
+
+ 
