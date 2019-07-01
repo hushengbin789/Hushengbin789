@@ -1,0 +1,117 @@
+
+react ->
+vue 
+angular -> typescript 1%
+
+
+vue全家桶 vue-server-render  angular+ react 
+mvvm + components + vue router +fetch/axios + vuex + elementui/iview + ssr /nuxtjs + weex (android/ios )
+
+webapp + 后台管理系统 
+
+react 
+全家桶 
+component + react router + fetch + redux + elementui / antdesign ui + ssr /nextjs + react native (android ios )
+
+vue vs react
+
+1.架构 vue完整一个mvvm框架  react 是一个组件库 
+  library(解决某个问题的一个模块) framework web解决方案
+
+2,工作流 vue mvvm 双向数据绑定  react one way data flow 
+
+3.compiler vue 基于一种模版编译 template {{}} v-text  react all in vnode(view,js,style )
+
+
+相同的地方
+vue react vnode diff 
+vue compiler template->vnode vue-tmeplate-compiler
+react vnode  babel
+
+vue react component  UI = f(state) 
+
+facebook webpack react 
+
+js 2013 2009 node 
+safari - html5 -> flash 
+1.plugin
+2, 
+adobe flash cavans 
+
+2013 vnode - translate-> browser /android /ios 
+https://github.com/facebook/react-devtools
+
+
+react 是一个组件开发库，用来开发高性能的组件 UI =f(state)
+
+react js 
+
+Vue.createElement() => vnode 
+
+template
+jsx
+
+div => {type:"div"}
+
+    => ReactDOM - > createElement(type.div)
+    => reactNative -> android ios view 
+
+
+vnode 的三个优点
+1.vnode + diff 提高HTML的性能
+2.Vnode跨平台 ReactDOM ->html ReactNative->android ios view taro 
+3.Vnode让页面开发人员可以开发andorid ios 原生的应用程序 
+  android ios java + android  oc/swift ios 
+
+
+  web 
+  android 5
+  ios 5 MAC2  IPAD 4 IPHONE 4 IWATCH 3 + 99 /299 + 1-2 
+
+  UI 
+
+
+ VUE component 
+
+ react.js 15.6以上-react.js 16.8
+ react.js 15.6 
+ 
+ 1. License BSD MIT 
+
+
+ react = preact .js 
+ jd  nerv.js 
+ dva 
+
+ reactjs + 
+
+ 2.reactjs 源代码使用es6 所有的代码使用es6  
+ 
+
+ NPM + webpack es6 babel
+ babel + webpack 
+ babel + 
+
+ npm + webpack + babel 先编译 @babel/core
+ bower + babel  直接在browser动态编译 babel-browser-king
+
+nodejs git 
+
+react 
+组件开发 
+
+jsx 是一种创建视图的一种xml写法,让开发人员可以在javascript中使用标签来创建vnode 
+
+react 一切都是js view style js 
+
+view 应该可视化的，
+
+
+js / jquery html css js  script style  all in html
+mvc mvvm angular vue     MVC MVVM -> ANGULAR mvvm mvc 前端代码碎片化 
+react vue2x             all in js  view js css 
+
+1.angular mvvm 
+2.react all in js module 
+3.angular+ react= vue 
+
