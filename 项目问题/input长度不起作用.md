@@ -43,3 +43,11 @@ input() {　　
 }
 
 这样就实现了我们想要的功能。
+```
+1. 在 Android  和 iPhone 上,input 标签 type = tel, type = number 都能调起数字键盘, 区别在于 iPhone 上能不能输入小数点
+2. 在 iPhone 上, input 标签 type = tel 调起的键盘是不能输入小数点的
+3. 在 iPhone 上, input 标签 type = number 调起的键盘可以输入小数点
+4. 在 Android 上,两种都可以输入小数点
+5. 在 Android 上, type = tel 可以输入汉字,英文字母等,type = number 不行
+6. Android 和 iPhone 对 tel 和 number 的表现刚好有点相反,在 Android 上 tel 可以输入汉字空格等,number 不行,而在 iPhone 上刚好反过来了,tel 不能输入汉字,number 可以输入汉字空格
+```
