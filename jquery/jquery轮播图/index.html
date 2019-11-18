@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>超酷jQuery 3D旋转木马效果轮播图插件|DEMO_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" href="css/carrousel.css"/>
+</head>
+<body>
+	<article class="htmleaf-container">
+		<div class="banner">
+	        <section id="dg-container" class="dg-container">
+	            <div class="dg-wrapper">
+	                <a href="#" link="http://www.htmleaf.com/">
+	                    <img src="images/1.jpg">
+	                </a>
+	                <a href="#" link="http://www.htmleaf.com/">
+	                    <img src="images/2.jpg">
+	                </a>
+	                <a href="#" link="http://www.htmleaf.com/">
+	                    <img src="images/3.jpg">
+	                </a>
+	                <a href="#" link="http://www.htmleaf.com/">
+	                    <img src="images/4.jpg">
+	                </a>
+	                <a href="#" link="http://www.htmleaf.com/">
+	                    <img src="images/5.jpg">
+	                </a>
+	            </div>
+	            <ol class="button" id="lightButton">
+	                <li index="0">
+	                <li index="1">
+	                <li index="2">
+	                <li index="3">
+	                <li index="4">
+	            </ol>
+	            <nav>
+	                <span class="dg-prev"></span>
+	                <span class="dg-next"></span>
+	            </nav>
+	        </section>
+	    </div>
+	</article>
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/carrousel.js"></script>
+    <script >
+        $(function () {
+            $('#dg-container').carrousel({
+                current: 0,
+                autoplay: true,
+                interval: 3000
+            });
+        });
+    </script>
+</body>
+</html>
