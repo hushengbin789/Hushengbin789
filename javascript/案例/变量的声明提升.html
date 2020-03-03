@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>变量的声明提升</title>
+		
+	</head>
+	<body>
+		<input  type="button" value="测试" onclick="testf()" >
+	</body>
+</html>
+<script type="text/javascript" >
+
+/*
+function testf() {
+	alert(age);//出错 age is not defined;
+}
+*/
+
+//1、变量声明提升：在函数里定义的变量，都会提升到函数的开头
+/*
+//即就是：
+//以下源代码
+function testf() {
+	alert(age);
+	var age;
+}
+
+//经过预编译后
+function testf() {
+	var age;
+	alert(age);
+}
+*/
+
+//2、变量声明提升：只提升声明，不提升赋值
+//即就是：
+//以下源代码
+function testf() {
+	alert(age);
+	var age=20;//声明并赋值
+}
+//经过预编译后
+function testf() {
+	var age;//声明
+	alert(age);
+	age=20;
+}
+</script>
