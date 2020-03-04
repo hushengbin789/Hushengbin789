@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>搜索框（onblur和onfocus）</title>
+		
+	</head>
+	<body>
+		<input id="txt" type="text" value="请输入电影名" onblur="resetText()" onfocus="clearText()" />
+		<input  type="button" value="搜索"  >
+	</body>
+</html>
+<script type="text/javascript" >
+
+function clearText() {
+	if(document.getElementById("txt").value=="请输入电影名"){
+		document.getElementById("txt").value = "";
+	}
+
+}
+function resetText(){
+	if(document.getElementById("txt").value==""){
+		document.getElementById("txt").value = "请输入电影名";	
+	}
+}
+</script>
