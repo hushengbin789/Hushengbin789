@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>随机生成5位以内的数，然后输出该数字有多少位，每位分别是什么？</title>
+</head>
+<body>
+	<input type="button"  value=" 测试 " onclick="testf()" >
+</body>
+</html>
+<script type="text/javascript">
+
+//随机生成5位以内的数，然后输出该数字有多少位，每位分别是什么？
+	
+
+function testf() {
+	//随机生成5位以内的数
+	var num = parseInt(Math.random()*100000);//1234;
+	console.log("随机的数是："+num);
+	
+	var arr=[];
+	while(num>0){
+		//对10求余
+		arr.unshift(num%10);//1,2,3,4,
+		//对10 取整
+		num = parseInt(num/10);//123  12,1
+	}
+
+	console.log("该数有多少位："+arr.length);
+	console.log("每位的数组：");
+	for(var i in arr){
+		console.log(arr[i]);
+	}
+
+}
+
+</script>
