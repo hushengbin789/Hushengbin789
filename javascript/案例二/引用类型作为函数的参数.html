@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>引用类型作为函数的参数</title>
+</head>
+<body >
+	<input id="btn01" type="button" value="测试" onclick="testf()" />
+</body>
+</html>
+<script type="text/javascript">
+
+//引用类型作为函数的参数：实参给形参传的是地址（而不是真正的数据）
+
+//功能：冒泡排序,给数组进行排序
+//参数：数组
+//返回值：排好序的数组
+
+function bubble(arr){
+
+	for(var i=0;i<arr.length-1;i++){
+		for(var j=0;j<arr.length-1-i;j++){
+			if(arr[j]>arr[j+1]){
+				var temp = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = temp;
+			}
+		}
+	}
+
+	return arr;
+	
+}
+
+function testf(){
+	var arr1 = [5,8,1,9,20,7];
+
+	arr1 = bubble(arr1);
+
+	console.log(arr1);
+
+
+}
+
+
+
+//当前窗口的内容加载完毕
+window.onload = function () {
+
+
+}	
+
+//内存是存放数据的
+//cpu:中央处理单元，执行代码的
+
+</script>
