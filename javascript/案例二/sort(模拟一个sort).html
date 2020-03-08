@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>sort(模拟一个sort)</title>
+	</head>
+	<body>
+		<input type="button" value="  测试  " onclick ="testf()" />			
+	</body>
+</html>
+<script type="text/javascript">
+
+var compare1 = function(a,b){
+	return a-b;
+};	
+
+
+var compare2 = function(a,b){
+	return b-a;
+};	
+
+//一、官方函数sort的使用	
+// function compare1(a,b){
+// 	return a-b;
+// }
+// function compare2(a,b){
+// 	return b-a;
+// }	
+
+function testf() {
+	// var arr = [2,5,1,3,8];
+	var arr = [15,12,1,3,8];
+	arr.sort(compare2);
+	console.log(arr);
+}
+
+//二、我的sort(模拟官方函数sort)
+
+// function compare1(a,b){
+// 	return a-b;
+// }
+
+// function compare2(a,b){
+// 	return b-a;
+// }
+
+// function mySort(arr,f){
+// 	for(var i=0;i<arr.length-1;i++){
+// 		for(var j=0;j<arr.length-1-i;j++){
+// 			if(f(arr[j],arr[j+1])>0){
+// 				var temp = arr[j];
+// 				arr[j] = arr[j+1];
+// 				arr[j+1] = temp;
+// 			}
+// 		}
+// 	}	
+// }
+
+// function testf() {
+// 	var arr = [15,12,1,3,8];
+// 	mySort(arr,compare2);
+// 	console.log(arr);
+// }
+
+</script>
