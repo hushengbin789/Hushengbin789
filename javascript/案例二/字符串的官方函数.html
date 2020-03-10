@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串的官方函数</title>
+</head>
+<body>
+	<input type="button" value="测试" onclick="testf()" >
+</body>
+</html>
+<script type="text/javascript">
+
+function testf() {
+	
+	//1、 fromCharCode():静态方法
+	// var code = String.fromCharCode(97);
+	// console.log(code);
+
+	//2、search
+	// var str="Visit W3School!"
+	// document.write(str.search(/w3School/i));//i：忽略大小写
+
+
+	//3、match:匹配
+
+	// var str="Hello world  World   world!"
+	// document.write(str.match("world") + "<br />")
+	// document.write(str.match("World") + "<br />")
+	// document.write(str.match(/World/ig) + "<br />");//g是全局的意思
+	// document.write(str.match("worlld") + "<br />")
+	// document.write(str.match("world!"))
+
+
+	//4、replace
+	// var str="Visit microsoft  Microsoft  Microsoft!"
+	// document.write(str.replace("Microsoft", "W3School")+"<br/>")
+	// document.write(str.replace(/Microsoft/i, "W3School")+"<br/>")
+	// document.write(str.replace(/Microsoft/ig, "W3School")+"<br/>")
+
+	//5、slice
+	// var str="Hello happy world!"
+	// document.write(str.slice(6,13));
+
+	// var str="Hello happy world!"
+	// document.write(str.slice(-3,-1));
+
+	//6、
+	var str="How are you doing today?"
+
+	// var arr = str.split(" ");
+	var arr = str.split("o");
+	for(var i in arr){
+		console.log(arr[i]);
+	}
+
+	// document.write(str.split(" ") + "<br />")
+	// document.write(str.split("") + "<br />")
+	// document.write(str.split(" ",3))
+
+
+
+
+}
+
+	
+</script>
