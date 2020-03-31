@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>递归</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//阶乘算法
+function jiecheng(num){
+	if (num == 1){
+		return 1;
+				
+	}
+	return num*jiecheng(num-1);
+}
+console.log(jiecheng(5))
+
+
+		
+//斐波拉契题 1， 1， 2， 3， 5， 8， 13， 21 。。。
+        
+function fei(num) {
+        	
+        if(num==0||num==1){
+        	return 1;
+        }
+        	return fei(num-1)+fei(num-2);
+}
+console.log(fei(5))
+</script>

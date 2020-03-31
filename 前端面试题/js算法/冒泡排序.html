@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冒泡排序</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+function sort(elements) {
+	for(var i=0;i<elements.length - 1;i++){
+		for (var j=0;j<elements.length-i-1;j++){
+           //两个for循环 依次比较 把较大的数记录下来给后面 依次类推 达到排序的结果
+			if(elements[j]>elements[j+1]){
+				var swap = elements[j];
+				elements[j]=elements[j+1];
+				elements[j+1]=swap;
+			}
+		}
+				
+	}
+	return elements;
+}
+var elements = [3,1,5,9,6];
+console.log(sort(elements));
+//输出结果[1, 3, 5, 6, 9]
+
+</script>

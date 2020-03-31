@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组去重</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+function qc(arr1){
+//创建一个新的数组
+	let arr = [];
+//遍历数组arr1
+	for( let i = 0; i < arr1.length; i++) {
+//如果arr1不在arr中 会返回-1 那么将和这个元素存在新建的arr中
+		if( arr.indexOf(arr1[i]) == -1) {
+				arr.push(arr1[i])
+		}
+	}
+//返回arr
+	return arr;
+}
+arr1 = ["1","1","3","5","2","24","4","4","a","a","b"];
+		
+console.log(qc(arr1));
+//输出结果["1", "3", "5", "2", "24", "4", "a", "b"]
+</script>

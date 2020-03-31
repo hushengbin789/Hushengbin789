@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快速排序</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+var quicksort = function(arr){
+	if(arr.length<=1){
+		return arr;
+	}
+    //取中间值作为一个标杆进行比较
+	var midIndex=Math.floor(arr.length/2);
+	var midIndexVal=arr.splice(midIndex,1);
+  //新建两个数组存放比中间值大的或者小的
+	var left=[];
+	var right=[];
+	for(var i=0;i<arr.length;i++){
+	    if(arr[i]<midIndexVal){
+           //如果比中间值小放在左面
+		left.push(arr[i]);
+            }else{
+          //如果比中间值大放在右面
+	        right.push(arr[i]);
+	    }
+      }
+   //依次将两边的数组在调用quicksort函数最后进行concat连接数组
+     return quicksort(left).concat(midIndexVal,quicksort(right));
+}
+	var b = [1,6,2,8,4,3,70,50,30]
+	console.log(quicksort(b));
+//[1, 2, 3, 4, 6, 8, 30, 50, 70]  
+</script>
