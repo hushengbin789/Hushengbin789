@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="zh-en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组扩展 input搜索框</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 13px;
+            color: #424242;
+        }
+        
+        ul>li {
+            list-style: none;
+        }
+        
+        #demo-wrapper {
+            position: relative;
+            width: 400px;
+            border: 1px solid #ccc;
+            margin: 100px auto 0px;
+            border-radius: 10px;
+            padding: 10px 15px;
+        }
+        /* ············································· */
+        
+        #demo-wrapper .wrapper-date {
+            /* 滚动条自适应 */
+            overflow-y: auto;
+            /* CSS min-height最小高度max-height最大高度 */
+            max-height: 200px;
+            /* max-width: 200px; */
+        }
+        /* ················· */
+        
+        #demo-wrapper .wrapper-date::-webkit-scrollbar {
+            /*滚动条整体样式*/
+            width: 6px;
+            /*高宽分别对应横竖滚动条的尺寸*/
+            height: 0;
+        }
+        
+        #demo-wrapper .wrapper-date::-webkit-scrollbar-thumb {
+            /*滚动条里面小方块*/
+            border-radius: 3px;
+            /* box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2); */
+            /*内投影*/
+            background: #d1d4db;
+        }
+        
+        #demo-wrapper .wrapper-date::-webkit-scrollbar-thumb:hover {
+            background: #e2e5ee;
+        }
+        
+        #demo-wrapper .wrapper-date::-webkit-scrollbar-track {
+            /*滚动条里的轨道*/
+            box-shadow: none;
+            /* box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2); */
+            background: rgb(246, 246, 246);
+            border-radius: 3px;
+        }
+        /* ············································· */
+        
+        #demo-wrapper .seek {
+            position: relative;
+            width: 100%;
+            height: 25px;
+            margin-bottom: 20px;
+        }
+        
+        #demo-wrapper .seek-input {
+            width: 210px;
+            height: 100%;
+            border: 1px solid #777;
+            border-radius: 5px;
+            padding: 0 5px;
+            outline: none;
+            margin-left: 9px;
+        }
+        
+        #demo-wrapper .seek-select {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 155px;
+            text-align: center;
+            padding-top: 2px;
+        }
+        
+        #demo-wrapper .seek-select>.box {
+            font-size: 12px;
+            width: 48px;
+            height: 20px;
+            line-height: 20px;
+            float: left;
+            margin-right: 3px;
+            border-radius: 5px;
+            background-color: #fff;
+            color: rgb(70, 119, 197);
+            cursor: pointer;
+        }
+        
+        #demo-wrapper .seek-select>.box:hover {
+            background-color: rgb(108, 154, 230);
+            color: #fff;
+        }
+        
+        #demo-wrapper .seek-select>.click {
+            background-color: rgb(70, 119, 197);
+            color: #fff;
+        }
+        
+        #demo-wrapper .date {
+            position: relative;
+            width: 100%;
+            height: 65px;
+            box-sizing: border-box;
+            padding: 10px 10px 10px 60px;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        #demo-wrapper .date .img {
+            box-sizing: border-box;
+            position: absolute;
+            top: 8px;
+            left: 5px;
+            width: 50px;
+            height: 50px;
+            padding: 5px;
+        }
+        
+        #demo-wrapper .date .img>img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #demo-wrapper .date p.name {
+            height: 18px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        #demo-wrapper .date p.signature {
+            height: 14px;
+            font-size: 10px;
+            color: rgba(75, 74, 74, 0.829);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo-wrapper">
+        <div class="seek">
+            <input id="seek_input" class="seek-input" type="text">
+            <div class="seek-select">
+                <span id="sex_m" class="box">男</span>
+                <span id="sex_f" class="box">女</span>
+                <span id="sex" class="box click">全部</span>
+            </div>
+        </div>
+        <div class="wrapper-date">
+            <div class="date">
+                <div class="img">
+                    <img src="http://a-1.vip/demo/ele/image/T.png" alt="">
+                </div>
+                <p class="name">王港</p>
+                <p class="signature">颈椎不好~</p>
+            </div>
+            <div class="date">
+                <div class="img">
+                    <img src="./image/2.png" alt="">
+                </div>
+                <p class="name">刘莹</p>
+                <p class="signature">我是谁</p>
+            </div>
+            <div class="date">
+                <div class="img">
+                    <img src="./image/3.png" alt="">
+                </div>
+                <p class="name">王秀莹</p>
+                <p class="signature">我很好看</p>
+            </div>
+        </div>
+    </div>
+<!--源地址 http://a-1.vip/demo/ele/ -->
+    <script>
+        // 原生js实现，异步加载、可以实现按需加载、
+        function loadScript(url, callback) {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            if (script.readyState) {
+                script.onreadystatechange = function() {
+                    if (script.readyState == "complete" || script.readyState == "loaded") {
+                        callback();
+                    }
+                }
+            } else {
+                script.onload = function() {
+                    callback();
+                }
+            }
+            script.src = url;
+            document.head.appendChild(script);
+        }
+
+        // 演示例程、
+        loadScript('http://a-1.vip/demo/ele/src/date.js', function() {
+            // 执行'js/demo.js'里面的函数、
+            // 当前列表的数组、
+            var currentDate = [];
+            var demo_wrapper = document.getElementById('demo-wrapper');
+            var dateDom = demo_wrapper.getElementsByClassName('wrapper-date')[0];
+            // 事件 封装兼容性的写法、
+            // 参数：元素对象,事件类型(文本),执行的函数、
+            function addEvent(elem, type, handle) {
+                if (elem.addEventListener) {
+                    elem.addEventListener(type, handle, false);
+                } else if (elem.attachEvent) {
+                    elem.attachEvent('on' + type, function() {
+                        handle.call(elem);
+                    });
+                } else {
+                    elem['on' + type] = handle;
+                }
+            }
+
+            function loadData(dom, dateArr) {
+                dom.innerHTML = '';
+                dateArr.forEach(function(ele, index, self) {
+                    var div = document.createElement('div');
+                    div.className = 'date';
+                    div.innerHTML += '<div class="img"><img src="' + ele.src + '" alt="' + ele.name + '"></div>';
+                    div.innerHTML += '<p class="name">' + ele.name + '</p>';
+                    div.innerHTML += '<p class="signature">' + ele.des + '</p>';
+                    dom.appendChild(div);
+                });
+            }
+
+            (function() {
+                // 初始化
+                loadData(dateDom, personArr);
+                currentDate = personArr;
+            }());
+
+            // 绑定事件
+            (function() {
+                var arr = [];
+                var seek_input = document.getElementById('seek_input');
+                var sex = document.getElementById('sex');
+                var sex_f = document.getElementById('sex_f');
+                var sex_m = document.getElementById('sex_m');
+
+                function style(event) {
+                    if (event) {
+                        sex.className = 'box';
+                        sex_f.className = 'box';
+                        sex_m.className = 'box';
+                        event.className = 'box click';
+                    }
+                }
+                addEvent(sex, 'click', function() {
+                    style(this);
+                    // 全部
+                    loadData(dateDom, currentDate);
+                });
+                addEvent(sex_f, 'click', function() {
+                    style(this);
+                    // 女
+                    arr = currentDate.filter(function(ele, index) {
+                        return ele.sex == 'f';
+                    });
+                    loadData(dateDom, arr);
+                });
+                addEvent(sex_m, 'click', function() {
+                    style(this);
+                    // 男
+                    arr = currentDate.filter(function(ele, index) {
+                        return ele.sex == 'm';
+                    });
+                    loadData(dateDom, arr);
+                });
+                addEvent(seek_input, 'input', function() {
+                    if (seek_input.value != '') {
+                        var str = seek_input.value;
+                        arr = personArr.filter(function(ele, index) {
+                            // 根据编辑框的文本筛选
+                            var reg = new RegExp(str, 'g');
+                            if (reg.test(ele.name)) {
+                                return true;
+                            } else if (reg.test(ele.des)) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        });
+                        loadData(dateDom, arr);
+                        currentDate = arr;
+                    } else {
+                        loadData(dateDom, personArr);
+                        currentDate = personArr;
+                    }
+                });
+            }())
+        });
+    </script>
+</body>
+
+</html>
