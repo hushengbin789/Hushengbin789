@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>返回顶部</title>
+    <style>
+        #backTop{display:none;width:56px;height:56px;background-color: #ccc;;background: url("../img/01.jpg") center no-repeat;
+            position: fixed;right: 8px;bottom: 50px;cursor: pointer;z-index: 22;}
+        #backTop:hover{background-image: url("../img/02.jpg");background-color: rgb(46, 45, 45);}
+    </style>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+    <div style="height: 1200px;background-color: aquamarine;">13213123</div>
+    <div id="backTop">
+        返回顶部
+    </div>
+</body>
+<script>
+    $(window).scroll(function() {
+        if($(window).scrollTop() >= 100){
+            $('#backTop').fadeIn(300);
+        }else{
+            $('#backTop').fadeOut(300);
+        }
+    });
+    //点击返回顶部
+    $('#backTop').click(function(){$('html,body').animate({scrollTop: '0px'}, 100);});
+</script>
+</html>
