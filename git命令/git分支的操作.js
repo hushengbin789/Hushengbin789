@@ -9,7 +9,7 @@
     git config --global user.email 就可以看到自己以前配置的 email）
 
     注意：--global 是在全局下的一个git仓库设置的用户名和用户邮件 以后可以通过快照概念 看项目是谁写的 他的邮箱是什么，
-    如果项目想改成别的别字 那就不加 –global 直接用 git config user.name "yuanjingli" 但设置的环境必须是一个git仓库
+    如果项目想改成别的别字 那就不加 –global 直接用 git config user.name "abin" 但设置的环境必须是一个git仓库
  *
  *
  *   在没有使用分支之前，git会默认有一个分支，
@@ -82,34 +82,7 @@
  *     请勿在，master路径下执行如下操作，容易引起合并冲突
  *     $ git add .
  *     $ git commit -m "修改一次"
- *   
- *      
- *    我的用户名:fanchengyu
- *    我的密码：553789598fcy
- *
- *
- *
- *
- *
- *
- *
- *                   
- *              
- *      
- *        
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
+
  *
  *
  *
