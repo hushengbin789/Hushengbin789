@@ -1,5 +1,5 @@
 ## 类型约束
-```
+```ts
 // 约束变量必须为string类型，如果赋值为数字或其他类型则立马报错(静态的，不需要运行)
 let say: string = "hello";
 
@@ -19,19 +19,19 @@ function never():never {
 }
 ```
 ## 联合类型
-```
+```ts
  // 约束变量可以是多种类型
 let numStr:string|number = 123;
 numStr = 'abc';
 ```
 ## 字面量类型
-```
+```ts
 // 字面量类型 约束变量只能赋值 "男" 或 "女" 
 let gender: "男" | "女";  gender = "男";  gender = "女";
 
 ```
 ## 函数重载
-```
+```ts
 // 约束函数传统的a、b参数'保持一致'
 function xxx(a: string, b: string): string;
 function xxx(a: number, b: number): number;
@@ -47,19 +47,19 @@ function xxx(a: string | number, b: string | number) {
 xxx(123, 13);
 ```
 ## 类型别名
-```
+```ts
 // 将一种类型单独抽离出来。(自定义类型)
 type Gender = "男" | "女";
 let gender: Gender;  gender = "女";  gender = "男";
 ```
 ## 类型枚举
-```
+```ts
 // 会参与编译，用于后期可能会批量修改的变量值
 enum _gender {  male = "小哥哥", female = "小姐姐"  }
 let gender:_gender = _gender["man"]; // '小哥哥'
 ```
 ## 定义接口
-```
+```ts
 // 定义接口(约束对象)
 interface User {
     name: string | null;
@@ -91,7 +91,7 @@ interface C extends A, B { T3:boolean; }
 let oA:C = {  T1:"123", T2:456, T3:true  } // oA 被赋值时必须为 T1:string,T2:number,T3:boolean 不能多也不能少，只能刚刚好
 ```
 ## TS修饰符
-```
+```ts
 // readonly -- 被修饰的字段为只读类型 (不在编译结果中)
 interface user1 {
     readonly id: string;
@@ -116,7 +116,7 @@ user1.xxx = false;
 arr1 = [1, 2, 3]; // 因为是let不是const赋值，arr1可以整个被修改。
 ```
 ## TS类
-```
+```ts
 // 访问修饰符(public、private)可以控制类中的某个成员的访问权限
 // -  public -- 默认公开的，所有代码均可访问。
 // - private -- 私有的，只有在类中可以访问。不对外暴露，防止外部修改
@@ -148,7 +148,7 @@ console.log(user3.age); // 26
 user3.age = -300.5;     // 18
 ```
 ## 泛型
-```
+```ts
 // 泛型：是指附属于函数、类、接口、类型别名之上的类型。
 // 泛型相当于是一个类型变量，在定义时，无法预先知道具体的类型，可以用该变量来代替，只有到调用时才能确定它的类型。(自动推导)
 function take<T>(arr:T[], n:number):T[] {

@@ -8,7 +8,7 @@
 具体代码如下：
 
 1.首先在我们的根组件APP.vue里面,写入刷新方法，路由初始状态是显示的
-```
+```html
 <template>
   <div id="app">
         <router-view v-if="isRouterAlive"></router-view>

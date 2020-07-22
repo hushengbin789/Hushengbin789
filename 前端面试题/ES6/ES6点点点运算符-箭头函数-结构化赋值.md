@@ -1,5 +1,5 @@
 ## ES6 - 点点点运算符
-```
+```js
 // ...arr  ---  收集
 function sum(...arg) {
     // ...arg
@@ -34,7 +34,7 @@ let newObj = {...obj_1, ...obj_2, test: 'hi~' }
 console.log(newObj);
 ```
 ## ES6 - 结构化赋值
-```
+```js
 let obj = { a: 1, b: 2, c: 3 }
 let { a, b, c } = obj;
 console.log(a, b, c); // 1 2 3
@@ -54,7 +54,7 @@ let [, , z, s = 5] = arr;
 console.log(z, s); // 3 5
 ```
 ## ES6 - 箭头函数
-```
+```js
 // 箭头函数特点：
 // 1、不用写function关键字
 // 2、只能作为函数使用不能new，没有原型

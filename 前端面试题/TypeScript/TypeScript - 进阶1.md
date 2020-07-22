@@ -1,5 +1,5 @@
 ## 抽象类
-```
+```ts
  // 模版模式：有些方法所有的子类实现的流程完全一致，只是流程中的某个步骤(规则)具体实现不一致。可以将该方法提取到父类，在父类中完成整个流程的实现。
 
   // abstract -- 抽象类(对象不能单独创建，只能被继承)
@@ -47,7 +47,7 @@
   if (b instanceof B) { // 触发类型保护
     b.e = undefined;  }
 ```
-```
+```ts
 export interface IFireShow {
       name: string;
     }
@@ -71,7 +71,7 @@ export interface IFireShow {
     // interface C extends Aobj,Bobj {   }
 ```
 ## 静态成员
-```
+```ts
 // 实例成员：属于某个类的对象。'new User().log()'
 // 静态成员(static)：属于某个类。'User.login()'
 class User {
@@ -91,7 +91,7 @@ console.log(User.Users);
 console.log(User.login("name_111", "pwd_111"));
 ```
 ## 设计模式-单例模式
-```
+```ts
   // 所谓单例，就是整个程序有且仅有一个实例。该类负责创建自己的对象，同时确保只有一个对象被创建。
 
   class Board {

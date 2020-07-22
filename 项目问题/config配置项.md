@@ -1,6 +1,6 @@
 ## 配置项
 #### dev.env.js
-```
+```js
 'use strict'
 const merge = require('webpack-merge')
 const prodEnv = require('./prod.env')
@@ -18,7 +18,7 @@ module.exports = merge(prodEnv, {
 
 ```
 #### index.js
-```
+```js
 'use strict'
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
@@ -111,7 +111,7 @@ module.exports = {
 
 ```
 #### prod.env.js
-```
+```js
 'use strict'
 module.exports = {
   NODE_ENV: '"production"',

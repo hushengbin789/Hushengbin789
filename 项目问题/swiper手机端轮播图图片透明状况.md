@@ -1,5 +1,5 @@
 /* 显示手机端 的轮播图 */
-```
+```css
 .banners-phone img{
     width: 100vw;
     height: 32vw;

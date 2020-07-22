@@ -5,7 +5,7 @@ FormData对象用以将数据编译成键值对，以便用XMLHttpRequest来发�
 
 从零开始创建FormData对象
 你可以自己创建一个FormData对象，然后调用它的append()方法来添加字段，像这样：
-```
+```js
 var formData = new FormData();
 
 formData.append("username", "Groucho");
@@ -30,29 +30,30 @@ request.send(formData);
 
 通过HTML表单创建FormData对象
 想要构造一个包含Form表单数据的FormData对象，需要在创建FormData对象时指定表单的元素。
-
+```js
 var formData = new FormData(someFormElement);
-
+```
 示例：
-
+```js
 var formElement = document.querySelector("form");
 var request = new XMLHttpRequest();
 request.open("POST", "submitform.php");
 request.send(new FormData(formElement));
-
+```
 你还可以在创建一个包含Form表单数据的FormData对象之后和发送请求之前，附加额外的数据到FormData对象里，像这样：
+```js
 var formElement = document.querySelector("form");
 var formData = new FormData(formElement);
 var request = new XMLHttpRequest();
 request.open("POST", "submitform.php");
 formData.append("serialnumber", serialNumber++);
 request.send(formData);
-
+```
 这样你就可以在发送请求之前自由地附加不一定是用户编辑的字段到表单数据里
 
 使用FormData对象上传文件
 你还可以使用FormData上传文件。使用的时候需要在表单中添加一个文件类型的input：
-```
+```html
 <form enctype="multipart/form-data" method="post" name="fileinfo">
   <label>Your email address:</label>
   <input type="email" autocomplete="on" autofocus name="userid" placeholder="email" required size="32" maxlength="64" /><br />
@@ -65,7 +66,7 @@ request.send(formData);
 <div></div>
 ```
 然后使用下面的代码发送请求：
-```
+```js
 var form = document.forms.namedItem("fileinfo");
 form.addEventListener('submit', function(ev) {
 
@@ -92,12 +93,13 @@ form.addEventListener('submit', function(ev) {
 注意：如果FormData对象是通过表单创建的，则表单中指定的请求方式会被应用到方法open()中 。
 
 你还可以直接向FormData对象附加File或Blob类型的文件，如下所示：
-
+```js
 data.append("myfile", myBlob, "filename.txt");
+```
 使用append()方法时，可以通过第三个可选参数设置发送请求的头 Content-Disposition 指定文件名。如果不指定文件名（或者不支持该参数时），将使用名字“blob”。
 
 如果你设置正确的配置项，你也可以通过jQuery来使用FormData对象：
-```
+```js
 var fd = new FormData(document.querySelector("form"));
 fd.append("CustomField", "This is some extra data");
 $.ajax({

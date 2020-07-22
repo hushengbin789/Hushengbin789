@@ -1,5 +1,5 @@
 ## Element 事件
-```
+```js
         // 绑定事件有三种形式、
         var div = document.getElementsByTagName('div')[0];
         // Top 1  onclick

@@ -1,6 +1,6 @@
 HTML5加入了新的input类型 number，这是方便数量输入的。如果是在移动端中，属性type=”number”和type=”tel”会唤起系统的数字键盘，这对于交互还是挺友好的。
 
-```
+```html
 <input type="text"  maxlength="5" />   //可以
 
 <input type="number"  maxlength="5" />  //没有效果
@@ -36,11 +36,12 @@ type的属性值 有一个tel 定义用于电话号码的文本字段
 这样写maxlength会生效 由于是电话键盘 除了'-+.' 还允许输入‘#*’时  此时 this.phone 就是 输入框中的值 
 
 因此还需要通过js代码 处理这两个符号 添加一个input方法：
-
+```js
 input() {　　
 
 　　this.phone = this.phone.replace(/[^0-9]/g, '');
 }
+```
 
 这样就实现了我们想要的功能。
 ```

@@ -7,7 +7,7 @@
 （1）数组的解构赋值
 
 js部分：
-```
+```html
 <script>
 //数组的解构赋值
 let [a,b,c]=[4,5.6]
@@ -18,7 +18,7 @@ console.log(c) //6
 ```
 函数传参的解构赋值
 js部分：
-```
+```js
 <script>
 //ES6函数传参解构赋值
 function fn1([a,b]){
@@ -26,8 +26,9 @@ return a+b;
 }
 console.log(fn1[6,9])
 ```
+
+```js
 //ES5传参解构赋值
-```
 function fn(x,y){
 return x+y;
 }
@@ -35,7 +36,7 @@ console.log(fn(4,6))
 </script>
 ```
 交换两个变量的值
-```
+```js
 //ES5交换两个变量的值
 var a=1;//把a的值赋给c
 var b=2;//把b的值赋给a
@@ -43,14 +44,14 @@ var c=3;//把c的值赋给b
 a=b；
 b=c；
 ```
-```
+```js
 //ES6交换两个变量的值
 let a=5;
 let b=3;
 [a,b]=[b,a]
 ```
 设置函数默认值
-```
+```js
 //ES5中设置函数默认值
 function fn(x,y){
 x=x||10;
@@ -59,7 +60,7 @@ return x+y;
 }
 console.log(fn(70,30))
 ```
-```
+```js
 //ES6中设置函数的默认值
 function fn1(x=20,y=30){
 return x+y;
@@ -67,25 +68,25 @@ return x+y;
 console.log(fn1(60,70))
 ```
 模板字符串
-```
+```js
 //ES5
 var str='hello
 world';
 ```
-```
+```js
 //ES6
 var str=`hello
 
 world`;
 ```
-```
+```js
 var uname='张三';
 var age=18;
 var hobby='听音乐';
 console.log(我的名字叫做${uname}今年${age}岁我的爱好是${hobby})
 ```
 箭头函数
-```
+```js
 let fun=>x*x
 console.log(fun(8));
 

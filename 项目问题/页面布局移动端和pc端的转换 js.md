@@ -7,7 +7,7 @@
 
 1）判断你的页面是在移动端还是在PC端打开？
 
-```
+```js
 function IsPC() {
 	var userAgentInfo=navigator.userAgent;//获取当前浏览器的信息
 	var Agents=["Android", "iPhone","SymbianOS", "Windows Phone","iPad", "iPod"];
@@ -24,7 +24,7 @@ function IsPC() {
 ```
 
 2）在页面初始化的时候判断当前页面信息显示页面
-```
+```js
 $(document).ready(function(){
     	if(IsPC()){
 		$("#pcPage").show();//pc端页面显示

@@ -27,7 +27,7 @@ CSS Modules不是将CSS改造的具有编程能力，而是加入了局部作用
 
 启用 CSS Modules
 CSS Modules 很容易学。webpack 自带的 css-loader 组件，自带了 CSS Modules，通过简单的配置即可使用。
-```
+```js
 // webpack.config.js
 const path = require('path')
 

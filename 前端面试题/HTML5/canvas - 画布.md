@@ -1,5 +1,5 @@
 ## canvas - 绘制线形 / 填充
-```
+```html
     <!-- canvas画布 -->
     <canvas id="demo" width="600" height="400"></canvas>
     <script>
@@ -24,7 +24,7 @@
 ```
 ![img](https://box.kancloud.cn/d70423c591dae71f92b402356d226646_237x177.png)
 ## canvas - 绘制矩形 / 圆 / 圆角矩形
-```
+```js
         // 画笔 - 获取画布上下文对象、2D 目前没有3D
         var ctx = demo.getContext('2d');
 
@@ -59,7 +59,7 @@
 
 ![img](https://box.kancloud.cn/922e2b5e18fe0444b6aa6af0c9c8f7f7_827x393.png)
 ![img](https://box.kancloud.cn/7639a48e5a03495d7d807f03b70a95a4_620x422.png)
-```
+```js
         // 画笔 - 获取画布上下文对象、2D 目前没有3D
         var ctx = demo.getContext('2d');
 
@@ -75,7 +75,7 @@
 ![img](https://box.kancloud.cn/6bd260619415e37b4134fef2dbe8512d_130x123.png)
 
 ## canvas - 贝塞尔曲线
-```
+```js
         // 2次 贝塞尔曲线 - ctx.quadraticCurveTo(x1, y1, ex, ey);
         // x1,y1 == 控制点、ex,ey == 结束点
         ctx.moveTo(100, 100);
@@ -92,7 +92,7 @@
 ```
 ![img](https://box.kancloud.cn/78785980cfc7983a575353e7c3a855e0_586x269.png)
 ## canvas - 变换 / 图案 / 其他
-```
+```js
         // 画笔 - 获取画布上下文对象、2D 目前没有3D
         var ctx = demo.getContext('2d');
         // 平移 - ctx.translate(dx, dy);    (放在绘图之前)
@@ -183,7 +183,7 @@
 ![](https://box.kancloud.cn/597b7c27612d66f4e9fa5dfb0af0c711_343x145.png)
 
 ## canvas - 裁剪
-```
+```js
         ctx.arc(200, 200, 50, 0, Math.PI * 2, true); // 圆
         ctx.stroke();
         ctx.clip(); // 裁剪
@@ -192,7 +192,7 @@
 ```
 ![](https://box.kancloud.cn/dd8b1fa038241f49c87343ded480dfdc_123x119.png)
 ## canvas - 绘制图片
-```
+```js
         // 绘制图片 - 
         var img = new Image();
         img.onload = function() {
@@ -210,7 +210,7 @@
 ```
 ![](https://box.kancloud.cn/08fc5176703d476d5586ef40b34653a7_819x320.png)
 ## canvas - 其他
-```
+```js
         // 将画板导出为图片编码 (受同源策略影响) data:image/png;base64
         var base64 = demo.toDataURL();
         console.log(base64);

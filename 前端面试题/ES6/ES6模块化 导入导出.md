@@ -10,7 +10,7 @@ ES6的模块化的基本规则或特点：
 
 - 4：一个模块可以导入别的模块
 ### ES6 导入导出案例：
-```
+```js
 //1.default 只能导出一次
 var name = 'name1';
 exprot default name;
@@ -40,7 +40,7 @@ import * as allObj from './XX.js';
 }
 ```
 
-```
+```js
     <!-- module -- 标记当前引入的文件为模块 -->
     <script type="module" src="./src/entrance.js"></script>
 

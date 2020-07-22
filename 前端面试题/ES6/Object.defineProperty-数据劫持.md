@@ -1,5 +1,5 @@
 ## Object.defineProperty
-```
+```js
 // 在对象上定义一个新的、具有详细描述的属性。或者修改一个对象的现有属性、
 // Object.defineProperty(对象,属性,描述符);     返回值：修改后的对象、
 let obj = {}
@@ -27,7 +27,7 @@ Object.defineProperty(obj, 'name', {
     },
 })
 ```
-```
+```js
 // 简写形式
 let newObj = {
     tempValue: 'test',
@@ -43,13 +43,13 @@ console.log( newObj.name );
 注意：如果描述符中同时出现，value、writable 和 set、get两组的话，会冲突。切记不要同时使用。
  作用：双向数据绑定的核心方法，主要做数据劫持操作 (监控属性变化) ，同时是后期ES6中很多语法糖底层实现核心的方法。
 ## ES6 - 数据劫持
-```
+```js
 // 将对象的属性名打包成数组、
 let obj = { a: 1, b: 2, c: 3 }
 console.log( Object.keys(obj) ); // ["a", "b", "c"]
 Object.keys(obj).forEach((key) => { console.log(key) })
 ```
-```
+```js
 // 原对象
 let oData = {
         val: 'test'

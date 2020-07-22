@@ -4,13 +4,13 @@
 转载请加链接 https://github.com/hushengbin789/Hushengbin789/tree/master/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98
 
 在创建前加载
-```
+```js
 created () {
     this.initWebSocket()
 }
 ```
 在方法中应用
-```
+```js
 // websocket // 初始化  实时更新
     initWebSocket(params){
     //判断当前浏览器是否支持WebSocket
@@ -63,7 +63,7 @@ created () {
     },
 ```
 最后记得销毁它
-```
+```js
 destroyed:function(){
     this.initWebSocket()
 }

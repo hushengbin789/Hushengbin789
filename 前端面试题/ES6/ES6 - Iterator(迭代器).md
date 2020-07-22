@@ -1,5 +1,5 @@
 ## ES6 - Iterator(迭代器)
-```
+```js
 // Iterator -- 迭代器
 function OuterIterator(o) {
     let curIndex = 0;
@@ -23,7 +23,7 @@ oIt.next(); // Object {value: undefined, done: false}
 // ES6 - 遍历数组
 for (let ele of arr) { console.log(ele); }
 ```
-```
+```js
 let obj = {
     0: 'a',
     1: 'b',
@@ -50,7 +50,7 @@ let obj = {
 }
 console.log([...obj]); // ["a", "b", "c"]
 ```
-```
+```js
 // Generator 生成这个迭代对象       生成器函数
 function* test() {
     yield 'a';

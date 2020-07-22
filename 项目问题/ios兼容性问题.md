@@ -2,7 +2,7 @@
 ios不兼容                 YYYY-MM-DD HH:MM:SS
 
 要把日期格式调整为 YYYY/MM/DD HH:MM:SS
-```
+```js
 new Date(time1.replace(/-/g, "/")).getTime();
 ```
 问题解决-----2019-01更新
@@ -18,11 +18,11 @@ input(textarea)用absolute定位在页面底部，键盘推到上方时，IOS会
 ios非原生键盘会出现此问题
 
 解决方法:
-```
+```html
 <textarea placeHolder="" class="for_chats" contenteditable="true" @click="getFocus();" v-model="mTo" ></textarea> 
 ```
 点击输入框、文本框触发点击事件。判断如果是ios系统抬高底部盒子、替换底部样式。
-```
+```js
 getFocus: function(obj) {
     var isiOS = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
     if(isiOS){
@@ -33,16 +33,16 @@ getFocus: function(obj) {
 }
 ```
 发送消息时再替换回去
-```
+```js
 sendBtn: function () {
     document.getElementById("chat_sends").className="chat_sends";
 }
-``
+```
 问题解决-----2018-08更新
 
 
 1.ios input，button外边框,样式问题 
-```
+```css
 input,button{-webkit-appearance:none;outline:none;border:none;background:none;}
 ```
 问题解决-----2018-06更新

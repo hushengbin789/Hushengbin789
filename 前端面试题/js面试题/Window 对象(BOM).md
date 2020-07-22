@@ -1,5 +1,5 @@
 ## Window 对象(BOM)
-```
+```js
     window.alert('弹出提示框');
     window.confirm('弹出选择框，true/false');
     window.prompt('弹出输入框，返回输入的文本');
