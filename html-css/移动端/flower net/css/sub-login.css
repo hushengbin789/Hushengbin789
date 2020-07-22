@@ -1,0 +1,137 @@
+body{
+    background-color:white;
+}
+html{
+    font-size:26.67vw;
+}
+/*header*/
+#mian .header{
+    height:0.44rem;
+    line-height:0.44rem;
+    background-color:white;
+}
+#mian .icon-fenlei{
+    color:black;
+    font-size:0.2rem;
+}
+/*register-box*/
+.login-box{
+    padding:0 0.16rem;
+    color:#b2b7bb;
+    font-size:14px;
+}
+.login-box a{
+    color:#71797f;
+}
+.phone-login-tit{
+    width: 1.9rem;
+    height:0.36rem;
+    margin:0.12rem auto 0.44rem;
+}
+.phone-login-tit img{
+    display: block;
+    width:100%;
+}
+.verify{
+    display:flex;
+    height:0.44rem;
+    line-height:0.44rem;
+    justify-content: space-between;
+    border-bottom:2px solid #f1f1f1;
+    box-sizing: border-box;
+    position:relative;
+}
+.verify>input{
+    width:100%;
+    border:0;
+    outline:none;
+
+}
+/*改变input框中的placeholder的字体颜色*/
+input::-webkit-input-placeholder {
+    color: #b2b7bb;
+}
+input:-moz-placeholder{
+    color: #b2b7bb;
+}
+input:-ms-input-placeholder{
+    color: #b2b7bb;
+}
+.verify .iconfont{
+    display: inline-block;
+    width:0.44rem;
+    height:0.44rem;
+    line-height:0.44rem;
+    text-align:center;
+    position: absolute;
+    top:0;
+    right:0;
+    display: none;
+}
+.verify-code{
+    margin-top:8px;
+}
+.put-phone-code{
+    flex:1;
+}
+.get-code{
+    width:0.72rem;
+    color:#71797f;
+}
+.verify .chuxian{
+    display:block;
+    right:0.7rem;
+    top:0;
+}
+.chuxian::after{
+    content:"";
+    position: absolute;
+    top: 0.16rem;
+    left:0.36rem;
+    width: 0;
+    height: 12px;
+    border-left: 1px solid #b4babf;
+}
+.verify-code .icon-home{
+    display:block;
+}
+.btn{
+    margin-top:0.45rem;
+}
+.btn>button{
+    width:100%;
+    height:0.46rem;
+    line-height:0.46rem;
+    text-align:center;
+    color:white;
+    background-color:#ff734c;
+    border-radius:1rem;
+    outline: none;
+    border:0;
+    font-size:16px;
+    box-shadow: 0 4px 8px 0 #ffb6a2;
+}
+
+.login-regis-nav{
+    margin-top:0.16rem;
+    line-height:0.36rem;
+    display:flex;
+    justify-content: space-between;
+}
+.QQ-and-zhifubao{
+    margin-top:0.8rem;
+    line-height:0.36rem;
+    display:flex;
+    color:#71797f;
+}
+.login-method{
+    flex:1;
+    text-align:center;
+}
+.column-line{
+    height:16px;
+    background-color:#b4babf;
+    width:1px;
+    margin:10px 0;
+}
+

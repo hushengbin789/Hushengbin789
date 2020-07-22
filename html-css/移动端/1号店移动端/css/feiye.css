@@ -1,0 +1,91 @@
+
+header1 {
+    height: 0.44rem;
+    background-color: lightgreen;    }
+
+.zhongbu{
+    display:flex;
+    font-size: 14px;
+    color: black
+}
+.zhongbu .zuo{
+    padding: 0 0.1rem;
+    background-color: #f5f5f5;
+    overflow-y: scroll;
+    width: 28%;
+}
+
+
+.zhongbu .zuo a{
+    text-align: center;
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.7rem;
+    line-height: 0.7rem;
+    color:black;
+    border-bottom: 1px solid #CCC;
+}
+
+.zhongbu .you{
+    width: 72%;
+  display: flex;
+  flex-direction: column;
+
+}
+.zhongbu .you .shang{
+    display: flex;
+    overflow-x: auto;
+    height: 1.22rem;
+   
+}
+.zhongbu .you .shang img{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+.zhongbu .you .shang div{
+    text-align: center;
+    font-size: 12px;
+    margin: 0.1rem;
+    
+}
+.zhongbu .you .xia img{
+    width: 0.9rem;
+    height: 0.8rem;
+}
+.zhongbu .you .xia .xia_pro{
+    display: flex;
+    border-bottom: 1px solid #CCC;   
+    margin: 0.1rem 0;
+}
+.zhongbu .you .xia .xia_pro div:nth-child(2){
+   width: 1.68rem;
+    display: flex;
+    justify-content: space-between;
+}
+.zhongbu .you .xia .s1{
+    width: 0.3rem;
+    height: 0.3rem;
+    margin-right: 0.1rem;
+}
+.zhongbu .you .xia .xia_pro .abc{
+    display: flex;
+    flex-direction: column;
+    align-items:space-between;
+}
+.zhongbu .you .xia .xia_pro .abc .dd span{
+    color: red;
+    font-size: 20px;
+}
+.zhongbu .you .xia .xia_pro .abc p{
+    color:black;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    width: 1.575rem;
+}
+.zhongbu .you .xia{
+    padding: 0 0.06rem;
+    overflow-y:auto;
+}

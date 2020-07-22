@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<input  type="button" value="测试" onclick="testf()" >
+	</body>
+</html>
+<script type="text/javascript" >
+
+function testf(){
+	func1();
+	func2();
+}	
+
+var age =100;//全局变量，全局变量的值是共享
+
+function func1() {
+	var age = 350;//局部变量
+	alert(age);//350
+}
+
+function func2() {
+	alert(age);//100，全局变量
+}
+
+</script>

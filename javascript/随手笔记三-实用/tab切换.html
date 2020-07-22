@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul li{
+            list-style: none;
+        }
+        .notice {
+            width: 20%;
+            border: 1px solid #ddd;
+            /* 盒子的总宽度w=298+1+1=300px */
+            height: 98px;
+            overflow: hidden;
+            /* 点击导航栏第一个或最后一个标签时，超出的部分隐藏*/
+            margin: 0 auto;
+        }
+        
+        .notice-tit {
+            position: relative;
+            height: 28px;
+        }
+        
+        .notice-tit ul {
+            position: absolute;
+            width: 100%;
+            left: -10.5%;
+            /* 当点击第一个导航栏标签时，左边边框会与大盒子的边框发生叠加，解决的方法利用定位让两个边框重合叠加在一起 */
+            height: 27px;
+            background: #f7f7f7;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .notice-tit ul li {
+            float: left;
+            width: 19.4%;
+            padding: 0 1px;
+            height: 27px;
+            text-align: center;
+            line-height: 27px;
+            cursor: pointer;
+        }
+        
+        .notice-tit ul li.selected {
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            background: #fff;
+            padding: 0;
+            border-bottom: 1px solid #fff;
+        }
+        
+        .notice-con div {
+            height: 90px;
+            padding: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="notice">
+        <div class="notice-tit" id="notice-tit">
+            <ul>
+                <li class="selected">公告</li>
+                <li>规则</li>
+                <li>论坛</li>
+                <li>安全</li>
+                <li>教育</li>
+            </ul>
+        </div>
+        <div class="notice-con" id="notice-con">
+            <div style="display:block">test1</div>
+            <div>test2</div>
+            <div>test3</div>
+            <div>test4 </div>
+            <div>test5 </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+        // 获取鼠标滑过或点击和需要展现的元素
+        var notice_tit = document.getElementById("notice-tit"),
+            notice_con = document.getElementById("notice-con"),
+            lis = notice_tit.getElementsByTagName('li'),
+            divs = notice_con.getElementsByTagName('div');
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].id = i;
+            lis[i].onclick = function() {
+                for (var j = 0; j < lis.length; j++) {
+                    lis[j].className = '';
+                    divs[j].style.display = 'none';
+                }
+                this.className = 'selected';
+                divs[this.id].style.display = 'block';
+            }
+        }
+        $('#notice-tit li').click(function() {
+            $(this).siblings().removeClass('selected');
+            $(this).addClass('selected');
+            var index = $(this).index();  // 获取当前点击元素的下标
+            // alert(index);
+            $('#notice-con div').hide();
+            $('#notice-con div').eq(index).show();
+        })
+</script>

@@ -1,0 +1,146 @@
+/*预定义*/
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+ul,ol,li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+html,body{
+    height:100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media all and (max-width:320px) {
+    html {
+        font-size:12px;
+    }
+}
+@media all and (min-width:321px) and (max-width:375px) {
+    html {
+        font-size:14px;
+    }
+}
+@media all and (min-width:376px) {
+    html {
+        font-size:16px;
+    }
+}
+
+
+
+/*正式内容*/
+header {
+    /*width: 100%;*/
+    background-color: #0dc441;
+    height:3.67rem;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+header span {
+    display: block;
+    width:5.04rem;
+    height: 2rem;
+    background-color: #64d985;
+    text-align: center;
+    line-height:2rem;
+    color: #ffffff;
+    font-size:12px;/*字体大小尽可能使用px，保证准确*/
+}
+
+header span:nth-child(1) {
+    border-radius: 1rem 0 0 1rem;
+}
+header span:nth-child(2) {
+    border-radius: 0 1rem 1rem 0;
+    background-color: #3dd067;
+}
+nav {
+    height:2.96rem;
+    /*background-color: orange;*/
+    border-bottom:1px solid #d9d9d9;
+    display: flex;
+}
+nav li {
+    flex:1;
+    height: 2.95rem;
+    text-align: center;
+    line-height:2.95rem;
+    font-size:14px;
+    color: #666666;
+}
+
+nav li:nth-child(1) {
+    color: #0dc441;
+    border-bottom: 2px solid #0dc441;
+}
+
+
+main {
+    background-color: lightblue;
+    flex:1;/*使用剩余空间*/
+    overflow:auto;
+}
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+section figure {
+    /*width:13.13rem;*/
+    width:49%;
+    border:1px solid #e5e5e5;
+    margin-bottom:0.41rem;
+}
+section figure img {
+    width:100%;
+}
+section figure figcaption {
+    height: 2.46rem;
+    border-top:1px solid #e5e5e5;
+    text-align: center;
+    line-height:2.46rem;
+    font-size:12px;
+}
+footer {
+    height:3.67rem;
+    /*background-color: pink;*/
+    display: flex;
+    padding:0 1.25rem;
+    justify-content: space-between;
+}
+footer div {
+    /*background-color: orange;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+footer div i {
+    font-size:1.33rem !important;
+    color: #d6d6d6;
+}
+footer div span {
+    font-size:12px;
+    color: #d6d6d5;
+}
+footer div:nth-of-type(3) {
+    width:4.37rem;
+    position: relative;
+}
+footer div:nth-of-type(3) img {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}

@@ -6,7 +6,7 @@ poup按照官网demo使用也报错（以前用都是好的，但是这两天，
 
 van-list 一个页面多次使用，导致弹出层滑动不流畅    2018-7
 
-1.订单提交地址等组件的应用
+### 1.订单提交地址等组件的应用
    使用的组件有如下：
 
 ```
@@ -28,7 +28,8 @@ import {Card,button,Toast,AddressList,Popup,AddressEdit,Area} from 'vant'
 地址编辑。没有用默认的地址编辑属性：search-result
 所以去掉了，一是没有做地理搜索功能。而且发现模拟测试老是有bug，干脆去掉。
 
-2.默认list属性。要重新定义。配合自己需要做的功能。文档给的属性很少
+### 2.默认list属性。要重新定义。配合自己需要做的功能。文档给的属性很少
+```js
   list:[
         { id: '1',
           name: '张三',
@@ -42,32 +43,32 @@ import {Card,button,Toast,AddressList,Popup,AddressEdit,Area} from 'vant'
         }
       ],
       
-原来的
+// 原来的
 {
           id: '1',
           name: '张三',
           tel: '13000000000',
           address: '浙江省杭州市西湖区文三路 138 号东方通信大厦 7 楼 501 室'
         },
-，后添加详细的数据，是为了方便后期做更改编辑功能。
-
-3.地址json文件。
+// ，后添加详细的数据，是为了方便后期做更改编辑功能。
+```
+### 3.地址json文件。
 
 默认要导入全国地址表，
-
+```js
 // 导入 area.js
 import areaList from '../../../config/area.min.js'
-
+```
 直接在函数。将数据绑定给了模型 areaList
 
  :area-list="areaList"
  
-4.保存地址：
+### 4.保存地址：
 
 默认数据类型对象。所以定义了一个addr。否则老是报错。但不影响程序运行。
 
 addr重新组合了拿到的数据。压入list里去渲染，这里做了下判断是否保存数据成功
-
+```js
  let addr = new Object;
       console.log('content');
       console.log(content);
@@ -85,15 +86,15 @@ addr重新组合了拿到的数据。压入list里去渲染，这里做了下判
         address:content.province+content.city+content.county+content.address_detail
       };
       let is_add = this.list.push(addr);
-        
-5，编辑的时候。 onEdit(item, index) 这个item就是我最先更改的list数据模型了。这里有需要的地区code码。这就是想要的。
+```      
+### 5，编辑的时候。 onEdit(item, index) 这个item就是我最先更改的list数据模型了。这里有需要的地区code码。这就是想要的。
 
 因为跳到编辑页面，需要将地区重新解析出来。测试时可以。
 
 其中待完善：编辑时候的详细地址未变化。删除地址等操作
 
 下方。测试代码demo
-```
+```html
 <template>
   <div class="home-page">
     <div class="home">
