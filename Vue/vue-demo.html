@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>vue-demo07-22</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+            li span {
+                display: inline-block;
+                border: 1px solid red;
+                width: 150px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <ul  v-if="books.length">
+                <li>
+                    <span>书名</span>
+                    <span>价钱</span>
+                    <span>数量</span>
+                </li>
+                <li v-for="(item,index) in books">
+                    <span>{{item.name}} </span>
+                    <span>{{item.price | getFinalPrice(item.price)}} </span>
+                    <span>
+                        <button @click="increment(index)"> + </button>
+                        {{item.count}}
+                        <button @click="decrement(index)" :disabled="item.count <= 0"> -</button>
+                    </span>
+                   <button @click="removeItem(index)">移除</button>
+                </li>
+            </ul>
+            <h2 v-else>购物车已经被清空了</h2>
+            <div><span>总价： {{ totalPrice |  getFinalPrice(totalPrice)}}</span></div>
+        </div>
+        <script>
+            const vue = new Vue({
+                el: "#app",
+                data: {
+                  books: [
+                      {
+                          id: 1,
+                          name: "《鬼谷子》",
+                          date: "2020-07-22",
+                          price: 88.5,
+                          count: 1
+                      },
+                      {
+                          id: 1,
+                          name: "《人生》",
+                          date: "2020-07-22",
+                          price: 58.1,
+                          count: 2
+                      },
+                      {
+                          id: 1,
+                          name: "《在人间》",
+                          date: "2020-07-22",
+                          price: 98.5,
+                          count: 1
+                      },
+                      {
+                          id: 1,
+                          name: "《时间都去哪了》",
+                          date: "2020-07-22",
+                          price: 81,
+                          count: 3
+                      },
+                  ]
+                },
+                methods: {
+                    // 加
+                    increment(index) {
+                        this.books[index].count ++;                          
+                    },
+                    // 减
+                    decrement(index) {
+                        this.books[index].count --;
+                    },
+                    // 删
+                    removeItem(index) {
+                        this.books.splice(index,1)
+                    }
+                },
+                filters: {  //过滤器
+                    getFinalPrice(price){
+                        return "￥" + price.toFixed(2)  //保留两位小数
+                    }
+                },
+                computed: {
+                    totalPrice() {
+                        var sumNum = 0;
+                        for(var i=0;i<this.books.length;i++){
+                            sumNum += this.books[i].price*this.books[i].count;
+                        }
+                        return sumNum
+                    }
+                }
+            })
+        </script>
+    </body>
+    </html>

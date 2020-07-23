@@ -3,7 +3,7 @@
 
 ## 函数防抖
 当持续触发事件时，一定时间段内没有再触发事件，事件处理函数才会执行一次，如果设定时间到来之前，又触发了事件，就重新开始延时。也就是说当一个用户一直触发这个函数，且每次触发函数的间隔小于既定时间，那么防抖的情况下只会执行一次。
-```
+```js
 function debounce(fn, wait) {
     var timeout = null;      //定义一个定时器
     return function() {
@@ -28,7 +28,7 @@ window.addEventListener('scroll', debounce(handle, 1000));
 用一句话总结防抖和节流的区别：防抖是将多次执行变为最后一次执行，节流是将多次执行变为每隔一段时间执行
 实现函数节流我们主要有两种方法：时间戳和定时器
 例如
-```
+```js
 var throttle = function(func, delay) {
     var prev = Date.now();
     return function() {
@@ -48,7 +48,7 @@ window.addEventListener('scroll', throttle(handle, 1000));
 ```
 这个节流函数利用时间戳让第一次滚动事件执行一次回调函数，此后每隔1000ms执行一次，在小于1000ms这段时间内的滚动是不执行的
 再举一个定时器的例子：
-```
+```js
 var throttle = function(func, delay) {
     var timer = null;
     return function() {
@@ -69,7 +69,7 @@ window.addEventListener('scroll', throttle(handle, 1000));
 ```
 当触发事件的时候，我们设置了一个定时器，在没到1000ms之前这个定时器为null，而到了规定时间执行这个函数并再次把定时器清除。也就是说当第一次触发事件，到达规定时间再执行这个函数，执行之后马上清除定时器，开始新的循环，那么我们看到的效果就是，滚动之后没有马上打印，而是等待1000ms打印，有一个延迟的效果，并且这段时间滚动事件不会执行函数。
 单用时间戳或者定时器都有缺陷，我们更希望第一次触发马上执行函数，最后一次触发也可以执行一次事件处理函数
-```
+```js
 var throttle = function(func, delay) {
      var timer = null;
      var startTime = Date.now();  //设置开始时间
