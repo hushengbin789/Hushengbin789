@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取当前时间</title>
+</head>
+<body>
+    <span>当前日期为：</span>
+    <div id="app"></div>
+    <script>
+        window.onload=function(){
+            //每1秒刷新时间
+            setInterval(dateShow,1000);//一
+        }
+        // var r=setInterval(dateShow,1000);//二
+        // setInterval(dateShow,1000);//三
+        function dateShow(){
+             //获取年月日
+            var date=new Date();
+            var year=date.getFullYear();
+            var month =date.getMonth();
+            var data=date.getDate();
+            //获取时分秒
+            var hour=date.getHours();
+            var mint=date.getMinutes();
+            var miao=date.getSeconds();
+            var wekday=date.getDay();
+            var wekdate=['星期日','星期一','星期二','星期三','星期四','星期五','星期六']
+            
+            // document.write(mint+'<br/>')
+            var t=(year + '年' +month+"月"+ data+"日"+ hour+":"+ mint+":"+miao+" "+wekdate[wekday])
+            $('app').innerHTML=t
+        }
+        function $(id){
+            return document.getElementById(id);
+        }
+    </script>
+</body>
+</html>
