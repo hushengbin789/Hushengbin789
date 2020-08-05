@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*css主要部分的样式*/
+        /*定义滚动条宽高及背景，宽高分别对应横竖滚动条的尺寸*/
+
+        ::-webkit-scrollbar {
+            width: 10px; /*对垂直流动条有效*/
+            height: 10px; /*对水平流动条有效*/
+        }
+
+        /*定义滚动条的轨道颜色、内阴影及圆角*/
+        ::-webkit-scrollbar-track{
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: lawngreen;
+            border-radius: 3px;
+        }
+
+
+        /*定义滑块颜色、内阴影及圆角*/
+        ::-webkit-scrollbar-thumb{
+            border-radius: 7px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #E8E8E8;
+        }
+
+        /*定义两端按钮的样式*/
+            ::-webkit-scrollbar-button {
+            background-color:cyan;
+        }
+
+        /*定义右下角汇合处的样式*/
+        ::-webkit-scrollbar-corner {
+            background:red;
+        }
+    </style>
+</head>
+<body>
+    <div style="height: 200px;">滚动条样式设置</div>
+    <div style="height: 802px;width: 100%;">
+        ::-webkit-scrollbar ：滚动条整体部分，其中的属性有width,height,background,border等。</br>
+
+        ::-webkit-scrollbar-button ：滚动条两端的按钮。可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果。</br>
+
+        ::-webkit-scrollbar-track ：外层轨道。可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果。</br>
+
+        ::-webkit-scrollbar-track-piece ：内层轨道，具体区别看下面gif图，需要注意的就是它会覆盖第三个属性的样式。</br>
+
+        ::-webkit-scrollbar-thumb ：滚动条里面可以拖动的那部分</br>
+
+        ::-webkit-scrollbar-corner ：边角，两个滚动条交汇处</br>
+
+        ::-webkit-resizer ：两个滚动条交汇处用于拖动调整元素大小的小控件（基本用不上）</br>
+    
+    </div>
+    <div style="height: 802px;width: 110%;">
+        IE8设置滚动条</br>
+        scrollbar-arrow-color: color; /*三角箭头的颜色*/</br>
+        scrollbar-face-color: color; /*立体滚动条的颜色（包括箭头部分的背景色）*/</br>
+        scrollbar-3dlight-color: color; /*立体滚动条亮边的颜色*/</br>
+        scrollbar-highlight-color: color; /*滚动条的高亮颜色（左阴影？）*/</br>
+        scrollbar-shadow-color: color; /*立体滚动条阴影的颜色*/</br>
+        scrollbar-darkshadow-color: color; /*立体滚动条外阴影的颜色*/</br>
+        scrollbar-track-color: color; /*立体滚动条背景颜色*/</br>
+        scrollbar-base-color:color; /*滚动条的基色*/</div>
+    <div style="height: 802px;width: 100%;"></div>
+</body>
+</html>
