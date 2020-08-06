@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type=checkbox]{
+            /*同样，首先去除浏览器默认样式*/
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            /*编辑我们自己的样式*/
+            position: relative;
+            background: #fff;
+            border: 1px solid #00BFFF;
+            width:70px;
+            height: 28px;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+            /*增加动画*/
+            -webkit-transition: all ease-in-out 300ms;
+            -moz-transition: all ease-in-out 300ms;
+            transition: all ease-in-out 300ms;
+            outline: none;
+            cursor: pointer;
+        }
+        input[type=checkbox]:after{
+            content: 'off';
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            display: block;
+            width: 24px;
+            height: 22px;
+            background: #00BFFF;
+            color: #fff;
+            text-align: center;
+            line-height: 22px;
+            /*增加动画*/
+            -webkit-transition: all ease-in-out 300ms;
+            -moz-transition: all ease-in-out 300ms;
+            transition: all ease-in-out 300ms;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        input[type=checkbox]:checked{
+            background: #00BFFF;
+        }
+        input[type=checkbox]:checked:after{
+            content: 'on';
+            left: 42px;
+            background: #fff;
+            color: #00BFFF;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" name="isInput" id="">
+</body>
+</html>
+
+<script>
+    function formSubmit() {
+        var obj = document.getElementsByTagName("input");
+        var check_arr = [];
+        for (var i = 0; i < obj.length; i++) {
+            if (obj[i].checked)
+                check_arr.push(obj[i].value);
+        }
+        console.log(check_arr);
+        console.log(obj.length)
+    }
+</script>
