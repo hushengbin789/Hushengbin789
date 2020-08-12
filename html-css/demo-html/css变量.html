@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css变量</title>
+  <!-- 在这里用link标签引入中文布局 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chinese-layout">
+
+  <!-- 在这里用link标签引入中文渐变色 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chinese-gradient">
+  <style>
+    /* 清除默认样式 */
+    * { padding: 0; margin: 0 }
+    ul { list-style: none }
+
+    /* 全屏显示 */
+    html, body, ul { height: 100% }
+
+    /* 在父元素上写入九宫格 */
+    ul {
+      display: grid;
+      grid: var(--九宫格);
+      gap: 5px
+    }
+
+    /* 给子元素上色 */
+    li {
+      background: var(--极光绿)
+    }
+  </style>
+</head>
+<body>
+    <!-- 
+        chinese-gradient：https://www.yuque.com/fancy-components/xflqsh/yxn4m7
+
+        chinese-layout：https://www.yuque.com/fancy-components/oco0rf/ded6m5 
+    -->
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</body>
+</html>
