@@ -1,0 +1,190 @@
+
+/* 一.发送效果 */
+#send-btn{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50vh;
+}
+
+button {
+	background: #5f55af;
+	border: 0;
+	border-radius: 5px;
+	padding: 10px 30px 10px 20px;
+	color: white;
+	text-transform: uppercase;
+	 font-weight: bold;
+}
+
+button .img1 {
+	display: inline-block;
+	vertical-align: middle;
+	padding-right: 5px;
+}
+
+button:hover .img1 {
+	animation: fly 2s ease 1;
+}
+
+@keyframes fly {
+	0% {
+		transform: translateX(0%);
+	}
+
+	50% {
+		transform: translateX(220%);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+/* 二.霓虹效果 */
+#neon-btn {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	height: 50vh;
+	background: #031628; 
+}
+
+.btn {
+	border: 1px solid;
+	background-color: transparent;
+	text-transform: uppercase;
+	font-size: 14px;
+	padding: 10px 20px;
+	font-weight: 300;
+}
+
+.one {
+	color: #4cc9f0;
+}
+
+.two {
+	color: #f038ff; 
+}
+
+.three {
+	color: #b9e769;
+}
+
+.btn:hover {
+	color: white;
+	border: 0;
+}
+
+.one:hover {
+	background-color: #4cc9f0;
+	-webkit-box-shadow: 10px 10px 99px 6px rgba(76,201,240,1);
+	-moz-box-shadow: 10px 10px 99px 6px rgba(76,201,240,1);
+	box-shadow: 10px 10px 99px 6px rgba(76,201,240,1);
+}
+
+.two:hover {
+	background-color: #f038ff;
+	-webkit-box-shadow: 10px 10px 99px 6px rgba(240, 56, 255, 1);
+	-moz-box-shadow: 10px 10px 99px 6px rgba(240, 56, 255, 1);
+	box-shadow: 10px 10px 99px 6px rgba(240, 56, 255, 1);
+}
+
+.three:hover {
+	background-color: #b9e769;
+	-webkit-box-shadow: 10px 10px 99px 6px rgba(185, 231, 105, 1);
+	-moz-box-shadow: 10px 10px 99px 6px rgba(185, 231, 105, 1);
+	box-shadow: 10px 10px 99px 6px rgba(185, 231, 105, 1);
+}
+/* 三.边框效果 */
+#draw-border {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50vh;
+}
+
+.btn2 {
+	border: 0;
+	background: none;
+	text-transform: uppercase;
+	color: #4361ee;
+	font-weight: bold;
+	position: relative;
+	outline: none;
+	padding: 10px 20px;
+	box-sizing: border-box;
+}
+
+.btn2::before, button::after {
+	box-sizing: inherit;
+	position: absolute;
+	content: '';
+	border: 2px solid transparent;
+	width: 0;
+	height: 0;
+}
+
+.btn2::after {
+	bottom: 0;
+	right: 0;
+}
+
+.btn2::before {
+	top: 0;
+	left: 0;
+}
+
+.btn2:hover::before, .btn2:hover::after {
+	width: 100%;
+	height: 100%;
+}
+
+.btn2:hover::before {
+	border-top-color: #4361ee;
+	border-right-color: #4361ee;
+	transition: width 0.3s ease-out, height 0.3s ease-out 0.3s;
+}
+
+.btn2:hover::after {
+	border-bottom-color: #4361ee;
+	border-left-color: #4361ee;
+	transition: border-color 0s ease-out 0.6s, width 0.3s ease-out 0.6s, height 0.3s ease-out 1s;
+}
+/* 四.圆形效果 */
+#circle-btn { 
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50vh;
+	background: #031628; 
+}
+
+.btn-container {
+	position: relative;  
+}
+
+.btn3 {
+	border: 0;
+	border-radius: 50px;
+	color: white;
+	background: #5f55af;
+	padding: 15px 20px 16px 60px;
+	text-transform: uppercase;
+	background: linear-gradient(to right, #f72585 50%, #5f55af 50%);
+	background-size: 200% 100%;
+	background-position: right bottom;
+	transition:all 2s ease;
+}
+
+.img2 {
+	background: #f72585;
+	padding: 8px;
+	border-radius: 50%;
+	position: absolute;
+	left: 0;
+	top: 0%;
+}
+
+.btn3:hover {
+	background-position: left bottom;
+}
