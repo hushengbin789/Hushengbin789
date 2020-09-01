@@ -5,27 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>返回顶部</title>
     <style>
+        *{margin: 0;padding: 0;}
+        /*定义滚动条宽高及背景，宽高分别对应横竖滚动条的尺寸*/
+        ::-webkit-scrollbar {
+            width: 10px; /*对垂直流动条有效*/
+            height: 10px; /*对水平流动条有效*/
+        }
+        /*定义滚动条的轨道颜色、内阴影及圆角*/
+        ::-webkit-scrollbar-track{
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #CA8EFF;
+            border-radius: 3px;
+        }
+        /*定义滑块颜色、内阴影及圆角*/
+        ::-webkit-scrollbar-thumb{
+            border-radius: 7px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #A23400;
+        }
+        /*定义两端按钮的样式*/
+        ::-webkit-scrollbar-button { background-color:#9AFF02;}
+        /*定义右下角汇合处的样式*/
+        ::-webkit-scrollbar-corner {background:red;}
         #backTop{display:none;width:56px;height:56px;background-color: #ccc;;background: url("../img/01.jpg") center no-repeat;
             position: fixed;right: 8px;bottom: 50px;cursor: pointer;z-index: 22;}
-        #backTop:hover{background-image: url("../img/02.jpg");background-color: rgb(46, 45, 45);}
+        #backTop:hover{background-image: url("../img/02.jpg");background-color: rgb(46, 45, 45,0.5);}
     </style>
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body>
-    <div style="height: 1200px;background-color: aquamarine;">13213123</div>
+    <div style="height: 1000px;background-color: aquamarine;color: dodgerblue;">233333</div>
+    <div style="height: 2000px;background-color: aquamarine;color: #CA8EFF;">好玩吗</div>
     <div id="backTop">
         返回顶部
     </div>
 </body>
 <script>
     $(window).scroll(function() {
-        if($(window).scrollTop() >= 100){
+        if($(window).scrollTop() >= 600){//滚动条间距大于600PX就会出现
             $('#backTop').fadeIn(300);
         }else{
             $('#backTop').fadeOut(300);
         }
     });
     //点击返回顶部
-    $('#backTop').click(function(){$('html,body').animate({scrollTop: '0px'}, 100);});
+    $('#backTop').click(function(){$('html,body').animate({scrollTop: '0px'}, 500);});
 </script>
 </html>
