@@ -12,6 +12,7 @@
 - git命令
 - html-css
 - javascript
+- node
 - jest
 - jquery
 - php
