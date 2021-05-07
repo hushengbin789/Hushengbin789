@@ -4,7 +4,7 @@
 cnpm install axios -S
 ```
 ## 二、封装
-```
+```js
 import axios from 'axios';
 import { Message } from 'element-ui';
 
@@ -128,7 +128,7 @@ export function put(url,data = {}){
 
 在main.js中引入
 
-```
+```js
 import axios from 'axios'
 import {post,fetch,patch,put} from './utils/http'
 //定义全局变量
@@ -139,7 +139,7 @@ Vue.prototype.$put=put;
 ```
 最后在组件里直接使用
 
-```
+```js
  mounted(){
     this.$fetch('/api/v2/movie/top250')
       .then((response) => {
