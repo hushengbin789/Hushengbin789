@@ -2,7 +2,7 @@
 
 ## 文字解释：
 
-### 一、this的理解：###
+### 一、this的理解：
 
     this:是"这个"的意思，是代名词，代名词代表的意思要根据场景或情景决定。
 
@@ -11,14 +11,14 @@
 
  
 
-### 二、JavaScript中this的四种情况（this是函数的内置对象，所以，只能出现在函数内部）###
+### 二、JavaScript中this的四种情况（this是函数的内置对象，所以，只能出现在函数内部）
 
 1、当this所在函数是事件处理函数时，this是事件源。
 2、当this所在函数是构造函数时，this是new出来的对象。
 3、this所在函数的所属对象是谁，this就是谁。
 4、当this所在函数没有所属对象，this是window对象
 
-### 三、this的转移问题###
+### 三、this的转移问题
 
        当有人说，"我在吃饭"时，那这个“我”是谁呢，就必须要看这句话是谁说的，谁说的，我就是谁，即“我”会根据说话的人变化而变化
 
@@ -29,16 +29,16 @@
 
 
 
-```
+```html
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<title></title>
-	</head>
-	<body>
-		
-	</body>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+<body>
+	
+</body>
 </html>
  
 <script type="text/javascript">
@@ -55,7 +55,7 @@
 //		alert(this.name+"在吃");
 //	}
 //}
-//var p1 = new Person("王雨");
+//var p1 = new Person("阿斌");
  
 //3、this所在函数的所属对象是谁，this就是谁。
 //function Person(name){
@@ -64,9 +64,9 @@
 //		alert(this.name+"在吃");//这个this是谁，谁调用eat，或者说调用eat时，前面的对象是谁，this就是谁
 //	}
 //}
-//var p1 = new Person("王雨");
+//var p1 = new Person("阿斌");
 //p1.eat();//这句话执行时，eat函数内部的this就是p1
-//var p2 = new Person("王雨点");
+//var p2 = new Person("阿斌点");
 //p2.eat();//这句话执行时，eat函数内部的this就是p2
  
 //4、当this所在函数没有所属对象，this是window对象。
@@ -79,12 +79,12 @@ function test(){
 //window.test();
  
 //全局变量是window对象的属性
-var t = "王雨";
+var t = "阿斌";
  
 console.log(window.t);
  
 var obj = {
-	name:"张鼎",
+	name:"张三",
 	sex:"男"
 }
  

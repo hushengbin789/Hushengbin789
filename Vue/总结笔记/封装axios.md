@@ -1,6 +1,6 @@
 ## 一、安装下载axios
 
-```
+```sh
 cnpm install axios -S
 ```
 ## 二、封装
@@ -9,10 +9,10 @@ import axios from 'axios';
 import { Message } from 'element-ui';
 
 axios.defaults.timeout = 5000;
-axios.defaults.baseURL ='';
+axios.defaults.baseURL ='http://127.0.0.1:3000'; //默认请求地址
 
 
-//http request 拦截器
+//http request 请求拦截器
 axios.interceptors.request.use(
   config => {
     // const token = getCookie('名称');注意使用的时候需要引入cookie方法，推荐js-cookie
@@ -31,7 +31,7 @@ axios.interceptors.request.use(
 );
 
 
-//http response 拦截器
+//http response 响应拦截器
 axios.interceptors.response.use(
   response => {
     if(response.data.errCode ==2){
