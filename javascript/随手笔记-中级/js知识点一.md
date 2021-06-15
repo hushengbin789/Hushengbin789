@@ -2,7 +2,7 @@
 
 ###  JavaScript中如何检测一个变量是一个String类型？请写出函数实现
 
-```
+```js
 typeof(obj) === "string"
 typeof obj === "string"
 obj.constructor === String
@@ -11,17 +11,17 @@ obj.constructor === String
 请用js去除字符串空格？
 方法一：使用replace正则匹配的方法
 
-去除所有空格: str = str.replace(/\s*/g,"");      
+去除所有空格: `str = str.replace(/\s*/g,""); `     
 
-去除两头空格: str = str.replace(/^\s*|\s*$/g,"");
+去除两头空格: `str = str.replace(/^\s*|\s*$/g,"");`
 
-去除左空格： str = str.replace( /^\s*/, “”);
+去除左空格：` str = str.replace( /^\s*/, "");`
 
-去除右空格： str = str.replace(/(\s*$)/g, "");
+去除右空格： `str = str.replace(/(\s*$)/g, "");`
 
 str为要去除空格的字符串，实例如下：
 
-```
+```js
 var str = " 23 23 ";
 var str2 = str.replace(/\s*/g,"");
 console.log(str2); // 2323
@@ -31,19 +31,19 @@ console.log(str2); // 2323
 
 str.trim()局限性：无法去除中间的空格，实例如下：
 
-```
+```js
 var str = "   xiao  ming   ";
 var str2 = str.trim();
 console.log(str2);   //xiao  ming 
 ```
 
-同理，str.trimLeft()，str.trimRight()分别用于去除字符串左右空格。
+同理，`str.trimLeft()，str.trimRight()`分别用于去除字符串左右空格。
 
 方法三：使用jquery,$.trim(str)方法
 
 $.trim(str)局限性：无法去除中间的空格，实例如下：
 
-```
+```js
 var str = "   xiao  ming   ";
 
 var str2 = $.trim(str)
@@ -56,7 +56,7 @@ console.log(str2);   //  xiao  ming
 
 实例如下
 
-```
+```js
 function showWindowHref(){
     var sHref = window.location.href;
     var args = sHref.split('?');
@@ -110,34 +110,36 @@ toUpperCase() – 将整个字符串转成大写字母。
 ##怎样添加、移除、移动、复制、创建和查找节点？
 
  1）创建新节点
-
+```js
 　　createDocumentFragment() //创建一个DOM片段
 　　createElement() //创建一个具体的元素
 　　createTextNode() //创建一个文本节点
-
+```
 2）添加、移除、替换、插入
+```js
 　　appendChild() //添加
 　　removeChild() //移除
 　　replaceChild() //替换
 　　insertBefore() //插入
-
+```
 3）查找
+```js
 　　getElementsByTagName() //通过标签名称
 　　getElementsByName() //通过元素的Name属性的值
 
    　getElementById() //通过元素Id，唯一性
-
-##写出3个使用this的典型应用
+```
+## 写出3个使用this的典型应用
 
 （1）、在html元素事件属性中使用，如：
 
-```
+```html
 <input type=”button” onclick=”showInfo(this);” value=”点击一下”/>
 ```
 
 （2）、构造函数
 
-```
+```js
 function Animal(name, color) {
 　　this.name = name;
 　　this.color = color;
@@ -146,7 +148,7 @@ function Animal(name, color) {
 
 （3）、input点击，获取值
 
-```
+```html
 <input type="button" id="text" value="点击一下" />
 <script type="text/javascript">
     var btn = document.getElementById("text");
@@ -158,7 +160,7 @@ function Animal(name, color) {
 
 (4)、apply()/call()求数组最值
 
-```
+```js
 var  numbers = [5, 458 , 120 , -215 ]; 
 var  maxInNumbers = Math.max.apply(this, numbers);  
 console.log(maxInNumbers);  // 458
@@ -166,7 +168,7 @@ var maxInNumbers = Math.max.call(this,5, 458 , 120 , -215);
 console.log(maxInNumbers);  // 458
 ```
 
-##比较typeof与instanceof？
+## 比较typeof与instanceof？
 
 相同点：JavaScript 中 typeof 和 instanceof 常用来判断一个变量是否为空，或者是什么类型的。
 
@@ -184,9 +186,9 @@ Instanceof定义和用法：instanceof 用于判断一个变量是否属于某�
 
 实例演示：
 
-a instanceof b?alert("true"):alert("false"); //a是b的实例？真:假
+`a instanceof b?alert("true"):alert("false");` //a是b的实例？真:假
 
-```
+```js
 var a = new Array(); 
 alert(a instanceof Array);  // true
 alert(a instanceof Object)  // true
@@ -194,7 +196,7 @@ alert(a instanceof Object)  // true
 
 如上，会返回 true，同时 alert(a instanceof Object) 也会返回 true;这是因为 Array 是 object 的子类。
 
-```
+```js
 function test(){};
 var a = new test();
 alert(a instanceof test)   // true
@@ -203,9 +205,9 @@ alert(a instanceof test)   // true
 细节：
 
 (1)、如下，得到的结果为‘N’,这里的 instanceof 测试的 object 是指 js 语法中的 object，不是指 dom 模型对象。
-
+```js
 if (window instanceof Object){ alert('Y')} else {  alert('N');}  // 'N'
-
+```
 ##如何理解闭包？
 
 1、定义和用法：当一个函数的返回值是另外一个函数，而返回的那个函数如果调用了其父函数内部的其它变量，如果返回的这个函数在外部被执行，就产生了闭包。
@@ -216,7 +218,7 @@ if (window instanceof Object){ alert('Y')} else {  alert('N');}  // 'N'
 
 (1)、根据作用域链的规则，底层作用域没有声明的变量，会向上一级找，找到就返回，没找到就一直找，直到window的变量，没有就返回undefined。这里明显count 是函数内部的flag2 的那个count 。
 
-```
+```js
 var count=10;   //全局作用域 标记为flag1
 function add(){
     var count=0;    //函数全局作用域 标记为flag2
@@ -248,7 +250,7 @@ s();//输出2
 
 2）会改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。
 
-##什么是跨域？跨域请求资源的方法有哪些？
+## 什么是跨域？跨域请求资源的方法有哪些？
 
 **1、什么是跨域？**
 
@@ -280,7 +282,7 @@ s();//输出2
 
 使用方法：一般需要后端人员在处理请求数据的时候，添加允许跨域的相关操作。如下：
 
-```
+```js
 res.writeHead(200, {
     "Content-Type": "text/html; charset=UTF-8",
     "Access-Control-Allow-Origin":'http://localhost',
@@ -297,7 +299,7 @@ res.writeHead(200, {
 
 实例如下：
 
-```
+```html
 <script>
     function testjsonp(data) {
        console.log(data.name); // 获取返回的结果
@@ -317,7 +319,7 @@ res.writeHead(200, {
 
 ​	2、另外要确定jsonp的请求是否失败并不容易，大多数框架的实现都是结合超时时间来判定。
 
-##谈谈垃圾回收机制方式及内存管理
+## 谈谈垃圾回收机制方式及内存管理
 
 回收机制方式
 
@@ -327,7 +329,7 @@ res.writeHead(200, {
 
 3、实例如下：
 
-```
+```js
 function fn1() {
     var obj = {name: 'hanzichi', age: 10};
 }
@@ -371,7 +373,7 @@ IE7中，垃圾回收器会根据内存分配量与程序占用内存的比例�
 
 4、GC优化策略：(1)、分代回收（Generation GC）;(2)、增量GC
 
-##开发过程中遇到的内存泄露情况，如何解决的？
+## 开发过程中遇到的内存泄露情况，如何解决的？
 
 1、定义和用法：
 
@@ -383,7 +385,7 @@ IE7中，垃圾回收器会根据内存分配量与程序占用内存的比例�
 
 实例如下:
 
-```
+```html
 <div id="myDiv">
     <input type="button" value="Click me" id="myBtn">
 </div>
@@ -397,7 +399,7 @@ IE7中，垃圾回收器会根据内存分配量与程序占用内存的比例�
 
 解决方法如下：
 
-```
+```html
 <div id="myDiv">
     <input type="button" value="Click me" id="myBtn">
 </div>
@@ -414,7 +416,7 @@ IE7中，垃圾回收器会根据内存分配量与程序占用内存的比例�
 
 实例如下：
 
-```
+```js
 function bindEvent(){
     var obj=document.createElement("XXX");
     obj.onclick=function(){
@@ -425,7 +427,7 @@ function bindEvent(){
 
 解决方法如下：
 
-```
+```js
 function bindEvent(){
     var obj=document.createElement("XXX");
     obj.onclick=function(){
@@ -435,7 +437,7 @@ function bindEvent(){
 }
 ```
 
-##javascript面向对象中继承实现？
+## javascript面向对象中继承实现？
 
 面向对象的基本特征有：封闭、继承、多态。
 
@@ -453,19 +455,19 @@ function bindEvent(){
 
 1、prototype原型链方式：
 
-```
+```js
 function teacher(name){
-this.name = name;
+    this.name = name;
 }
 
 teacher.prototype.sayName = function(){
-console.log("name is "+this.name);
+    console.log("name is "+this.name);
 }
 
 var teacher1 = new teacher("xiaoming");
 teacher1.sayName();
 function student(name){
-this.name = name;
+    this.name = name;
 }
 student.prototype = new teacher()
 var student1 = new student("xiaolan");
@@ -479,18 +481,18 @@ student1.sayName();
 
 2、call()/apply()方法
 
-```
+```js
 function teacher(name,age){
-this.name = name;
-this.age = age;
-this.sayhi = function(){
-alert('name:'+name+", age:"+age);
+    this.name = name;
+    this.age = age;
+    this.sayhi = function(){
+         alert('name:'+name+", age:"+age);
 	}
 }
 function student(){
-var args = arguments;
-teacher.call(this,args[0],args[1]);
-// teacher.apply(this,arguments);
+    var args = arguments;
+    teacher.call(this,args[0],args[1]);
+    // teacher.apply(this,arguments);
 }
 var teacher1 = new teacher('xiaoming',23);
 teacher1.sayhi();
@@ -506,22 +508,22 @@ student1.sayhi();
 
 3、混合方法【prototype,call/apply】
 
-```
+```js   
 function teacher(name,age){
-this.name = name;
-this.age = age;
+    this.name = name;
+    this.age = age;
 }
 
 teacher.prototype.sayName = function(){
-console.log('name:'+this.name);
+    console.log('name:'+this.name);
 }
 teacher.prototype.sayAge = function(){
-console.log('age:'+this.age);
+    console.log('age:'+this.age);
 }
 
 function student(){
-var args = arguments;
-teacher.call(this,args[0],args[1]);
+    var args = arguments;
+    teacher.call(this,args[0],args[1]);
 }
 
 student.prototype = new teacher();
@@ -536,20 +538,19 @@ student1.sayAge();
 
 4、对象冒充
 
-```
+```js
 function Person(name,age){
-this.name = name;
-this.age = age;
-this.show = function(){
-console.log(this.name+", "+this.age);
+    this.name = name;
+    this.age = age;
+    this.show = function(){
+        console.log(this.name+", "+this.age);
 	}
 }
 
 function Student(name,age){
-this.student = Person; //将Person类的构造函数赋值给this.student
-this.student(name,age); //js中实际上是通过对象冒充来实现继承的
-delete this.student; //移除对Person的引用
-
+    this.student = Person; //将Person类的构造函数赋值给this.student
+    this.student(name,age); //js中实际上是通过对象冒充来实现继承的
+    delete this.student; //移除对Person的引用
 }
 
 var s = new Student("小明",17);
