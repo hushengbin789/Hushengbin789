@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.filter、map、reduce</title>
+</head>
+<body>
+    <h2>请点开控制台</h2>
+    <h2>filter、map、reduce</h2>
+    <h2>some()、every()</h2>
+<script>
+    /*
+        有一个商品列表：
+        1.将大于10元的商品打折，取出大于10元的商品
+        2.将10元以上的商品打五折
+        3.打完折的商品总价多少
+    */
+   let goods = [30,50,80,60,4,5,6,11,8]
+   //取出大于10的商品
+   /*let arr1 = []
+   for(let n of goods){
+        if(n>=10){
+            arr1.push(n)
+        }
+   }
+   console.log(arr1)
+   let arr2 = []
+   for(let n of arr1){
+       arr2.push(n*0.5)
+   }
+   console.log(arr2)
+   let sum = 0;
+   for(let n of arr2){
+    sum+=n
+   }
+   console.log(sum)*/
+
+   /*let arr1 = goods.filter(function(n){
+        return n>=20
+   })
+   console.log(arr1)
+
+   let arr2 = arr1.map(function(n){
+        return n*0.5
+   })
+   console.log(arr2)
+   let sum = arr2.reduce(function(s,n){
+    console.log(`s:${s},n:${n}`)
+        return 10
+   },0)*/
+  
+   /*
+    第一次，s参数是0，n是数组中的第一个元素15
+    第二次，s参数是0，是第一次回调函数返回值，n是数组中的第三个元素25
+    第三次，s参数是0，是第二一次回调函数返回值，n是数组中的第四个元素40
+   */
+  let sum1 = goods.filter(n=> n >=20).map(n=>n*0.5).reduce((s,n)=>s+n)
+  console.log(sum1)
+</script>
+</body>
+</html>

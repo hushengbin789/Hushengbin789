@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 50px;
+            background-color: red;
+        }
+        #box.bgcolor{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h2>请点开控制台</h2>
+    <div id="box"></div>
+    <script>
+        const box = document.getElementById('box');
+       /* box.onclick= function(){
+            const that = this
+            setTimeout(function(){
+                that.className= 'bgcolor'
+                console.log(that)
+            },1000)
+            
+        }*/
+        box.onclick= function(){
+            setTimeout(()=>{
+                this.className= 'bgcolor'
+                console.log(this)
+            },1000)
+            
+        }
+        /*function fun(x){
+            return x*x;
+        }
+        const func1 = function(x){
+            return x*x;
+        }
+        console.log(func1(10))*/
+        // const fun = x => x*x;
+        // console.log(fun(5))
+
+        /*
+            //它俩相等的
+            //1.如果没有参数、或有多个参数需要使用()来定义参数列表
+            //2.如果有一个参数。可以不用()
+            //3.如果函数体中只有一条语句，可以不用{}，就不用使用return 会自动加上
+            const fun1 = function(x){
+                return x*x;
+            }
+            const fun1 = (x) => {
+                return x*x;
+            }
+        */
+       /*
+       let arr = [1,5,8,9,2,4,6,3,6,33,12];
+    //    let narr = arr.sort(function(a,b){
+    //        return a-b;
+    //    })
+       let narr=arr.sort((a,b)=>a-b)
+       console.log(narr)*/
+
+    //    箭头函数在返回对象时，必须在对象外面加上()
+       /*const obj = id => {return {id:id,name:'zhangsan'}}
+       const fun = id => ({ id:id,name:'zhangsan'})
+       console.log(fun(10).name)*/
+
+       /*function demo(){
+
+       }
+       const obj = new demo()
+       const demo1 = () =>{};
+       const obj1 = new demo1()
+       console.log(obj)
+       console.log(obj1)*/
+       /*const obj = {
+           fun:function(){
+               console.log(this)
+           }
+       }
+       obj.fun()
+    //    console.log(obj)
+        const obj2 = {
+            fun:()=>{
+                console.log(this)
+            }
+        }
+       obj2.fun()*/
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let</title>
+</head>
+<body>
+    <h1>请点开控制台</h1>
+    <button>按钮一</button>
+    <button>按钮二</button>
+    <button>按钮三</button>
+    <button>按钮四</button>
+    <button>按钮五</button>
+    <script>
+        var btns = document.getElementsByTagName('button')
+        /*
+        //用闭包去解决变量提升
+        for(var i=0;i<=btns.length;i++){
+            (function(i){
+                btns[i].addEventListener('click',function(){
+                    console.log(i)
+                })
+            })(i)
+        }*/
+        /*for(let i=0;i<=btns.length;i++){
+            btns[i].addEventListener('click',function(){
+                console.log(i)
+            })
+        }*/
+        /*let a  = 10;
+        // let a = 20;
+        console.log(a)
+        {
+            let b = 1;
+            console.log(b)
+        }
+        console.log(b)*/
+        let a
+        a = 11;
+         a = 20
+        console.log(a)
+        // let必须先声明在使用 不能重复声明 是一个可变的变量
+    </script>
+    <script>
+        /* var 不好用 
+            var1.可以重复声明 2.无法限制修改 3.没有块级作用域
+            块级作用域:{} if(){ } for{}
+        */
+        /*var a  = 10;
+        var a = 20;
+        console.log(a)
+        {
+            var b = 1;
+            console.log(b)
+        }
+        console.log(b)*/
+
+        /*var name  = "abin";
+        if(true){
+            var name = 'maize'
+            console.log(name)
+        }
+        console.log(name)*/
+
+        // var name = 'abin'
+        /*function myname(){
+            var name = 'maize'
+        }
+        myname()
+        console.log(name)
+        */
+
+        /*var name = 'abin'
+        if(true){
+            (function myname(){
+                var name = 'maize'
+            })()
+        }
+        
+        console.log(name)*/
+    </script>
+</body>
+</html>
