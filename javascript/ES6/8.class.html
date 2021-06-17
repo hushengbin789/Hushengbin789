@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+<body>
+    <h2>请点开控制台</h2>
+    <script>
+
+        /* function Person(name,age,sex){ //可变参数
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            this.say = function(){
+                console.log(name)
+            }
+        }
+        let p = new Person("aBin",20,"男");
+        p.say() */
+        class Person{
+            constructor(name,age,sex){
+                this.name = name;
+                this.age = age;
+                this.sex = sex;
+            }
+            say(){
+                console.log(this.name)
+            }
+        }
+        class Student extends Person{
+            constructor(name,age,sex,school){
+                super(name,age,sex);
+                this.school = school;
+            }
+            student(){
+                console.log("我是个好学生，哈哈哈!!"+this.name)
+            }
+        }
+        const p = new Person("aBin000",20,"男");
+        const S = new Student("maize",22,"女","深圳大学")
+        console.log(S)
+       
+        p.say()
+        S.student()
+
+        /* const obj = {name:"张三",age:18,sex:"男"}
+        console.log(obj) */
+        let name = "张三";
+        let age = 10;
+        const obj = {name,age,sex:"男"}
+        console.log(obj)
+
+        const obj2 = {name,age,sex:"男",say(){
+            console.log(this.name)
+        }}
+        console.log(obj2)
+        obj2.say()
+
+        let str = JSON.stringify(obj);
+        console.log(str)
+
+        
+        let xi = JSON.parse(str);
+        console.log(xi)
+
+    </script>
+</body>
+</html>
