@@ -1,0 +1,30 @@
+#box{
+    width: 200px;
+    height: 300px;
+    background-color: #ccc;
+    color: red;
+    font-size: 32px;
+    backface-visibility: hidden;
+    border-radius: 20px;
+}
+h2{
+    color: blanchedalmond;
+}
+#img1{
+    width: 200px;
+    height: 100px;
+    background: url(./bgd002.png);
+    background-size: 100% 100%;
+}
+#img2{
+    width: 200px;
+    height: 100px;
+    background: url(./wurenwu.jpg);
+    background-size: 100% 100%;
+}
+#img3{
+    width: 200px;
+    height: 100px;
+    background: url(./wushuju.gif);
+    background-size: 100% 100%;
+}

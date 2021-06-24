@@ -1,0 +1,8 @@
+#box2 {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+  color: aqua;
+  backface-visibility: hidden;
+  border-radius: 20px;
+}
