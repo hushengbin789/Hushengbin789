@@ -11,6 +11,7 @@
 - Echarts
 - git命令
 - html-css
+- http
 - javascript
 - node
 - jest
