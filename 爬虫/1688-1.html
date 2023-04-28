@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/layui/2.8.1/css/layui.css">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.staticfile.org/layui/2.8.1/layui.js"></script>
+</head>
+
+<body>
+  <div class="main" id="layerDemo" style="margin-left: 100px;">
+    <div class="box">
+      <div class="item1 isShowItem">
+        <div class="item1_search">
+          <button style="overflow: hidden;z-index: -1;" data-method="offset" data-type="lt"
+            class="layui-btn item1_search_box">
+            <div class="ap-sbi-btn-search-wrapper">
+              <div class="ap-sbi-btn-search">
+                <i class="ap-sbi-btn-search__icon ap-icon-search"></i>
+                <span class="ap-sbi-btn-search__txt">1688.com</span>
+              </div>
+              <div class="ap-sbi-options"></div>
+            </div>
+          </button>
+        </div>
+      </div>
+      <div class="item1 isShowItem">
+        <div class="item1_search">
+          <button style="overflow: hidden;z-index: -1;" data-method="offset" data-type="lt"
+            class="layui-btn item1_search_box"></button>
+        </div>
+      </div>
+      <div class="item1 isShowItem">
+        <div class="item1_search">
+          <button style="overflow: hidden;z-index: -1;" data-method="offset" data-type="lt"
+            class="layui-btn item1_search_box"></button>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(function () {
+        $('.isShowItem').click(function () {
+          console.log('isShowItem-click')
+          // layer.msg('添加借阅成功', {
+          //   time: 1500,
+          // });
+          // var othis = $(this),
+          //   method = othis.data('method');
+          // console.log('click', method,othis)
+          // active[method] ? active[method].call(this, othis) : '';
+        });
+        // $('.isShowItem .item1_search_box').mouseenter(function () {
+        //   $('.ap-sbi-btn-search-wrapper').addClass('ap-is-expanded');
+        // }).mouseleave(function () {
+        //   $('.ap-sbi-btn-search-wrapper').removeClass('ap-is-expanded');
+        // });
+      });
+    </script>
+    <style>
+      .box {
+        width: 600px;
+        height: 100%;
+        display: flex;
+        border: #452145;
+      }
+
+      .item1 {
+        width: 180px;
+        height: 250px;
+        border: 1px solid red;
+        margin-right: 10px;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .item1_search {
+        /* display: none; */
+        z-index: 99;
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* width: 130px;
+        height: 40px; */
+        background-color: #ccc;
+        border-radius: 15px;
+
+        /* .item1_search_box .ap-sbi-btn-search-wrapper { */
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        line-height: 28px;
+        font-size: 14px;
+        color: #ff7318;
+        border-radius: 15px;
+        border: 1px solid #000;
+        background: #000;
+        overflow: hidden;
+        transition: width .2s ease-in-out 0s
+      }
+
+      .item1_search_box {
+        width: 100%;
+        border-radius: 15px;
+        background-color: #ccc;
+      }
+
+      .item1_search_box .ap-sbi-btn-search {
+        display: flex;
+        align-items: center;
+        cursor: pointer
+      }
+
+      .item1_search_box .ap-sbi-btn-search-wrapper {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        line-height: 28px;
+        font-size: 14px;
+        color: #ff7318;
+        border-radius: 15px;
+        border: 1px solid #000;
+        background: #000;
+        overflow: hidden;
+        transition: width .2s ease-in-out 0s
+      }
+
+      .item1_search_box .ap-sbi-btn-search-wrapper.ap-is-expanded {
+        width: auto;
+        overflow: visible
+      }
+
+      .item1_search_box .ap-sbi-filter.ap-is-expanded,
+      .item1_search_box .ap-sbi-filters.ap-is-expanded {
+        height: auto
+      }
+
+      .item1_search_box .ap-sbi-filter.ap-is-expanded .ap-sbi-filter__options,
+      .item1_search_box .ap-sbi-filters.ap-is-expanded .ap-sbi-filter__options {
+        margin-top: 0
+      }
+
+      .item1_search_box .ap-sbi-filter.ap-is-expanded .ap-sbi-filter__arrow,
+      .item1_search_box .ap-sbi-filters.ap-is-expanded .ap-sbi-filter__arrow {
+        font-size: 14
+      }
+
+      .item1_search_box .ap-sbi-filter.ap-is-expanded .ap-sbi-filter__arrow:before,
+      .item1_search_box .ap-sbi-filters.ap-is-expanded .ap-sbi-filter__arrow:before {
+        content: ""
+      }
+
+      .item1_search_box .ap-sbi-btn-search-wrapper.ap-is-expanded .ap-sbi-btn-search__txt,
+      .item1_search_box .ap-sbi-btn-search-wrapper.ap-is-expanded .ap-sbi-options {
+        opacity: 1;
+        transition: opacity .3s ease-in-out .1s
+      }
+
+      .item1_search_box .ap-sbi-btn-search__txt {
+        margin: 0 8px;
+        opacity: 0;
+        color: #ff7318
+      }
+
+      .item1_search_box .ap-icon-search {
+        font-size: 16px
+      }
+
+      .item1_search_box .ap-icon-search:before {
+        content: ""
+      }
+
+      .item1:hover .item1_search {
+        display: block;
+      }
+    </style>
+    <div class="layui-btn-container">
+      <button data-method="offset" data-type="t" class="layui-btn layui-btn-normal">上弹出</button>
+      <button data-method="offset" data-type="r" class="layui-btn layui-btn-normal">右弹出</button>
+      <button data-method="offset" data-type="b" class="layui-btn layui-btn-normal">下弹出</button>
+      <button data-method="offset" data-type="l" class="layui-btn layui-btn-normal">左弹出</button>
+      <button data-method="offset" data-type="lt" class="layui-btn layui-btn-normal">左上弹出</button>
+      <button data-method="offset" data-type="lb" class="layui-btn layui-btn-normal">左下弹出</button>
+      <button data-method="offset" data-type="rt" class="layui-btn layui-btn-normal">右上弹出</button>
+      <button data-method="offset" data-type="rb" class="layui-btn layui-btn-normal">右下弹出</button>
+      <button data-method="offset" data-type="auto" class="layui-btn layui-btn-normal">居中弹出</button>
+    </div>
+
+    <style>
+      .layui-layer-padding{
+        color: #fff;
+      }
+      .layui-layer {
+        background-color: #333;
+      }
+
+      .layui_headXX {
+        color: #ccc;
+      }
+
+      .layui-layer-title {
+        font-size: 20px;
+        color: #ff7318;
+        font-weight: 700;
+        border-bottom: 1px solid #3e3e3e !important;
+      }
+      .layui_box{
+        display: flex;
+      }
+      /*滚动条样式*/
+      .layui-layer-content::-webkit-scrollbar{
+          width: 8px;
+          /*height: 4px;*/
+      }
+      .layui-layer-content::-webkit-scrollbar{
+          width: 8px;
+          /*height: 4px;*/
+      }
+      .layui-layer-content::-webkit-scrollbar-thumb{
+          border-radius: 10px;
+          -webkit-box-shadow: inset 0 0 5px rgba(230, 227, 227, 0.2);
+          background: rgba(230, 227, 227, 0.2);
+      }
+      .layui-layer-content::-webkit-scrollbar-track {
+          -webkit-box-shadow: inset 0 0 5px rgba(230, 227, 227, 0.2);
+          border-radius: 0;
+          background: rgba(0,0,0,0.1);
+      }
+      .layui_box_left{
+        padding: 20px;
+        border-right: 1px solid #3e3e3e;
+      }
+      .layui_box_left_img{
+        width: 200px;
+        height: 200px;
+        margin-bottom: 20px;
+      }
+      .layui_box_left_img img{
+        width: 100%;
+        height: 100%;
+      }
+      .layui_box_left_title{
+        font-size: 14px;
+        color: #fff;
+        width: 250px;
+        overflow: hidden;
+      }
+      .box_left_title_item{
+        margin-bottom: 15px;
+      }
+      .layui_box_right{
+        position: relative;
+        padding: 0 0 0 30px;
+      }
+      .layui_sku{
+        color: #fff;
+        font-size: 20px;
+        font-weight: 700;
+        height: 30px;
+        margin-left: -20px;
+      }
+      .layui_head {
+        font-size: 14px;
+        display: flex;
+        margin-top: 10px
+      }
+
+      .head_left {
+        margin-right: 30px;
+        color: #777;
+      }
+
+      .head_concent {
+        width: 700px;
+        max-height: 30px;
+        overflow: hidden;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        /* flex: 1 1 0%; */
+        flex-wrap: wrap;
+      }
+
+      .head_item_slected {
+        color: #ff7318;
+      }
+
+      .head_concent_item {
+        margin-right: 30px;
+        margin-bottom: 10px;
+      }
+
+      .head_right:hover, .head_concent_item {
+        cursor: pointer;
+      }
+
+      .layui_main {
+        width: 800px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .layui_main_item {
+        width: 220px;
+        height: 360px;
+        border-radius: 5px;
+        background-color: #3e3e3e;
+        padding: 0 10px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+      }
+
+      .item_list_card {
+        width: 200px;
+        height: 100%;
+        padding: 10px;
+        margin: 0;
+        color: #fff;
+      }
+
+      .item_list_card_img {
+        width: 198px;
+        height: 198px;
+      }
+
+      .item_list_card_img img {
+        max-width: 100%;
+        width: auto;
+        max-height: 100%;
+        height: auto;
+      }
+      .item_list_card_title {
+        color: #ccc;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        max-height: 36px;
+        white-space: normal;
+      }
+      .item_list_card_sku {
+        margin-top: 12px;
+        margin-bottom: 12px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        max-height: 36px;
+        white-space: normal;
+      }
+    </style>
+    <script>
+      let globalData = [{
+          id: 1,
+          name: '办公文化',
+          time: '2023.4.25 15:00:00'
+        },
+        {
+          id: 2,
+          name: '服饰配件',
+          time: '2023.4.25 15:00:00'
+        },
+        {
+          id: 3,
+          name: '钢铁',
+          time: '2023.4.25 15:00:00'
+        },
+        {
+          id: 4,
+          name: '户外运动',
+          time: '2023.4.25 15:00:00'
+        },
+        {
+          id: 5,
+          name: '女装',
+          time: '2023.4.25 15:00:00'
+        },
+        {
+          id: 6,
+          name: '二手设备',
+          time: '2023.4.25 15:00:00'
+        },
+        {
+          id: 7,
+          name: "分类7",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 8,
+          name: "分类8",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 9,
+          name: "分类9",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 10,
+          name: "分类10",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 11,
+          name: "分类11",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 12,
+          name: "分类12",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 13,
+          name: "分类13",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 14,
+          name: "分类14",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 15,
+          name: "分类15",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 16,
+          name: "分类16",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 17,
+          name: "分类17",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 18,
+          name: "分类18",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 19,
+          name: "分类19",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 20,
+          name: "分类20",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 21,
+          name: "分类21",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 22,
+          name: "分类22",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 23,
+          name: "分类23",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 24,
+          name: "分类24",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 25,
+          name: "分类25",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 26,
+          name: "分类26",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 27,
+          name: "分类27",
+          time: "2023.4.25 15:00:00"
+        },
+        {
+          id: 28,
+          name: "分类28",
+          time: "2023.4.25 15:00:00"
+        }
+      ]
+      let globalList = [{
+          id: 1,
+          title: '德国慕马爷316不锈钢保温壶家用大容量热水壶 暖水壶新款便携暖瓶',
+          titleKsu: '7H45654123',
+          isNarmal: '正常',
+          img: 'https://cbu01.alicdn.com/img/ibank/O1CN01uaiqVw1dp7X3vr4qP_!!2207957433784-0-cib.300x300.jpg'
+        },
+        {
+          id: 2,
+          title: '德国慕马爷316不锈钢保温壶家用大容量热水壶 暖水壶新款便携暖瓶',
+          titleKsu: '7H45654123',
+          isNarmal: '正常',
+          img: 'https://cbu01.alicdn.com/img/ibank/O1CN01jIE6bz1vMPnHV40Gw_!!2215649816158-0-cib.jpg_220x220.jpg'
+        },
+        {
+          id: 3,
+          title: '德国慕马爷316不锈钢保温壶家用大容量热水壶 暖水壶新款便携暖瓶',
+          titleKsu: '8525611321',
+          isNarmal: '不正常',
+          img: 'https://cbu01.alicdn.com/img/ibank/O1CN01uaiqVw1dp7X3vr4qP_!!2207957433784-0-cib.300x300.jpg'
+        },
+        {
+          id: 4,
+          title: '德国慕马爷316不锈钢保温壶家用大容量热水壶 暖水壶新款便携暖瓶',
+          titleKsu: '7H45654123',
+          isNarmal: '正常',
+          img: 'https://cbu01.alicdn.com/img/ibank/O1CN01cMsZWm1R49WWBTkyh_!!2209656282057-0-cib.300x300.jpg'
+        },
+        {
+          id: 5,
+          title: '德国慕马爷316不锈钢保温壶家用大容量热水壶 暖水壶新款便携暖瓶',
+          titleKsu: '7H45654123',
+          isNarmal: '不正常',
+          img: 'https://cbu01.alicdn.com/img/ibank/O1CN01eyF33W1rLigGIt1Fd_!!2214239095615-0-cib.310x310.jpg_undefinedxundefinedundefined.jpg_.webp?_=2020'
+        },
+        {
+          id: 6,
+          title: '德国慕马爷316不锈钢保温壶家用大容量热水壶 暖水壶新款便携暖瓶',
+          titleKsu: '7H45654123',
+          isNarmal: '不正常',
+          img: 'https://cbu01.alicdn.com/img/ibank/O1CN01PLbmf71wLKTMzoVCy_!!1796196291-0-cib.310x310.jpg_undefinedxundefinedundefined.jpg_.webp?_=2020'
+        },
+        {
+          id: 7,
+          title: '德国慕马爷316不锈钢保温壶家用大容量热水壶 暖水壶新款便携暖瓶',
+          titleKsu: '7H45654123',
+          isNarmal: '正常',
+          img: 'https://cbu01.alicdn.com/img/ibank/O1CN01cMsZWm1R49WWBTkyh_!!2209656282057-0-cib.300x300.jpg'
+        },
+        {
+          id: 8,
+          title: '德国慕马爷316不锈钢保温壶家用大容量热水壶 暖水壶新款便携暖瓶',
+          titleKsu: '7H45654123',
+          isNarmal: '正常',
+          img: 'https://cbu01.alicdn.com/img/ibank/O1CN01jIE6bz1vMPnHV40Gw_!!2215649816158-0-cib.jpg_220x220.jpg'
+        },
+        {
+          id: 9,
+          title: '德国慕马爷316不锈钢保温壶家用大容量热水壶 暖水壶新款便携暖瓶',
+          titleKsu: '7H45654123',
+          isNarmal: '正常',
+          img: 'https://cbu01.alicdn.com/img/ibank/O1CN01vHb6h81iK2jfbqZVu_!!933764393-0-cib.300x300.jpg'
+        },
+        {
+          id: 10,
+          title: '德国慕马爷316不锈钢保温壶家用大容量热水壶 暖水壶新款便携暖瓶',
+          titleKsu: '7H45654123',
+          isNarmal: '不正常',
+          img: 'https://cbu01.alicdn.com/img/ibank/O1CN01jIE6bz1vMPnHV40Gw_!!2215649816158-0-cib.jpg_220x220.jpg'
+        },
+        {
+          id: 1,
+          title: '德国慕马爷316不锈钢保温壶家用大容量热水壶 暖水壶新款便携暖瓶',
+          titleKsu: '7H45654123',
+          isNarmal: '正常',
+          img: 'https://cbu01.alicdn.com/img/ibank/O1CN01cMsZWm1R49WWBTkyh_!!2209656282057-0-cib.300x300.jpg'
+        },
+        {
+          id: 1,
+          title: '德国慕马爷316不锈钢保温壶家用大容量热水壶 暖水壶新款便携暖瓶',
+          titleKsu: '7H45999999',
+          isNarmal: '正常',
+          img: 'https://cbu01.alicdn.com/img/ibank/O1CN01vHb6h81iK2jfbqZVu_!!933764393-0-cib.300x300.jpg'
+        },
+        {
+          id: 1,
+          title: '德国慕马爷316不锈钢保温壶家用大容量热水壶 暖水壶新款便携暖瓶',
+          titleKsu: '7H45654123',
+          isNarmal: '不正常',
+          img: 'https://cbu01.alicdn.com/img/ibank/O1CN01jIE6bz1vMPnHV40Gw_!!2215649816158-0-cib.jpg_220x220.jpg'
+        },
+        {
+          id: 1,
+          title: '德国慕马爷316不锈钢保温壶家用大容量热水壶 暖水壶新款便携暖瓶',
+          titleKsu: '7H45654123',
+          isNarmal: '正常',
+          img: 'https://cbu01.alicdn.com/img/ibank/O1CN01jIE6bz1vMPnHV40Gw_!!2215649816158-0-cib.jpg_220x220.jpg'
+        },
+
+      ]
+      layui.use('layer', function () { //独立版的layer无需执行这一句
+        var $ = layui.jquery,
+          layer = layui.layer; //独立版的layer无需执行这一句
+
+        //触发事件
+        var active = {
+          offset: function (othis) {
+            var type = othis.data('type'),
+              text = othis.text();
+            console.log('offset', text, type)
+            let str_head = ''
+            globalData.forEach(item => {
+              str_head += `<div class="head_concent_item">${item.name}</div>`
+            });
+            // console.log('str_head', str_head)
+            // head_concent 类别
+            let head_concent = `
+                  <div class="head_concent_item head_item_slected">服饰配件</div>
+                    ${str_head}
+                  <div class="head_concent_item">办公文化123</div>`
+            // console.log('head_concent', head_concent)
+            let str_main_item = `
+                <div class="layui_main_item">
+                  <div class="item_list_card">
+                    <div class="item_list_card_img">
+                      <img class="" data-src="https://cbu01.alicdn.com/img/ibank/O1CN01jIE6bz1vMPnHV40Gw_!!2215649816158-0-cib.jpg_220x220.jpg" src="https://cbu01.alicdn.com/img/ibank/O1CN01jIE6bz1vMPnHV40Gw_!!2215649816158-0-cib.jpg_220x220.jpg" lazy="loaded">
+                    </div>
+                    <div class="item_list_card_title">7H45654123</div>
+                    <div class="item_list_card_sku">7H45654123</div>
+                    <div>正常</div>
+                  </div>
+                </div>`
+            // str_list_card 列表卡片  globalList 列表数据
+            let str_list_card = ''
+            globalList.forEach(item => {
+              str_list_card += `
+                <div class="layui_main_item">
+                  <div class="item_list_card">
+                    <div class="item_list_card_img">
+                      <img class=""  src="${item.img}" lazy="loaded">
+                    </div>
+                    <div class="item_list_card_title" title="${item.title}">${item.title}</div>
+                    <div class="item_list_card_sku">${item.titleKsu}</div>
+                    <div>${item.isNarmal}</div>
+                  </div>
+                </div>
+              `
+            });
+            // str 全部内容
+            let str = `
+            <div class="layui_box" style="background-color: #333;">
+              <div class="layui_box_left">
+                <div class="layui_box_left_img">
+                  <img src="https://cbu01.alicdn.com/img/ibank/O1CN01LJzM4G22QGNHTo7D9_!!2214267097114-0-cib.310x310.jpg_undefinedxundefinedundefined.jpg_.webp?_=2020" alt="">
+                </div>
+                <div class="layui_box_left_title">
+                  <p class="box_left_title_item">供应商名称：深圳什么科技有限公司技有限公司技有限公司</p>
+                  <p class="box_left_title_item">公司等级：五级（合并）</p>
+                  <p class="box_left_title_item">供应商状态：临时</p>
+                  <p class="box_left_title_item">诚信等级：AAA</p>
+                  <p class="box_left_title_item">成立时间：2022年11月11日</p>
+                  <p class="box_left_title_item">SKU数量：1543</p>
+                  <p class="box_left_title_item">30天转化率：2%</p>
+                  <p class="box_left_title_item">30天新品：0</p>
+                  <p class="box_left_title_item">最近一年采购额：0</p>
+                  <p class="box_left_title_item">最后采购时间：2022-01-01 12:00:00</p>
+                </div>
+              </div>
+              <div class="layui_box_right">
+                <div class="layui_head layui_headXX">
+                  <div class="head_left">类别</div>
+                  <div class="head_concent">
+                    ${head_concent}
+                  </div>
+                  <div class="head_right">展开</div>
+                </div>
+                <div class="layui_sku">供应商SKU</div>
+                <div class="layui_main" id='LAY_demo1'>
+                  ${str_list_card}
+                </div>
+              </div>
+            </div>
+            `
+            
+            //记录索引，以便按 esc 键关闭。事件见代码最末尾处。
+            var loadingIndex = layer.msg('加载中', {
+              icon: 16,
+              shade: 0.01,
+              time: 0,
+            });
+            // 加载数据
+            setTimeout(function() {
+              layui.use('flow', function() {
+                var flow = layui.flow;
+                flow.load({
+                  elem: '#LAY_demo1',
+                  scrollElem: '#LAY_demo1',
+                  isAuto: true,
+                  md: 60,
+                  done: function(page, next) {
+                    // 模拟数据插入
+                    var lis = [];
+                    for (var i = 0; i < 28; i++) {
+                      lis.push(`
+                        <div class="layui_main_item">
+                          <div class="item_list_card">
+                            <div class="item_list_card_img">
+                              <img src="https://cbu01.alicdn.com/img/ibank/O1CN01jIE6bz1vMPnHV40Gw_!!2215649816158-0-cib.jpg_220x220.jpg" lazy="loaded">
+                            </div>
+                            <div class="item_list_card_title" title="${'亚马逊'}">${'亚马逊'}</div>
+                            <div class="item_list_card_sku">7H45654123</div>
+                            <div>正常${((page - 1) * 8 + i + 1)}</div>
+                          </div>
+                        </div>
+                      `);
+                    }
+
+                    // 执行下一页渲染
+                    next(lis.join(''), page < 10);
+                  }
+                });
+              });
+            }, 3000);
+            // 关闭 loading
+            function closeLoading() {
+              layer.close(loadingIndex);
+            }
+            setTimeout(function(){
+              closeLoading();
+              layer.open({
+                type: 1,
+                title: 'AliPrice.com',
+                area: ['1200px', '100%'],
+                offset: type //具体配置参考：https://www.bejson.com/doc/layui/doc/modules/layer.html#layer.close
+                  ,
+                id: 'layerDemo' + type, //防止重复弹出
+                content: '<div style="margin-left:50px;">' + str + '</div>',
+                btn: '关闭全部',
+                btnAlign: 'c', //按钮居中
+                shade: 0.6, //不显示遮罩
+                yes: function () {
+                  layer.closeAll();
+                },
+                success: function (layero, index) {
+                  console.log('弹窗打开后执行的函数 ');
+                  // 弹窗打开后执行的函数
+                  $('.layui_headXX .head_right').click(function () {
+                    // head_right 元素点击事件
+                    console.log('head_right 被点击了');
+                    if ($('.layui_headXX .head_right').text() == '展开') {
+                      $('.layui_headXX .head_right').text('收缩');
+                      $('.head_concent').css('max-height', 'none');
+                    } else {
+                      $('.layui_headXX .head_right').text('展开');
+                      $('.head_concent').css('max-height', '30px');
+                    }
+                  });
+                  // 点击类别加样式
+                  $('.layui_headXX .head_concent .head_concent_item').click(function () {
+                    let text = $(this).text();
+                    console.log('head_concent_item 被点击了，head_item_slected',text);
+                    $(this).addClass('head_item_slected').siblings().removeClass('head_item_slected');
+                  });
+                }
+              });
+            }, 3000);
+          }
+        };
+
+        $('#layerDemo .layui-btn').on('click', function () {
+          var othis = $(this),
+            method = othis.data('method');
+          console.log('click', method, othis)
+          active[method] ? active[method].call(this, othis) : '';
+        });
+
+        //多窗口模式 - esc 键
+        $(document).on('keyup', function (e) {
+          if (e.keyCode === 27) {
+            console.log('esc', layer.index)
+            layer.closeAll();
+          }
+        });
+      });
+    </script>
+  </div>
+</body>
+
+</html>
